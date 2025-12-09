@@ -1,0 +1,21 @@
+/* LAVA AMOLED THEME - WARM MONOCHROME ORANGE */
+/* True pitch-black base */
+@define-color base-bg        #000000;   /* Pure AMOLED black */
+@define-color surface        #14110E;   /* Warm near-black brown */
+@define-color text           #E6E1DC;   /* Warm off-white */
+
+/* Primary Lava Accents */
+@define-color accent-lava    #9C5A2E;   /* Burnt muted orange */
+@define-color highlight-lava #B8733A;   /* Soft amber clay */
+
+/* Status Colors - Warm Only */
+@define-color warning-lava   #C89B6A;   /* Desaturated warm sand */
+@define-color critical-lava  #9E3F3F;   /* Deep muted red */
+
+/* Replacing Teal With Warm Contrast */
+@define-color contrast-lava  #735240;   /* Smoked brown-orange */
+@define-color cool-lava #6E4F3A;   /* Smoked copper-brown */
+
+/* Secondary Neutrals */
+@define-color soft-ember     #3A2A22;   /* Dark ember brown */
+@define-color soft-ash       #2B2B2B;   /* Neutral charcoal gray */

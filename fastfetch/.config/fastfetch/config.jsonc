@@ -1,0 +1,62 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "/home/adam/.config/fastfetch/myart.txt",
+    "padding": {
+      "right": 1
+    },
+    "color": {
+      "1": "#F7F002",
+      "2": "#F5B91D",
+      "3": "#F06625",
+      "4": "#950A11"
+    }
+  },
+  "display": {
+    "separator": " ›  "
+  },
+  "modules": [
+	"break",
+	"break",
+    {
+      "type": "datetime",
+      "key": "Date",
+      "format": "{1}-{3}-{11} {14}:{17}:{20}",
+      "keyColor": "#F7F002"
+    },
+    "break",
+    {
+      "type": "os",
+      "key": "OS  ",
+      "keyColor": "#F5B91D"
+    },
+    {
+      "type": "kernel",
+      "key": "KER ",
+      "keyColor": "#F06625"
+    },
+    {
+      "type": "packages",
+      "format": "{} (pacman)",
+      "key": "PKG ",
+      "keyColor": "#F06625"
+    },
+    {
+      "type": "shell",
+      "key": "SH  ",
+      "keyColor": "#950A11"
+    },
+    {
+      "type": "terminal",
+      "key": "TER ",
+      "keyColor": "#950A11"
+    },
+    {
+      "type": "wm",
+      "key": "WM  ",
+      "keyColor": "#6B2E12"
+    },
+    "break"
+  ]
+}
