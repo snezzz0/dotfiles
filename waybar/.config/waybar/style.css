@@ -1,4 +1,5 @@
 @import url("./colors.css");
+
 *
 {
     border: none;
@@ -12,17 +13,17 @@
 
 window#waybar
 {
-    background: #120e08;
-    border: 1px solid #b3976d;
+    background: @window-bg;
+    border: 1px solid @border-primary;
 }
 
 #clock, #pulseaudio, #network, #tray, #battery, #custom-gpu, #cpu, #custom-cava, #memory
 {
     margin: 8px 8px 8px 0px;
     padding: 2px 8px 2px 8px;
-    color: #1b140a;
-    background-color: #b3976d;
-    border: 2px solid #8c734e;
+    color: @workspace-bg;
+    background-color: @border-primary;
+    border: 2px solid @border-secondary;
 }
 
 #workspaces
@@ -33,31 +34,31 @@ window#waybar
 #workspaces button
 {
     all: initial;
-    color: #8c734e;
+    color: @workspace-default;
     padding: 2px 8px;
     margin: 2px;
 }
 
 #workspaces button.focused
 {
-    color: #d1b994;
+    color: @workspace-focused;
 }
 
 #workspaces button.urgent,
 #battery.warning, #battery.critical, #battery.urgent
 {
-    background-color: #b3976d;
+    background-color: @border-primary;
     padding: 2px 8px;
     margin: 2px;
-    color: #120e08;
+    color: @window-bg;
 }
 
 #workspaces button:not(.empty) {
-    color: #d1b994;
+    color: @workspace-focused;
 }
 
 #workspaces button.empty {
-    color: #6f5b3c;
+    color: @workspace-empty;
     opacity: 0.65;
 }
 
