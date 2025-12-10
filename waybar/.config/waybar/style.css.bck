@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-    background-color: @mantle;
+    background-color: @base-bg;
     color: @text;
 }
 
@@ -18,8 +18,8 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background-color: @base;
-    border: 1px solid @surface1;
+    background-color: @surface;
+    border: 1px solid @soft-ash;
 }
 
 tooltip label {
@@ -39,48 +39,39 @@ button:hover {
 
 #workspaces button {
     background: transparent;
-    /* Changed from @base to match waybar background */
-    color: @sapphire;
-    /* Changed from original */
+    color: @highlight-lava;
     padding-left: 4px;
-    /* Changed from original */
     padding-right: 4px;
-    /* Changed from original */
     border-radius: 0px;
-    /* Changed from original */
 }
 
 #workspaces button:hover {
-    background-color: #0a5c9a;
-    /* Changed from original */
+    background-color: @contrast-lava;
     box-shadow: inherit;
-    /* Kept from original, might be overridden by new background-color */
     text-shadow: inherit;
 }
 
 #workspaces button.focused {
-    background: #14b8a6;
-    /* Changed from original */
-    color: #0d1b2a;
-    /* Changed from original */
+    background: @highlight-lava;
+    color: @base-bg;
     box-shadow: inset 0 -3px @text;
 }
 
 #workspaces button.urgent {
-    background-image: linear-gradient(0deg, @red, @mantle);
+    background-image: linear-gradient(0deg, @critical-lava, @soft-ash);
 }
 
 #workspaces button.active {
-    color: @mantle;
-    background: @sapphire;
+    color: @base-bg;
+    background: @accent-lava;
 }
 
 #taskbar button.active {
-    background-image: linear-gradient(0deg, @surface1, @mantle);
+    background-image: linear-gradient(0deg, @surface, @base-bg);
 }
 
 #mode {
-    background-color: @base;
+    background-color: @surface;
     box-shadow: inset 0 -2px @text;
 }
 
@@ -125,100 +116,100 @@ button:hover {
 } */
 
 #custom-weather {
-    background-color: @teal;
-    color: @mantle;
+    background-color: @cool-lava;
+    color: @text;
     margin-right: 5px;
 }
 
 #custom-keyboard {
-    background-color: @teal;
-    color: @mantle;
+    background-color: @cool-lava;
+    color: @text;
     padding: 0 10px;
     margin: 5px 1px;
 }
 
 #custom-kernel {
-    background-color: @rosewater;
-    color: @mantle;
+    background-color: @soft-ember;
+    color: @text;
 }
 
 #clock {
-    background-color: @green;
-    color: @mantle;
+    background-color: @highlight-lava;
+    color: @base-bg;
 }
 
 @keyframes blink {
     to {
-        background-color: @mantle;
+        background-color: @base-bg;
         color: @text;
     }
 }
 
 label:focus {
-    background-color: @mantle;
+    background-color: @surface;
 }
 
 #cpu {
-    background-color: @mauve;
-    color: @mantle;
+    background-color: @soft-ember;
+    color: @text;
     min-width: 45px;
 }
 
 #memory {
-    background-color: @red;
-    color: @mantle;
+    background-color: @warning-lava;
+    color: @text;
 }
 
 #disk {
-    background-color: @flamingo;
-    color: @mantle;
+    background-color: @accent-lava;
+    color: @text;
 }
 
 #network {
-    background-color: @peach;
-    color: @mantle;
+    background-color: @accent-lava;
+    color: @text;
 }
 
 #network.disconnected {
-    background-color: red;
-    color: @mantle;
+    background-color: @critical-lava;
+    color: @text;
 }
 
 #bluetooth {
-    background-color: @maroon;
-    color: @mantle;
+    background-color: @contrast-lava;
+    color: @text;
     min-width: 40px;
 }
 
 #pulseaudio {
-    background-color: @yellow;
-    color: @mantle;
+    background-color: @cool-lava;
+    color: @text;
 }
 
 #pulseaudio.muted {
-    background-color: red;
-    color: @mantle;
+    background-color: @critical-lava;
+    color: @text;
 }
 
 #temperature {
-    background-color: @pink;
-    color: @mantle;
+    background-color: @warning-lava;
+    color: @text;
     min-width: 37px;
 }
 
 #temperature.critical {
-    background-color: red;
-    color: @mantle;
+    background-color: @critical-lava;
+    color: @text;
     min-width: 37px;
 }
 
 #mpris {
-    background-color: @base;
+    background-color: @surface;
     color: @text;
 }
 
 #tray {
-    background-color: @overlay0;
+    background-color: @soft-ash;
     color: @text;
 }
 
@@ -228,22 +219,22 @@ label:focus {
 
 #tray>.needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: @mantle;
+    background-color: @surface;
 }
 
 #idle_inhibitor {
-    background-color: @base;
+    background-color: @surface;
     color: @text;
     font-family: Inter;
 }
 
 #idle_inhibitor.activated {
     background-color: @text;
-    color: @base;
+    color: @base-bg;
 }
 
 #scratchpad {
-    background-color: @base;
+    background-color: @surface;
     color: @text;
 }
 
@@ -252,6 +243,6 @@ label:focus {
 }
 
 #custom-gpu {
-    background-color: @yellow;
-    color: @base;
+    background-color: @soft-ember;
+    color: @text;
 }

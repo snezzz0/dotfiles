@@ -85,7 +85,7 @@
         },
         "network": {
             "format-wifi": "󰖩 {essid}",
-            "format-ethernet": "󰍹",
+            "format-ethernet": "󰍹 ",
             "format-disconnected": "󱘖",
             "tooltip": true,
             "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
