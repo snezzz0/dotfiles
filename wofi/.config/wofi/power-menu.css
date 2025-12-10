@@ -1,0 +1,66 @@
+/* ===== Lava power menu theme ===== */
+
+/* whole window */
+window {
+    font-family: Iosevka, monospace;
+    font-size: 14px;
+
+    background-color: #120e08; /* deep brown */
+    color: #b3976d;            /* sand text */
+
+    border: 2px solid #231b0e;
+    border-radius: 4px;
+
+    padding: 12px;
+}
+
+/* layout boxes */
+#outer-box {
+    margin: 0;
+    padding: 0;
+}
+
+#inner-box {
+    background-color: #231b0e; /* slightly lighter panel */
+    padding: 8px 10px;
+    border-radius: 2px;
+}
+
+/* prompt line ("Power Menu") */
+#input {
+    margin: 0 0 8px 0;
+    padding: 4px 6px;
+
+    background-color: #120e08;
+    color: #d1b994;
+
+    border: 1px solid #655030;
+    border-radius: 2px;
+}
+
+/* list area */
+#scroll {
+    margin: 0;
+    padding: 0;
+}
+
+/* each entry */
+#entry {
+    padding: 4px 6px;
+    margin: 2px 0;
+
+    background-color: transparent;
+    color: #b3976d;
+}
+
+/* selected entry */
+#entry:selected {
+    background-color: #655030; /* brown highlight */
+    color: #d1b994;            /* brighter text */
+    border-radius: 2px;
+}
+
+/* entry text */
+#text {
+    margin: 0;
+}

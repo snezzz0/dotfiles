@@ -1,168 +1,147 @@
 [
-    {
-        "css": "~/.config/waybar/style.css",
-        "layer": "top",
-        "position": "top",
-        "margin-bottom": 0,
-        "output": "DP-1",
-        "modules-left": [
-            "hyprland/workspaces",
-            "custom/open-window",
-            "hyprland/window"
-        ],
-        "modules-center": [],
-        "modules-right": [
-            "custom/cava",
-            "tray",
-            "memory",
-            "cpu",
-            "pulseaudio",
-            "network",
-            "clock"
-        ],
-        "tray": {
-            "icon-size": 16,
-            "spacing": 8
-        },
-        "hyprland/workspaces": {
-            "format": "[{icon}]",
-            "separate-outputs": true,
-            "active-only": false,
-            "all-outputs": false,  // CHANGED: false so each monitor shows only its workspaces
-            "persistent-workspaces": {
-                "DP-1": [1, 3, 5]  // CHANGED: Only workspaces for this monitor
-            },
-            "format-icons": {
-                "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
-                "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
-            }
-        },
-        "sway/language": {
-            "format": "[L]{short}"
-        },
-        "custom/open-window": {
-            "format": "  [ ]= "
-        },
-        "memory": {
-            "format": "{used:0.1f}GB [RAM]",
-            "tooltip": false,
-            "interval": 10
-        },
-        "cpu": {
-            "format": "{usage}% [CPU]",
-            "tooltip": false
-        },
-        "custom/cava": {
-            "format": "{}",
-            "exec": "/home/adam/.config/waybar/script/cava.sh",
-            "restart-interval": 1,
-            "hide-empty": true
-        },
-        "pulseaudio": {
-            "format": "󰕾 {volume}%",
-            "format-muted": "婢",
-            "format-icons": {
-                "headphone": "",
-                "hands-free": "",
-                "headset": "",
-                "phone": "",
-                "portable": "",
-                "car": "",
-                "default": ["", "", ""]
-            },
-            "scroll-step": 1,
-            "on-click": "pavucontrol"
-        },
-        "custom/separator": {
-            "format": "|",
-            "interval": "once",
-            "tooltip": false
-        },
-        "custom/separator2": {
-            "format": " ",
-            "interval": "once",
-            "tooltip": false
-        },
-        "network": {
-            "format-wifi": "󰖩 {essid}",
-            "format-ethernet": "󰍹 ",
-            "format-disconnected": "󱘖",
-            "tooltip": true,
-            "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
-            "interval": 1
-        },
-        "custom/keyboard": {
-            "exec": "~/.config/waybar/script/keyboard_layout.sh",
-            "format": "{}",
-            "tooltip": false,
-            "restart-interval": 1
-        },
-        "clock": {
-            "format": "{:%H:%M}",
-            "tooltip-format": "{:%Y-%m-%d}"
-        }
+  {
+    "css": "~/.config/waybar/style.css",
+    "layer": "top",
+    "position": "top",
+    "margin-bottom": 0,
+    "output": "DP-1",
+
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [],
+    "modules-right": [
+      "custom/cava",
+      "tray",
+      "memory",
+      "cpu",
+      "pulseaudio",
+      "network",
+      "clock"
+    ],
+
+    "tray": {
+      "icon-size": 16,
+      "spacing": 8
     },
-    {
-        "layer": "top",
-        "position": "top",
-        "margin-bottom": 0,
-        "output": "DP-2",
-        "modules-left": [
-            "hyprland/workspaces",
-            "custom/open-window",
-            "hyprland/window"
-        ],
-        "modules-center": [],
-        "modules-right": [
-            "custom/gpu",
-            "cpu",
-            "memory",
-            "network",
-            "clock"
-        ],
-        "hyprland/workspaces": {
-            "format": "[{icon}]",
-            "separate-outputs": true,
-            "active-only": false,
-            "all-outputs": false,  // CHANGED: false
-            "persistent-workspaces": {
-                "DP-2": [2, 4, 6]  // CHANGED: Only workspaces for this monitor
-            },
-            "format-icons": {
-                "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
-                "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
-            }
-        },
-        "cpu": {
-            "format": "{usage}% [CPU]",
-            "tooltip": false
-        },
-        "memory": {
-            "format": "{used:0.1f}GB [RAM]",
-            "tooltip": false,
-            "interval": 10
-        },
-        "network": {
-            "format-wifi": "󰖩 {essid}",
-            "format-ethernet": "󰍹",
-            "format-disconnected": "󱘖",
-            "tooltip": true,
-            "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
-            "interval": 1
-        },
-        "custom/gpu": {
-            "exec": "radeontop -d - -l 1 | grep -oP 'gpu \\K[0-9]+'",
-            "interval": 3,
-            "format": "{}% [GPU]",
-            "return-type": "plain",
-            "tooltip": false
-        },
-        "custom/open-window": {
-            "format": "  [ ]= "
-        },
-        "clock": {
-            "format": "{:%H:%M}",
-            "tooltip-format": "{:%Y-%m-%d}"
-        }
+
+    "hyprland/workspaces": {
+      "format": "[{icon}]",
+      "separate-outputs": true,
+      "active-only": false,
+      "all-outputs": false,
+      "persistent-workspaces": {
+        "DP-1": [1, 3, 5]
+      },
+      "format-icons": {
+        "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+        "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
+      }
+    },
+
+    "memory": {
+      "format": "{used:0.1f}GB [RAM]",
+      "tooltip": false,
+      "interval": 10
+    },
+
+    "cpu": {
+      "format": "{usage}% [CPU]",
+      "tooltip": false
+    },
+
+    "custom/cava": {
+      "format": "{}",
+      "exec": "/home/adam/.config/waybar/script/cava.sh",
+      "restart-interval": 1,
+      "hide-empty": true
+    },
+
+    "pulseaudio": {
+      "format": "󰕾 {volume}%",
+      "format-muted": "婢",
+      "scroll-step": 1,
+      "on-click": "pavucontrol"
+    },
+
+    "network": {
+      "format-wifi": "󰖩 {essid}",
+      "format-ethernet": "Connected",
+      "format-disconnected": "Disconnected",
+      "tooltip": true,
+      "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
+      "interval": 1
+    },
+
+    "clock": {
+      "format": "{:%H:%M}",
+      "tooltip-format": "{:%Y-%m-%d}"
     }
+  },
+
+  {
+    "layer": "top",
+    "position": "top",
+    "margin-bottom": 0,
+    "output": "DP-2",
+
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [],
+    "modules-right": [
+      "custom/gpu",
+      "cpu",
+      "memory",
+      "network",
+      "clock"
+    ],
+
+    "hyprland/workspaces": {
+      "format": "[{icon}]",
+      "separate-outputs": true,
+      "active-only": false,
+      "all-outputs": false,
+      "persistent-workspaces": {
+        "DP-2": [2, 4, 6]
+      },
+      "format-icons": {
+        "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+        "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
+      }
+    },
+
+    "cpu": {
+      "format": "{usage}% [CPU]",
+      "tooltip": false
+    },
+
+    "memory": {
+      "format": "{used:0.1f}GB [RAM]",
+      "tooltip": false,
+      "interval": 10
+    },
+
+    "network": {
+      "format-wifi": "󰖩 {essid}",
+      "format-ethernet": "󰍹",
+      "format-disconnected": "󱘖",
+      "tooltip": true,
+      "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
+      "interval": 1
+    },
+
+    "custom/gpu": {
+      "exec": "radeontop -d - -l 1 | grep -oP 'gpu \\K[0-9]+'",
+      "interval": 3,
+      "format": "{}% [GPU]",
+      "return-type": "plain",
+      "tooltip": false
+    },
+
+    "clock": {
+      "format": "{:%H:%M}",
+      "tooltip-format": "{:%Y-%m-%d}"
+    }
+  }
 ]
