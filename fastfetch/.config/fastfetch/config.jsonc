@@ -2,7 +2,9 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "file",
-    "source": "/home/adam/.config/fastfetch/myart.txt",
+    "source": "/home/adam/.config/fastfetch/newart.txt",
+    "width": 30,
+    "height": 15,
     "padding": {
       "right": 1
     },
