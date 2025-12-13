@@ -1,5 +1,4 @@
 @import url("./colors.css");
-
 *
 {
     border: none;
@@ -10,40 +9,48 @@
     font-size: 14px;
     padding: 0;
 }
-
 window#waybar
 {
-    background: @window-bg;
-    border: 1px solid @border-primary;
+    background: transparent;
 }
-
 #clock, #pulseaudio, #network, #tray, #battery, #custom-gpu, #cpu, #custom-cava, #memory
 {
-    margin: 8px 8px 8px 0px;
-    padding: 2px 8px 2px 8px;
-    color: @workspace-bg;
-    background-color: @border-primary;
-    border: 2px solid @border-secondary;
+	background-color: rgba(46, 52, 64, 0.7);
+	padding: 3px 10px;
+	margin: 3px 3px;
+	color: #9DA9A0;
+	border-radius: 0px 4px 5px 0px;
 }
-
+/* Rounded corners for first and last modules */
+#memory {
+    border-radius: 5px 0px 0px 5px;
+}
+#clock {
+    border-radius: 0px 5px 5px 0px;
+    margin-right: 10px;
+}
+#network {
+	border-radius: 5px 0px 0px 5px;
+}
 #workspaces
 {
-    margin: 8px 0px 8px 16px;
+    background-color: rgba(46, 52, 64, 0.7);
+    padding: 4px 10px;
+    margin: 3px 0px;
+    border-radius: 5px;
+    margin-left: 10px;
 }
-
 #workspaces button
 {
     all: initial;
-    color: @workspace-default;
+    color: #06402B;
     padding: 2px 8px;
     margin: 2px;
 }
-
 #workspaces button.focused
 {
-    color: @workspace-focused;
+    color: #06402B;
 }
-
 #workspaces button.urgent,
 #battery.warning, #battery.critical, #battery.urgent
 {
@@ -52,19 +59,16 @@ window#waybar
     margin: 2px;
     color: @window-bg;
 }
-
 #workspaces button:not(.empty) {
-    color: @workspace-focused;
+    color: #9DA9A0;
 }
-
 #workspaces button.empty {
-    color: @workspace-empty;
+    color: rgba(157, 169, 160, 0.4);
     opacity: 0.65;
 }
-
 #workspaces button.active {
     color: @base-bg;
-    background: @accent-lava;
+    background: #64734C;
     padding: 2px 8px;
     margin: 2px;
 }
