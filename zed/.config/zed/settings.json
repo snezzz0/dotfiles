@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "dock": "left"
+  },
   "autosave": "on_focus_change",
   "icon_theme": "Material Icon Theme",
   "ui_font_size": 16,
