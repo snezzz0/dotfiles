@@ -35,7 +35,7 @@ window#waybar {
     all: initial;
     min-width: 0;
     box-shadow: inset 0 -3px transparent;
-    padding: 6px 18px;
+    padding: 6px 10px;
     margin: 6px 3px;
     border-radius: 4px;
 
@@ -74,13 +74,15 @@ window#waybar {
 #clock,
 #cpu,
 #pulseaudio,
+#custom-gpu,
 #tray {
     border-radius: 4px;
     margin: 6px 3px;
     padding: 6px 12px;
 
-    background-color: @nordic-bg;
-    color: @text-light;
+    background-color: transparent;
+    color: @accent-strong;
+    opacity: 1;
 }
 
 #custom-power {
