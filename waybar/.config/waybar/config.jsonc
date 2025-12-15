@@ -101,10 +101,9 @@
     "margin-bottom": 0,
     "output": "DP-2",
 
-    // ✅ DP-2: Only workspaces visible
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": [], // Cleared
-    "modules-right": [], // Cleared
+    "modules-left": [],
+    "modules-center": [],
+    "modules-right": ["hyprland/workspaces"],
 
     "hyprland/workspaces": {
       "format": "[{icon}]",
