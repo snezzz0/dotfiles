@@ -3,7 +3,7 @@
     border-radius: 0;
     min-height: 0;
     font-family: FiraCode Nerd Font;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -12,23 +12,20 @@ window#waybar {
     background-color: transparent;
 }
 
-/* --- Nordic Blue Color Definitions --- */
-/* Dark Background for Modules (Nord 3) */
-@define-color nordic-bg #3B4252;
-/* Primary Text Color (Nord 6 - Light Gray) */
-@define-color text-light #D8DEE9;
-/* Accent Color for Active/Focused (Nord 8 - Primary Blue) */
-@define-color accent-blue #81A1C1;
-/* Strong Accent Color (Nord 9 - Darker Blue) */
-@define-color strong-accent #5E81AC;
-/* Urgent/Critical Color (Nord 11 - Red) */
-@define-color urgent-red #BF616A;
-/* Charging/Good Color (Nord 14 - Green) */
-@define-color charging-green #A3BE8C;
+/* --- Color Definitions --- */
+@define-color dark-grey #2F2F2F;
+@define-color light-grey #D8DEE9;
+@define-color blue #81A1C1;
+@define-color dark-blue #5E81AC;
+@define-color red #BF616A;
+@define-color green #A3BE8C;
 
 /* --- Workspaces --- */
 #workspaces {
-    background-color: transparent;
+    background-color: @dark-grey;
+    border-radius: 12px;
+    margin: 6px 3px;
+    padding: 0px 4px;
 }
 
 #workspaces button {
@@ -37,30 +34,32 @@ window#waybar {
     box-shadow: inset 0 -3px transparent;
     padding: 6px 10px;
     margin: 6px 3px;
-    border-radius: 4px;
-
-    color: @text-light;
+    border-radius: 8px;
+    color: white;
     background-color: transparent;
 }
 
 /* Inactive (occupied/unoccupied) workspaces */
 #workspaces button:not(.empty) {
-    color: @accent-strong;
+    color: white;
     opacity: 1;
+    background-color: transparent;
 }
+
 #workspaces button.empty {
-    color: @accent-strong;
+    color: white;
     opacity: 0.4;
+    background-color: transparent;
 }
 
 #workspaces button.active {
-    color: @urgent-red;
+    color: @blue;
     opacity: 1;
 }
 
 #workspaces button.urgent {
-    color: @text-light;
-    background-color: @urgent-red;
+    color: white;
+    background-color: @red;
     opacity: 1;
 }
 
@@ -76,12 +75,11 @@ window#waybar {
 #pulseaudio,
 #custom-gpu,
 #tray {
-    border-radius: 4px;
+    border-radius: 12px;
     margin: 6px 3px;
     padding: 6px 12px;
-
-    background-color: transparent;
-    color: @accent-strong;
+    background-color: @dark-grey;
+    color: white;
     opacity: 1;
 }
 
@@ -93,33 +91,34 @@ window#waybar {
     padding-right: 7px;
     padding-left: 7px;
     margin-left: 5px;
-    font-size: 15px;
-    border-radius: 8px 0px 0px 8px;
-
-    color: @strong-accent;
+    font-size: 14px;
+    border-radius: 12px;
+    background-color: @dark-grey;
+    color: white;
 }
 
 /* --- Battery States --- */
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-    background-color: @urgent-red;
-    color: @text-light;
+    background-color: @red;
+    color: white;
 }
 
 #battery.charging {
-    background-color: @charging-green;
-    color: @nordic-bg;
+    background-color: @green;
+    color: white;
 }
 
 /* --- Tooltip --- */
 tooltip {
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 15px;
-    background-color: @nordic-bg;
+    background-color: @dark-grey;
 }
 
 tooltip label {
     padding: 5px;
-    background-color: @nordic-bg;
+    background-color: @dark-grey;
+    color: white;
 }
