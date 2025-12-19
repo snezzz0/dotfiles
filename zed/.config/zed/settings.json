@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": ".ZedMono",
   "agent_servers": {
     "your_agent": {
       "type": "custom",
