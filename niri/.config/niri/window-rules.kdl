@@ -1,0 +1,64 @@
+// Window rules for specific applications
+
+workspace "α"
+workspace "β"
+workspace "γ"
+
+// Work around WezTerm's initial configure bug
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Firefox picture-in-picture as floating
+window-rule {
+    match app-id=r#"vivaldi$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Block password managers from screen capture
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    block-out-from "screen-capture"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^dev.zed.Zed"#
+    open-maximized true
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+// Enable rounded corners for all windows
+/-window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"thunar$"#
+    match title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"vivaldi-stable$"#
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"org.gnome.gThumb$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"mpv$"#
+    open-maximized true
+}

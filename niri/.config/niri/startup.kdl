@@ -1,0 +1,11 @@
+// Programs to spawn at startup
+spawn-at-startup "waybar"
+spawn-at-startup "xwayland-satellite"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/walls/wp-1.png"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+// Use spawn-sh-at-startup for shell commands
+// spawn-sh-at-startup "command with pipes | and stuff"

@@ -1,0 +1,13 @@
+// Output configuration
+// Run `niri msg outputs` to see your actual output names
+
+// Left monitor - 1080p 60Hz (secondary)
+
+// Main monitor - 2K 240Hz (middle/right)
+output "DP-1" {
+    mode "2560x1440@240"
+    position x=0 y=0
+}
+
+// Note: Run `niri msg outputs` to get your actual output names
+// They might be different like "HDMI-1", "DisplayPort-0", etc.

@@ -1,0 +1,36 @@
+// Input device configuration
+input {
+    keyboard {
+        xkb {
+            // You can set rules, model, layout, variant and options.
+            // For more information, see xkeyboard-config(7).
+        }
+
+        // Enable numlock on startup
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+    }
+
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+    }
+
+    // Uncomment to make mouse warp to center of newly focused windows
+    warp-mouse-to-focus
+
+    //Focus follows mouse
+    focus-follows-mouse max-scroll-amount="0%"
+}

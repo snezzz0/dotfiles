@@ -1,0 +1,55 @@
+// Layout configuration
+layout {
+    // Gaps around windows in logical pixels
+    gaps 16
+
+    // When to center focused column: "never", "always", "on-overflow"
+    center-focused-column "never"
+
+    // Preset column widths for Mod+R cycling
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // Default width for new windows
+    default-column-width { proportion 0.5; }
+
+    // Focus ring configuration
+    focus-ring {
+        on
+        width 5
+        active-color "#000000"
+        inactive-color "#505050"
+    }
+
+    // Border configuration
+    border {
+        off
+        width 4
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+
+    // Shadow configuration
+    shadow {
+        // Uncomment to enable shadows
+        on
+
+        // draw-behind-window true
+        softness 50
+        spread 15
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    // Struts (outer gaps)
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
