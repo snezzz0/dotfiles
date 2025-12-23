@@ -19,8 +19,8 @@ layout {
     // Focus ring configuration
     focus-ring {
         on
-        width 5
-        active-color "#000000"
+        width 1
+        active-color "#ffffff"
         inactive-color "#505050"
     }
 
@@ -51,5 +51,11 @@ layout {
         // right 64
         // top 64
         // bottom 64
+    }
+}
+
+gestures {
+    hot-corners {
+        off
     }
 }

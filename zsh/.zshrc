@@ -54,6 +54,9 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias mkdir='mkdir -p'
 
+# NVIM
+alias nv='nvim'
+
 # --- Custom PATH ---
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
