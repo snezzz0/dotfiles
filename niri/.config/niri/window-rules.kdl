@@ -1,9 +1,8 @@
 // Window rules for specific applications
 
-workspace "α"
-workspace "β"
-workspace "γ"
-
+workspace "1"
+workspace "2"
+workspace "3"
 // Work around WezTerm's initial configure bug
 window-rule {
     geometry-corner-radius 0

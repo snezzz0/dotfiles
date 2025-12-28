@@ -5,26 +5,22 @@
     font-family: "FiraCode Nerd Font";
     font-weight: bold;
     font-size: 14px;
-    padding: 0;
-    letter-spacing: 3px;
+    padding: 2px;
+    letter-spacing: 0px;
 }
 
 /* Window */
 window#waybar {
-    background: transparent;
+    background-color: rgba(26, 27, 38, 0.75);
+    margin: 6px 6px;
+    padding: 6px 6px;
 }
 
 /* Unified background blocks */
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: rgba(20, 22, 26, 0.75);
-    margin: 4px 6px;
-    padding: 2px 4px;
-    border-radius: 0;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.55);
+    background-color: transparent;
 }
 
 /* Common module styling - no individual backgrounds */
@@ -40,7 +36,7 @@ window#waybar {
     background: transparent;
     padding: 2px 10px;
     margin: 0;
-    color: #9aa0a6;
+    color: #a9b1d6;
     border-radius: 0;
 }
 
@@ -50,26 +46,22 @@ window#waybar {
     padding: 0;
     margin: 0;
 }
+
 #workspaces button {
     all: initial;
     font-family: inherit;
     font-weight: inherit;
     font-size: inherit;
-    color: rgba(154, 160, 166, 0.55);
+    color: rgba(169, 177, 214, 0.55);
     padding: 2px 8px;
     margin: 2px;
+    background: transparent;
 }
 
-/* Active workspace - orange background with black text */
+/* Active workspace - bright cyan text, no border */
 #workspaces button.active {
-    color: #0e0f11;
-    background-color: #c98f53;
-}
-
-/* Focused but not active (keyboard focus) */
-#workspaces button.focused {
-    color: #0e0f11;
-    background-color: rgba(255, 255, 255, 0.55);
+    color: #7dcfff;
+    background-color: transparent;
 }
 
 /* Urgent states */
@@ -77,6 +69,6 @@ window#waybar {
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-    color: #0e0f11;
-    background-color: #b80f0a;
+    color: #1a1b26;
+    background-color: #f7768e;
 }

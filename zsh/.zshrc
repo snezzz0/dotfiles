@@ -39,6 +39,7 @@ alias poweroff='systemctl poweroff'
 alias restart='systemctl reboot'
 alias logout='niri msg action quit'
 alias rebuild='sudo nixos-rebuild switch'
+alias yz='yazi'
 
 # NixOS package management
 alias update='sudo nixos-rebuild switch'

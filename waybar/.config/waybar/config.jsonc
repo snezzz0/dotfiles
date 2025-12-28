@@ -5,14 +5,14 @@
     "output": "DP-1",
     "margin-bottom": 0,
     "modules-left": ["niri/workspaces"],
-    "modules-center": ["clock"],
+    "modules-center": [],
     "modules-right": [
       "tray",
       "memory",
-      "custom/gpu",
-      "cpu",
       "pulseaudio",
       "network",
+      "custom/separator",
+      "clock",
     ],
     "tray": {
       "icon-size": 16,
@@ -24,7 +24,7 @@
       "all-outputs": false,
     },
     "memory": {
-      "format": "{used:0.1f}GB [RAM]",
+      "format": "{used:0.1f}GB",
       "tooltip": false,
       "interval": 10,
     },
@@ -34,6 +34,10 @@
       "format": "{}% [GPU]",
       "return-type": "plain",
       "tooltip": false,
+    },
+    "custom/separator": {
+     "format": "|",
+     "tooltip": false,
     },
     "cpu": {
       "format": "{usage}% [CPU]",
@@ -54,7 +58,8 @@
       "interval": 1,
     },
     "clock": {
-      "format": "{:%Y-%m-%d %H:%M}",
+      "format": "{:%a %Y-%m-%d %H:%M}",
+      "locale": "en_US.UTF-8",
       "tooltip": true,
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
       "calendar": {
