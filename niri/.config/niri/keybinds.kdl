@@ -8,8 +8,9 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+A hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Super+B { spawn "vivaldi"; }
-    Super+E { spawn "thunar"; }
+    Super+B { spawn-sh "~/.config/rofi/scripts/bookmark-picker"; }
+    Mod+E { spawn "kitty" "-e" "yazi"; }
+    Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
 
     // Screen reader toggle
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }

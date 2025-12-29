@@ -1,8 +1,8 @@
 // Window rules for specific applications
 
-workspace "1"
-workspace "2"
-workspace "3"
+workspace "ps"
+workspace "wk"
+workspace "ot"
 // Work around WezTerm's initial configure bug
 window-rule {
     geometry-corner-radius 0
@@ -16,7 +16,7 @@ window-rule {
 
 // Firefox picture-in-picture as floating
 window-rule {
-    match app-id=r#"vivaldi$"# title="^Picture-in-Picture$"
+    match app-id=r#"vivaldi-stable$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -26,13 +26,6 @@ window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     block-out-from "screen-capture"
     open-floating true
-}
-
-window-rule {
-    match app-id=r#"^dev.zed.Zed"#
-    open-maximized true
-    geometry-corner-radius 0
-    clip-to-geometry true
 }
 
 // Enable rounded corners for all windows
@@ -48,16 +41,46 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"vivaldi-stable$"#
-    open-maximized true
-}
-
-window-rule {
     match app-id=r#"org.gnome.gThumb$"#
     open-floating true
 }
 
 window-rule {
     match app-id=r#"mpv$"#
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"com.github.th_ch.youtube_music$"#
+    open-on-workspace "ot"
+
+}
+
+window-rule {
+    match app-id=r#"obsidian$"#
+    open-on-workspace "ot"
+    open-maximized true
+
+}
+
+window-rule {
+    match app-id=r#"project-kitty$"#
+    open-on-workspace "wk"
+}
+
+window-rule {
+    match app-id=r#"feh$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"brave-browser$"#
+    open-on-workspace "wk"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"firefox$"#
+    open-on-workspace "ps"
     open-maximized true
 }
