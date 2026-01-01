@@ -10,7 +10,7 @@ layout {
     preset-column-widths {
         proportion 0.5
         proportion 0.33
-        proportion 0.66667
+        proportion 0.66
     }
 
     // Default width for new windows
@@ -19,8 +19,8 @@ layout {
     // Focus ring configuration
     focus-ring {
         on
-        width 1
-        active-color "#9d79d6"
+        width 2.5
+        active-color "#b16286" 
         inactive-color "#505050"
     }
 

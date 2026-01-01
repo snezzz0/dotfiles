@@ -62,5 +62,7 @@ alias nv='nvim'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export EDITOR="hx"
+
 # --- Powerlevel10k Config ---
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

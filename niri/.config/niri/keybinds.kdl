@@ -10,7 +10,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+B { spawn-sh "~/.config/rofi/scripts/bookmark-picker"; }
     Mod+E { spawn "kitty" "-e" "yazi"; }
-    Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
+    // Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
 
     // Screen reader toggle
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }

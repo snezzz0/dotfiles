@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+project=$(find ~/Projects -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | rofi -dmenu -p "Project")
+
+if [[ -n $project ]]; then
+    kitty --class project-kitty --directory "$HOME/Projects/$project"
+fi

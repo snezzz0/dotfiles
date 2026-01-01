@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -eu
+
+BOOKMARKS_FILE="${BOOKMARKS_FILE:-$HOME/.config/rofi/bookmarks.txt}"
+ROFI="rofi -dmenu -i -p 'Bookmarks' -theme-str 'window {width: 25%;}' -theme-str 'listview {lines: 10; columns: 1;}'"
+
+FIREFOX="$(command -v firefox || true)"
+BRAVE="$(command -v brave || command -v brave-browser || true)"
+FALLBACK="xdg-open"
+
+if [ ! -f "$BOOKMARKS_FILE" ]; then
+    notify-send "Rofi Bookmarks" "Bookmarks file not found"
+    exit 1
+fi
+
+format_bookmarks() {
+    grep -vE '^\s*(#|$)' "$BOOKMARKS_FILE" | awk -F '::' '{
+        gsub(/^[ \t]+|[ \t]+$/, "", $1);
+        gsub(/^[ \t]+|[ \t]+$/, "", $2);
+        gsub(/^[ \t]+|[ \t]+$/, "", $3);
+        gsub(/[\[\]]/, "", $1);
+        printf "[%s] %s | %s\n", $1, $2, $3
+    }'
+}
+
+choice="$(format_bookmarks | eval "$ROFI")"
+[[ -z "$choice" ]] && exit 0
+
+# Extracts everything after the LAST space-pipe-space combo
+url="${choice##* | }"
+url=$(echo "$url" | xargs)
+
+# Extract Tag (Everything inside the first set of brackets)
+tag=$(echo "$choice" | grep -oP '^\[\K[^\]]+')
+
+open_with() {
+    local cmd="$1"
+    if [[ -n "$cmd" ]]; then
+        # Use setsid to fully detach the process from the terminal
+        setsid "$cmd" "$url" >/dev/null 2>&1 &
+        exit 0
+    fi
+}
+
+case "$tag" in
+    Personal)
+        open_with "$FIREFOX"
+        ;;
+    Work|Crypto|Trading)
+        open_with "$BRAVE"
+        ;;
+    *)
+        setsid "$FALLBACK" "$url" >/dev/null 2>&1 &
+        ;;
+esac
