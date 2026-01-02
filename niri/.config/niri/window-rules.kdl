@@ -1,9 +1,8 @@
 // Window rules for specific applications
 
-workspace ""
-workspace ""
-workspace ""
-workspace "󰎚"
+workspace "1"
+workspace "2"
+workspace "3"
 // Work around WezTerm's initial configure bug
 window-rule {
     geometry-corner-radius 0
@@ -53,20 +52,13 @@ window-rule {
 
 window-rule {
     match app-id=r#"com.github.th_ch.youtube_music$"#
-    open-on-workspace ""
 
 }
 
 window-rule {
     match app-id=r#"obsidian$"#
-    open-on-workspace "󰎚"
     open-maximized true
 
-}
-
-window-rule {
-    match app-id=r#"project-kitty$"#
-    open-on-workspace ""
 }
 
 window-rule {
@@ -76,18 +68,16 @@ window-rule {
 
 window-rule {
     match app-id=r#"brave-browser$"#
-    open-on-workspace ""
     open-maximized true
 }
 
 window-rule {
     match app-id=r#"firefox$"#
-    open-on-workspace ""
     open-maximized true
 }
 
 window-rule {
   match app-id=r#"org.pulseaudio.pavucontrol$"#
   open-floating true
-  default-floating-position x=1930 y=0 relative-to="top-left"
+  default-floating-position x=1930 y=10 relative-to="top-left"
 }

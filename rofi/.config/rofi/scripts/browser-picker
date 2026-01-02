@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Browser options
+options="Firefox (Personal)\nBrave (Work)"
+
+# Show rofi menu and get selection
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Select Browser" \
+    -theme ~/.config/rofi/tokyonight.rasi \
+    -theme-str 'window {width: 15%;} entry {enabled: false;} listview {lines: 2;}')
+
+# Launch the selected browser
+case "$chosen" in
+    "Firefox (Personal)")
+        firefox &
+        ;;
+    "Brave (Work)")
+        brave &
+        ;;
+    *)
+        exit 1
+        ;;
+esac
