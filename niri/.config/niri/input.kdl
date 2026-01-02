@@ -29,8 +29,8 @@ input {
     }
 
     // Uncomment to make mouse warp to center of newly focused windows
-    warp-mouse-to-focus
+    // warp-mouse-to-focus
 
     //Focus follows mouse
-    focus-follows-mouse max-scroll-amount="0%"
+    // focus-follows-mouse max-scroll-amount="0%"
 }

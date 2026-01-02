@@ -85,3 +85,9 @@ window-rule {
     open-on-workspace ""
     open-maximized true
 }
+
+window-rule {
+  match app-id=r#"org.pulseaudio.pavucontrol$"#
+  open-floating true
+  default-floating-position x=1930 y=0 relative-to="top-left"
+}
