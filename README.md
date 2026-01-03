@@ -1,80 +1,75 @@
-# New dotfile repo optimized for gnu stow
+# Dotfiles
+
+A collection of configuration files optimized for **GNU Stow**.
 
 ## 🚀 Installation
 
 These dotfiles are intended to be cloned into your home directory (usually `~/dotfiles`).
 
 ### 1. Prerequisites
+
 Ensure you have **GNU Stow** installed on your system.
-# On NixOS (add to your configuration.nix or use nix-shell)
 
-### Or use Nix-Shell
-
+#### NixOS
+Add `stow` to your `configuration.nix` or use a shell:
 ```bash
 nix-shell -p stow
 ```
 
-### Arch
-
+#### Arch Linux
 ```bash
 sudo pacman -S stow
 ```
 
-### Debian / Ubuntu
-
+#### Debian / Ubuntu
 ```bash
 sudo apt install stow
 ```
 
-### Fedora
-
+#### Fedora
 ```bash
 sudo dnf install stow
 ```
 
-### macOS (Homebrew)
-
+#### macOS (Homebrew)
 ```bash
 brew install stow
 ```
 
-2. Clone the Repository
+### 2. Clone the Repository
 
 ```bash
-git clone [https://github.com/snezzz0/dotfiles.git](https://github.com/snezzz0/dotfiles.git) ~/dotfiles
+git clone https://github.com/snezzz0/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-3. Deploying Configurations
+### 3. Deploying Configurations
 
-Use the stow command to symlink specific modules to your home directory.
+Use the `stow` command to symlink specific modules to your home directory.
 
-> [!WARNING] You must remove existing configuration files (like ~/.zshrc) before stowing, otherwise Stow will fail due to a conflict.
+> [!WARNING]
+> You must remove existing configuration files (like `~/.zshrc`) before stowing, otherwise Stow will fail due to a conflict.
 
-# Example: Deploying Zsh and Kitty
-
+#### Example: Deploying specific modules
 ```bash
 stow zsh
 stow kitty
 ```
 
-# Deploying everything at once
-
+#### Deploying everything at once
 ```bash
 stow zsh kitty niri waybar yazi rofi dunst nvim
 ```
 
-📦 Components & Dependencies
+## 📦 Components & Dependencies
 
-
-| Component | Target Location        | Recommended Package |
-|-----------|------------------------|---------------------|
-| Zsh       | ~/.zshrc, ~/.p10k.zsh  | zsh, p10k           |
-| Kitty     | ~/.config/kitty/       | kitty               |
-| Niri      | ~/.config/niri/        | niri                |
-| Waybar    | ~/.config/waybar/      | waybar              |
-| Yazi      | ~/.config/yazi/        | yazi                |
-| Rofi      | ~/.config/rofi/        | rofi-wayland        |
-| Dunst     | ~/.config/dunst/       | dunst               |
-| Nvim      | ~/.config/nvim/        | neovim              |
-
+| Component | Target Location | Recommended Package |
+| :--- | :--- | :--- |
+| **Zsh** | `~/.zshrc`, `~/.p10k.zsh` | `zsh`, `p10k` |
+| **Kitty** | `~/.config/kitty/` | `kitty` |
+| **Niri** | `~/.config/niri/` | `niri` |
+| **Waybar** | `~/.config/waybar/` | `waybar` |
+| **Yazi** | `~/.config/yazi/` | `yazi` |
+| **Rofi** | `~/.config/rofi/` | `rofi-wayland` |
+| **Dunst** | `~/.config/dunst/` | `dunst` |
+| **Nvim** | `~/.config/nvim/` | `neovim` |
