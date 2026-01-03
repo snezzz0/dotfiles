@@ -5,12 +5,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Applications
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+A hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Return { spawn "kitty"; }
+    Mod+A { spawn-sh "rofi -show drun"; }
+    Super+Alt+L { spawn "swaylock"; }
     Super+B { spawn-sh "~/.config/rofi/scripts/browser-picker"; }
     Mod+E { spawn "kitty" "-e" "yazi"; }
     Mod+Escape { spawn-sh "~/.config/rofi/scripts/power-menu"; }
+    Mod+N { spawn-sh "~/.config/rofi/scripts/note"; }
     // Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
 
     // Screen reader toggle

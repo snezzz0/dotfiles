@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+# Rofi note launcher script for PARA method
+
+NOTES_DIR="$HOME/notes"
+
+# Ensure PARA directories exist
+mkdir -p "$NOTES_DIR/temp"
+mkdir -p "$NOTES_DIR/projects"
+mkdir -p "$NOTES_DIR/areas"
+mkdir -p "$NOTES_DIR/resources"
+
+# Rofi menu options
+options="Open Notes Directory\n---\nQuick Note\nProject Note\nArea Note\nResource Note"
+
+# Show rofi menu
+choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" \
+    -theme ~/.config/rofi/tokyonight.rasi \
+    -theme-str 'window {width: 20%;} entry {enabled: false;} listview {lines: 6;}')
+
+case "$choice" in
+    "Open Notes Directory")
+        # Open neovim in notes directory
+        kitty sh -c "cd $NOTES_DIR && nvim ."
+        ;;
+    "Quick Note")
+        # Generate timestamp filename: YYYY-MM-DD-HHMM.md
+        timestamp=$(date +%Y-%m-%d-%H%M)
+        note_file="$NOTES_DIR/$timestamp.md"
+        
+        # Open in kitty with neovim
+        kitty nvim "$note_file"
+        ;;
+    "Project Note")
+        # Prompt for project name
+        project_name=$(rofi -dmenu -p "Project Name" \
+            -theme ~/.config/rofi/tokyonight.rasi \
+            -theme-str 'window {width: 20%;} listview {lines: 0;}')
+        
+        if [ -n "$project_name" ]; then
+            # Sanitize filename
+            safe_name=$(echo "$project_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
+            note_file="$NOTES_DIR/1-projects/$safe_name.md"
+            
+            # Create with template
+            if [ ! -f "$note_file" ]; then
+                echo "# $project_name" > "$note_file"
+                echo "" >> "$note_file"
+                echo "## Goal" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## Tasks" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## Notes" >> "$note_file"
+            fi
+            
+            kitty nvim "$note_file"
+        fi
+        ;;
+    "Area Note")
+        # Prompt for area name
+        area_name=$(rofi -dmenu -p "Area Name" \
+            -theme ~/.config/rofi/tokyonight.rasi \
+            -theme-str 'window {width: 20%;} listview {lines: 0;}')
+        
+        if [ -n "$area_name" ]; then
+            safe_name=$(echo "$area_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
+            note_file="$NOTES_DIR/2-areas/$safe_name.md"
+            
+            # Create with template
+            if [ ! -f "$note_file" ]; then
+                echo "# $area_name" > "$note_file"
+                echo "" >> "$area_file"
+                echo "## Overview" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## Standards" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## Resources" >> "$note_file"
+            fi
+            
+            kitty nvim "$note_file"
+        fi
+        ;;
+    "Resource Note")
+        # Prompt for resource name
+        resource_name=$(rofi -dmenu -p "Resource Name" \
+            -theme ~/.config/rofi/tokyonight.rasi \
+            -theme-str 'window {width: 20%;} listview {lines: 0;}')
+        
+        if [ -n "$resource_name" ]; then
+            safe_name=$(echo "$resource_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
+            note_file="$NOTES_DIR/3-resources/$safe_name.md"
+            
+            # Create with template
+            if [ ! -f "$note_file" ]; then
+                echo "# $resource_name" > "$note_file"
+                echo "" >> "$note_file"
+                echo "## Summary" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## Key Points" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## References" >> "$note_file"
+            fi
+            
+            kitty nvim "$note_file"
+        fi
+        ;;
+esac

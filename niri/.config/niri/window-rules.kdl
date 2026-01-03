@@ -81,3 +81,8 @@ window-rule {
   open-floating true
   default-floating-position x=1930 y=10 relative-to="top-left"
 }
+
+window-rule {
+  match app-id=r#"kitty$"#
+  // opacity 1.0
+}

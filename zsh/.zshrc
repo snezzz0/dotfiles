@@ -1,68 +1,78 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+# p10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# --- Custom Functions ---
+typeset -U path cdpath fpath manpath
+for profile in ${(z)NIX_PROFILES}; do
+  fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
+done
 
-# Show color with hex colors
-hexcolor() {
-    for hex in "$@"; do
-        printf "\033[48;2;%d;%d;%dm  \033[0m %s\n" \
-            "0x${hex:1:2}" "0x${hex:3:2}" "0x${hex:5:2}" "$hex"
-    done
-}
+HELPDIR="/nix/store/gm8ldbac46x710xlmxanblzvw4yimjzd-zsh-5.9/share/zsh/$ZSH_VERSION/help"
 
-# --- Completion & Suggestion Colors ---
-autoload -U colors && colors
+autoload -U compinit && compinit
+source /nix/store/9vjgzqbj1i9qqznrqvh4g6k5kvd89y4v-zsh-autosuggestions-0.7.1/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 
-# Set custom colors for autocomplete (completion menu)
-zstyle ':completion:*' list-colors "di=1;34:fi=0:ln=1;36:pi=1;33:so=1;35:bd=1;33:cd=1;33:or=1;31:mi=1;31:*.sh=1;32:*.txt=1;33"
 
-# Set color for autosuggestions (gray)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#8A8A8A'
+# History options should be set in .zshrc and after oh-my-zsh sourcing.
+# See https://github.com/nix-community/home-manager/issues/177.
+HISTSIZE="10000"
+SAVEHIST="10000"
 
-# --- Aliases ---
+HISTFILE="/home/adam/.zsh_history"
+mkdir -p "$(dirname "$HISTFILE")"
 
-# General
-alias c='clear'
-alias l='eza -lh --icons=auto'
-alias ls='eza -1 --icons=auto'
-alias ll='eza -lha --icons=auto --sort=name --group-directories-first'
-alias ld='eza -lhD --icons=auto'
-alias lt='eza --icons=auto --tree'
-alias z='zeditor'
-alias poweroff='systemctl poweroff'
-alias restart='systemctl reboot'
-alias logout='niri msg action quit'
-alias rebuild='sudo nixos-rebuild switch'
-alias yz='yazi'
+setopt HIST_FCNTL_LOCK
 
-# NixOS package management
-alias update='sudo nixos-rebuild switch'
-alias search='nix search nixpkgs'
-alias clean='nix-collect-garbage -d'
-alias list='nix-env -q'
+# Enabled history options
+enabled_opts=(
+  HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY
+)
+for opt in "${enabled_opts[@]}"; do
+  setopt "$opt"
+done
+unset opt enabled_opts
 
-# Directory shortcuts
-alias ..='cd ..'
-alias ...='cd ../..'
-alias .3='cd ../../..'
-alias .4='cd ../../../..'
-alias .5='cd ../../../../..'
-alias mkdir='mkdir -p'
+# Disabled history options
+disabled_opts=(
+  APPEND_HISTORY EXTENDED_HISTORY HIST_EXPIRE_DUPS_FIRST HIST_FIND_NO_DUPS
+  HIST_IGNORE_ALL_DUPS HIST_SAVE_NO_DUPS
+)
+for opt in "${disabled_opts[@]}"; do
+  unsetopt "$opt"
+done
+unset opt disabled_opts
 
-# NVIM
-alias nv='nvim'
-
-# --- Custom PATH ---
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-
-export EDITOR="hx"
-
-# --- Powerlevel10k Config ---
+# Load p10k theme
+source /nix/store/1ai7sm4jqgwd15r6rvcsghfk74qf1p7k-powerlevel10k-1.20.15/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Fix for invisible autocompletions (TokyoNight High Contrast)
+zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}" 'ma=48;5;4;fg=15'
+zstyle ':completion:*:descriptions' format '%F{#7dcfff}-- %d --%f'
+
+if test -n "$KITTY_INSTALLATION_DIR"; then
+  export KITTY_SHELL_INTEGRATION="no-rc"
+  autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+  kitty-integration
+  unfunction kitty-integration
+fi
+
+alias -- c=clear
+alias -- l='eza -lh --icons=auto'
+alias -- ld='eza -lhD --icons=auto'
+alias -- ll='eza -lha --icons=auto --sort=name --group-directories-first'
+alias -- ls='eza -1 --icons=auto'
+alias -- lt='eza --icons=auto --tree'
+alias -- mount-server='mkdir -p ~/mnt/server && rclone mount home-server: ~/mnt/server --vfs-cache-mode full &'
+alias -- poweroff='systemctl poweroff'
+alias -- reboot='systemctl reboot'
+alias -- rebuild='sudo nixos-rebuild switch --flake .#nixos-btw'
+alias -- umount-server='fusermount -u ~/mnt/server'
+alias -- v=nvim
+source /nix/store/6aqwmp96p7gcmlsq1clvfhyh1s7afc0f-zsh-syntax-highlighting-0.8.0/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=()
+
+

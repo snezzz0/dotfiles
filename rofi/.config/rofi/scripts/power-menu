@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
-
 # Power menu options
-options="Sleep\nReboot\nPoweroff"
+options="Logout\nSleep\nReboot\nPoweroff"
 
 # Show rofi menu and get selection
 chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power Menu" \
     -theme ~/.config/rofi/tokyonight.rasi \
-    -theme-str 'window {width: 15%;} entry {enabled: false;} listview {lines: 3;}')
+    -theme-str 'window {width: 15%;} entry {enabled: false;} listview {lines: 4;}')
 
 # Execute the selected action
 case "$chosen" in
+    "Logout")
+        loginctl terminate-user "$USER"
+        ;;
     "Sleep")
         systemctl suspend
         ;;

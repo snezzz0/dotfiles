@@ -18,9 +18,14 @@
       "spacing": 8,
     },
     "niri/workspaces": {
-      "format": "{name}",
-      "disable-scroll": true,
-      "all-outputs": false,
+    "format": "{icon}",
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format-icons": {
+        "active": " ",    
+        "default": "",   
+        "urgent": ""     
+        }
     },
     "memory": {
       "format": "[RAM] {used:0.1f}GB",

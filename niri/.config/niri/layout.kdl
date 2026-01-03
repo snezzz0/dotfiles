@@ -1,7 +1,7 @@
 // Layout configuration
 layout {
     // Gaps around windows in logical pixels
-    gaps 5
+    gaps 8
 
     // When to center focused column: "never", "always", "on-overflow"
     center-focused-column "never"
@@ -20,7 +20,7 @@ layout {
     focus-ring {
         on
         width 2.5
-        active-color "#b16286" 
+        active-color "#bb9af7" 
         inactive-color "#505050"
     }
 
