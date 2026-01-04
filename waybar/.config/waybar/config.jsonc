@@ -11,47 +11,38 @@
       "memory",
       "pulseaudio",
       "network",
-      "clock",
+      "clock"
     ],
     "tray": {
       "icon-size": 16,
-      "spacing": 8,
+      "spacing": 8
     },
     "niri/workspaces": {
-    "format": "{icon}",
-    "disable-scroll": true,
-    "all-outputs": false,
-    "format-icons": {
-        "active": " ",    
-        "default": "",   
-        "urgent": ""     
-        }
+      "format": "{name}",  // Restored to your original numbered format
+      "disable-scroll": true,
+      "all-outputs": false
     },
     "memory": {
       "format": "[RAM] {used:0.1f}GB",
       "tooltip": false,
-      "interval": 10,
+      "interval": 10
     },
     "custom/gpu": {
       "exec": "radeontop -d - -l 1 | grep -oP 'gpu \\K[0-9]+'",
       "interval": 3,
       "format": "{}% [GPU]",
       "return-type": "plain",
-      "tooltip": false,
-    },
-    "custom/separator": {
-     "format": "|",
-     "tooltip": false,
+      "tooltip": false
     },
     "cpu": {
       "format": "{usage}% [CPU]",
-      "tooltip": false,
+      "tooltip": false
     },
     "pulseaudio": {
       "format": "[VOL] {volume}%",
       "format-muted": "󰝟",
       "scroll-step": 1,
-      "on-click": "pavucontrol",
+      "on-click": "pavucontrol"
     },
     "network": {
       "format-wifi": "󰖩 {essid}",
@@ -59,7 +50,7 @@
       "format-disconnected": "Disconnected",
       "tooltip": true,
       "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
-      "interval": 1,
+      "interval": 1
     },
     "clock": {
       "format": "{:%a %Y-%m-%d %H:%M}",
@@ -67,8 +58,8 @@
       "tooltip": true,
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
       "calendar": {
-        "mode": "month",
-      },
-    },
-  },
+        "mode": "month"
+      }
+    }
+  }
 ]
