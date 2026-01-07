@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "top",
     "output": "DP-1",
-    "margin-bottom": 0,
+    "margin": "3px 3px 0px 3px",
     "modules-left": ["niri/workspaces"],
     "modules-center": [],
     "modules-right": [
@@ -18,7 +18,11 @@
       "spacing": 8
     },
     "niri/workspaces": {
-      "format": "{name}",  // Restored to your original numbered format
+      "format": "{icon}",
+      "format-icons": {
+        "active": "■",
+        "default": "□"
+      },
       "disable-scroll": true,
       "all-outputs": false
     },

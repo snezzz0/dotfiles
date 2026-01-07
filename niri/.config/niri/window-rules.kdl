@@ -5,7 +5,7 @@ workspace "2"
 workspace "3"
 // Work around WezTerm's initial configure bug
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
