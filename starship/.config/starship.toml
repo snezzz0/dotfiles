@@ -48,8 +48,27 @@ symbol = " "
 format = '[$symbol$branch]($style) '
 style = "#f7768e"
 
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold #bb9af7" 
+
+untracked = ""
+modified = '[!${count}](#ff9e64) '     
+staged = '[+${count}](#9ece6a) '       
+renamed = '[»${count}](#7aa2f7) '      
+deleted = '[✘${count}](#f7768e) '      
+
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+
 [golang]
 disabled = true
+
+[cmd_duration]
+min_time = 2000  
+format = '[$duration]($style) '
+style = "fg:#e0af68"
 
 [palettes.tokyonight]
 background = "#1a1b26"
