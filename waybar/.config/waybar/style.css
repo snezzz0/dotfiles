@@ -4,7 +4,7 @@
     min-height: 0;
     font-family: "CodeNewRoman Nerd Font";
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     padding: 1px;
     letter-spacing: 1px;
 }
@@ -41,7 +41,6 @@ window#waybar {
 /* Workspaces */
 #workspaces {
     background: transparent;
-    font-size: 6px;
 }
 
 #workspaces button {

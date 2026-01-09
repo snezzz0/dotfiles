@@ -61,6 +61,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"com.github.th_ch.youtube_music$"#
+    open-maximized true
 
 }
 
