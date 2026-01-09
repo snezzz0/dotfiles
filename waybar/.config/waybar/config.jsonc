@@ -3,7 +3,6 @@
     "layer": "top",
     "position": "top",
     "output": "DP-1",
-    "margin": "3px 3px 0px 3px",
     "modules-left": ["niri/workspaces"],
     "modules-center": [],
     "modules-right": [
@@ -20,14 +19,14 @@
     "niri/workspaces": {
       "format": "{icon}",
       "format-icons": {
-        "active": "■",
-        "default": "□"
+        "active": "",
+        "default": ""
       },
       "disable-scroll": true,
       "all-outputs": false
     },
     "memory": {
-      "format": "[RAM] {used:0.1f}GB",
+      "format": " {used:0.1f}GB",
       "tooltip": false,
       "interval": 10
     },
@@ -43,15 +42,15 @@
       "tooltip": false
     },
     "pulseaudio": {
-      "format": "[VOL] {volume}%",
+      "format": "{volume}%",
       "format-muted": "󰝟",
       "scroll-step": 1,
       "on-click": "pavucontrol"
     },
     "network": {
       "format-wifi": "󰖩 {essid}",
-      "format-ethernet": "Connected",
-      "format-disconnected": "Disconnected",
+      "format-ethernet": "󰈀",
+      "format-disconnected": "󱘖",
       "tooltip": true,
       "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
       "interval": 1

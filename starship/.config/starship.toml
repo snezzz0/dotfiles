@@ -1,0 +1,63 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+palette = "tokyonight"
+
+format = """$directory$character"""
+right_format = """$all"""
+
+
+[character]
+vicmd_symbol = "[N] >>>"
+success_symbol = '[➜](bold #9ece6a)'
+error_symbol = '[➜](bold #f7768e)'
+
+[directory]
+style = "bold #7aa2f7"
+read_only = " 󰌾"
+truncation_length = 3
+truncate_to_repo = true
+
+[python]
+symbol = " "
+format = '[${symbol}${version}]($style) '
+style = "#e0af68"
+
+[nodejs]
+symbol = " "
+format = '[${symbol}${version}]($style) '
+style = "#9ece6a"
+
+[cpp]
+symbol = " "
+format = '[${symbol}${version}]($style) '
+style = "#7aa2f7"
+
+[rust]
+symbol = "󱘗 "
+format = '[${symbol}${version}]($style) '
+style = "#ff9e64"
+
+[package]
+symbol = "🚀 " 
+format = '[${symbol}${version}]($style) '
+style = "#bb9af7"
+
+[git_branch]
+symbol = " "
+format = '[$symbol$branch]($style) '
+style = "#f7768e"
+
+[golang]
+disabled = true
+
+[palettes.tokyonight]
+background = "#1a1b26"
+foreground = "#c0caf5"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+orange = "#ff9e64"
