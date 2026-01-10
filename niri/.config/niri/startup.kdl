@@ -1,5 +1,5 @@
 // Programs to spawn at startup
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "/home/adam/.config/niri/scripts/random-wall.sh"
 // spawn-at-startup "swaybg" "-c" "#000000" 

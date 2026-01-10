@@ -7,12 +7,12 @@ binds {
     // Applications
     Mod+Return { spawn "kitty"; }
     Mod+A { spawn-sh "rofi -show drun"; }
-    Super+Alt+L { spawn "swaylock"; }
-    Super+B { spawn-sh "~/.config/rofi/scripts/browser-picker"; }
+    Mod+Alt+L { spawn "swaylock"; }
+    Mod+B { spawn-sh "~/.config/rofi/scripts/browser-picker"; }
     Mod+E { spawn "kitty" "-e" "yazi"; }
     Mod+Escape { spawn-sh "~/.config/rofi/scripts/power-menu"; }
     Mod+N { spawn-sh "~/.config/rofi/scripts/note"; }
-    // Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
+    Mod+M { spawn-sh "systemctl --user is-active --quiet waybar && systemctl --user stop waybar || systemctl --user start waybar"; }
 
     // Screen reader toggle
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
