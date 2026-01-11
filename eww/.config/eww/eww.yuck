@@ -8,7 +8,7 @@
   :monitor 0
   :stacking "fg"  ;; Change from "bottom" to "fg" (foreground)
   :namespace "eww"
-  :geometry (geometry :x "0px" :y "-2px" :anchor "bottom right")
+  :geometry (geometry :x "-9px" :y "-2px" :anchor "bottom right")
   :exclusive false  ;; 
   :focusable false  ;; 
   (bar_contents))
