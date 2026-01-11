@@ -14,6 +14,11 @@ window#waybar {
     background-color: transparent;
 }
 
+window#waybar.fullscreen {
+    background: transparent;
+    color: transparent;
+    opacity: 0;
+}
 /* Unified background blocks */
 .modules-left,
 .modules-center,

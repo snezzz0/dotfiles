@@ -1,0 +1,23 @@
+;; Polls
+(defpoll memory_used :interval "10s" "free -h | awk '/^Mem/ {print $3}'")
+(defpoll volume :interval "1s" "pamixer --get-volume")
+;; This network poll is simple and reliable
+(defpoll network_status :interval "5s" "nmcli -t -f DEVICE,STATE dev | grep 'ethernet:connected' > /dev/null && echo '󰈀' || echo '󰖩'")
+
+(defwindow status_bar
+  :monitor 0
+  :stacking "fg"  ;; Change from "bottom" to "fg" (foreground)
+  :namespace "eww"
+  :geometry (geometry :x "0px" :y "-2px" :anchor "bottom right")
+  :exclusive false  ;; 
+  :focusable false  ;; 
+  (bar_contents))
+
+(defwidget bar_contents []
+  (box :class "bar-container" :space-evenly false :spacing 20 :halign "end"
+    (label :class "stat" :text "${memory_used}")
+    (label :class "stat" :text "${volume}%")
+    (label :class "stat" :text "${network_status}")
+    (label :class "clock" :text {formattime(EWW_TIME, "%a %d/%m/%y %H:%M")})
+    (systray :class "tray" :icon-size 16 :spacing 8)
+  ))
