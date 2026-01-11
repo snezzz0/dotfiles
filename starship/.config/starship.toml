@@ -22,7 +22,7 @@ format = "[${symbol}${version}]($style) "
 style = "bold #e0af68"
 
 [nodejs]
-symbol = "󰎙"
+symbol = ""
 format = "[${symbol}${version}]($style) "
 style = "bold #9ece6a"
 
@@ -37,9 +37,7 @@ format = "[${symbol}${version}]($style) "
 style = "bold #ff9e64"
 
 [package]
-symbol = "🚀 "
-format = "[${symbol}${version}]($style) "
-style = "bold #bb9af7"
+disabled = true
 
 [git_branch]
 format = "[$symbol$branch]($style) "
@@ -58,6 +56,15 @@ diverged = "[⇕⇡$ahead_count⇣$behind_count](bold #bb9af7)"
 
 [golang]
 disabled = true
+
+[hostname]
+ssh_only = true
+format = "🌐 [$hostname]($style) "
+style = "bold #bb9af7"
+
+[username]
+show_always = false
+format = "[$user]($style) "
 
 [cmd_duration]
 min_time = 2000
