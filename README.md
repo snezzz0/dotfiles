@@ -1,8 +1,5 @@
 # Dotfiles
 
->[!Note]
-Archived a few modules, they are now managed by [NixOS](https://github.com/snezzz0/nixos-btw)
-
 A collection of configuration files optimized for **GNU Stow**.
 
 ## 🚀 Installation

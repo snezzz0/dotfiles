@@ -46,7 +46,6 @@ format = "[$symbol$branch]($style) "
 style = "bold #f7768e"
 
 [git_status]
-format = "\\[$all_status$ahead_behind\\] "
 style = "bold #bb9af7"
 untracked = ""
 modified = "[!$count](bold #ff9e64)"
