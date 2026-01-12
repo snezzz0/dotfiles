@@ -11,7 +11,7 @@
 
 /* Window */
 window#waybar {
-    background-color: transparent;
+    background-color: rgba(26, 27, 38, 1);
 }
 
 window#waybar.fullscreen {
@@ -23,7 +23,7 @@ window#waybar.fullscreen {
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: rgba(26, 27, 38, 1);
+    background-color: transparent;
     margin-right: -2px;
     margin-bottom: -2px;
 }
