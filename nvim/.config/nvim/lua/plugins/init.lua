@@ -5,7 +5,6 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -13,32 +12,44 @@ return {
     end,
   },
 
-  { import = "configs.flash" },
+  -- Python Debugging
   {
-  "folke/which-key.nvim",
-  opts = { preset = "helix" },
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function()
+      -- This points to the python path created by Mason
+      local path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+    end,
+  },
+
+  { import = "configs.flash" },
+
+  {
+    "folke/which-key.nvim",
+    opts = { preset = "helix" },
   },
 
   {
-  "nvim-tree/nvim-tree.lua",
-  enabled = false, 
+    "nvim-tree/nvim-tree.lua",
+    enabled = false,
   },
-  
+
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-  
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc", "html", "css", "python", 
+      },
+    },
+  },
 }
