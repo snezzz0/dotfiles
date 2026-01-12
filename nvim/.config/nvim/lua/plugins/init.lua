@@ -12,16 +12,23 @@ return {
       require "configs.lspconfig"
     end,
   },
+
   { import = "configs.flash" },
   {
   "folke/which-key.nvim",
   opts = { preset = "helix" },
   },
+
   {
   "nvim-tree/nvim-tree.lua",
   enabled = false, 
   },
-
+  
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 

@@ -44,6 +44,11 @@ map("n", "x", "V", { desc = "Select line (Helix style)" })
 map("n", "x", "V", { desc = "Select line (Helix)" })
 map("v", "x", "j", { desc = "Extend selection (Helix)" })
 
+-- Tmux keybinds --
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate Left" })
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate Down" })
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate Up" })
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate Right" })
 -- Top-level Direct Binds
 map("n", "<leader>c", "<cmd>NvCheatsheet<cr>", { desc = "" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "LSP Diagnostic" })
