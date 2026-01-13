@@ -65,3 +65,6 @@ alias v='nvim'
 
 # --- 7. Starship Prompt (Must be last) ---
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+alias cd='z'

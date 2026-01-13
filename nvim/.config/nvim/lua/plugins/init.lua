@@ -48,7 +48,21 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim", "lua", "vimdoc", "html", "css", "python", 
+        "vim", "lua", "vimdoc", "html", "css", "python",
+      },
+    },
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "pyright",
+        "ruff",
+        "black",
+        "debugpy",
       },
     },
   },

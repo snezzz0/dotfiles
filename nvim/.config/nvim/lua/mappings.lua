@@ -16,7 +16,6 @@ safe_del("n", "<leader>b")
 safe_del("n", "<leader>e")
 safe_del("n", "<leader>h")
 safe_del("n", "<leader>v")
-safe_del("n", "<leader>x")
 safe_del("n", "<leader>n")
 safe_del("n", "<leader>pt")
 safe_del("n", "<leader>t")  -- Delete the 't' menu
