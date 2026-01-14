@@ -1,16 +1,16 @@
 [
   {
     "layer": "top",
-    "position": "top",
+    "position": "left",
     "output": "DP-1",
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": [],
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["clock"],
     "modules-right": [
       "tray",
       "memory",
       "pulseaudio",
       "network",
-      "clock"
+      "custom/date"
     ],
     "tray": {
       "icon-size": 16,
@@ -19,40 +19,43 @@
     "niri/workspaces": {
       "format": "{icon}",
       "format-icons": {
-        "active": "",
-        "default": ""
+        "active": "",
+        "default": ""
       },
       "disable-scroll": true,
       "all-outputs": false
     },
     "hyprland/workspaces": {
-    "format": "{icon}",
-    "separate-outputs": true,
-    "active-only": false,
-    "all-outputs": false,  
-    "persistent-workspaces": {
-      "DP-1": [1, 2, 3, 4] 
-     }
-    },
-    "format-icons": {
+      "format": "{icon}",
+      "separate-outputs": true,
+      "active-only": false,
+      "all-outputs": false,  
+      "persistent-workspaces": {
+        "DP-1": [1, 2, 3, 4] 
+      },
+      "format-icons": {
         "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
         "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
+      }
     },
     "memory": {
-      "format": "{used:0.1f}GB",
-      "tooltip": false,
+      "format": "{used:0.1f}G",
+      "tooltip": true,
+      "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
       "interval": 10
     },
     "custom/gpu": {
       "exec": "radeontop -d - -l 1 | grep -oP 'gpu \\K[0-9]+'",
       "interval": 3,
-      "format": "{}% [GPU]",
+      "format": "{}%",
       "return-type": "plain",
-      "tooltip": false
+      "tooltip": true,
+      "tooltip-format": "GPU Usage"
     },
     "cpu": {
-      "format": "{usage}% [CPU]",
-      "tooltip": false
+      "format": "{usage}%",
+      "tooltip": true,
+      "tooltip-format": "CPU Usage"
     },
     "pulseaudio": {
       "format": "{volume}%",
@@ -61,21 +64,27 @@
       "on-click": "pavucontrol"
     },
     "network": {
-      "format-wifi": "󰖩 {essid}",
+      "format-wifi": "󰖩",
       "format-ethernet": "󰈀",
       "format-disconnected": "󱘖",
       "tooltip": true,
-      "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
+      "tooltip-format": "{essid}\n󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
       "interval": 1
     },
     "clock": {
-      "format": "{:%a %d/%m/%y %H:%M}",
+      "format": "{:%H\n%M\n%S}",
+      "interval": 1,
       "locale": "en_US.UTF-8",
       "tooltip": true,
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month"
       }
+    },
+    "custom/date": {
+    "exec": "date '+%a\n%m\n%d\n%y'",
+    "interval": 60,
+    "format": "{}" 
     }
   }
 ]

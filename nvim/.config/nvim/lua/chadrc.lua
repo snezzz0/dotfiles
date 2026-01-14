@@ -4,7 +4,7 @@ local M = {}
 M.plugins = "user"
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "everforest",
 
   hl_override = {
     Comment = { italic = true },

@@ -1,16 +1,17 @@
+
 "$schema" = "https://starship.rs/config-schema.json"
 add_newline = false
-palette = "tokyonight"
+palette = "everforest"
 format = "$directory$git_branch$git_status$character"
 right_format = "$all"
 
 [character]
 vicmd_symbol = "[N] >>>"
-success_symbol = "[➜](bold #9ece6a)"
-error_symbol = "[➜](bold #f7768e)"
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
 
 [directory]
-style = "bold #7aa2f7"
+style = "bold blue"
 read_only = " 󰌾"
 truncation_length = 3
 truncate_to_repo = true
@@ -19,40 +20,40 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 [python]
 symbol = ""
 format = "[${symbol}${version}]($style) "
-style = "bold #e0af68"
+style = "bold yellow"
 
 [nodejs]
 symbol = ""
 format = "[${symbol}${version}]($style) "
-style = "bold #9ece6a"
+style = "bold green"
 
 [cpp]
 symbol = ""
 format = "[${symbol}${version}]($style) "
-style = "bold #7aa2f7"
+style = "bold blue"
 
 [rust]
 symbol = "󱘗 "
 format = "[${symbol}${version}]($style) "
-style = "bold #ff9e64"
+style = "bold orange"
 
 [package]
 disabled = true
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-style = "bold #f7768e"
+style = "bold red"
 
 [git_status]
-style = "bold #bb9af7"
+style = "bold magenta"
 untracked = ""
-modified = "[!$count](bold #ff9e64)"
-staged = "[+$count](bold #9ece6a)"
-renamed = "[»$count](bold #7aa2f7)"
-deleted = "[✘$count](bold #f7768e)"
-ahead = "[⇡$count](bold #bb9af7)"
-behind = "[⇣$count](bold #bb9af7)"
-diverged = "[⇕⇡$ahead_count⇣$behind_count](bold #bb9af7)"
+modified = "[!$count](bold orange)"
+staged = "[+$count](bold green)"
+renamed = "[»$count](bold blue)"
+deleted = "[✘$count](bold red)"
+ahead = "[⇡$count](bold magenta)"
+behind = "[⇣$count](bold magenta)"
+diverged = "[⇕⇡$ahead_count⇣$behind_count](bold magenta)"
 
 [golang]
 disabled = true
@@ -60,7 +61,7 @@ disabled = true
 [hostname]
 ssh_only = true
 format = "🌐 [$hostname]($style) "
-style = "bold #bb9af7"
+style = "bold magenta"
 
 [username]
 show_always = false
@@ -69,15 +70,16 @@ format = "[$user]($style) "
 [cmd_duration]
 min_time = 2000
 format = "[$duration]($style) "
-style = "bold #e0af68"
+style = "bold yellow"
 
-[palettes.tokyonight]
-background = "#1a1b26"
-foreground = "#c0caf5"
-red = "#f7768e"
-green = "#9ece6a"
-yellow = "#e0af68"
-blue = "#7aa2f7"
-magenta = "#bb9af7"
-cyan = "#7dcfff"
-orange = "#ff9e64"
+[palettes.everforest]
+background = "#2b3339"
+foreground = "#d3c6aa"
+red        = "#e67e80"
+green      = "#a7c080"
+yellow     = "#dbbc7f"
+blue       = "#7fbbb3"
+magenta    = "#d699b6"
+cyan       = "#83c092"
+orange     = "#e69875"
+
