@@ -4,7 +4,6 @@ options="Logout\nSleep\nReboot\nPoweroff"
 
 # Show rofi menu and get selection
 chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power Menu" \
-    -theme ~/.config/rofi/tokyonight.rasi \
     -theme-str 'window {width: 15%;} entry {enabled: false;} listview {lines: 4;}')
 
 # Execute the selected action
