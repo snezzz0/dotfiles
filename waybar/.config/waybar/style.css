@@ -1,16 +1,19 @@
+/* Global Reset */
 * {
     border: none;
     border-radius: 0;
     min-height: 0;
     font-family: "Terminess Nerd Font";
     font-weight: 400;
-    padding: 1px;
+    /* padding: 0; */
+    /* margin: 0; */
     letter-spacing: 0px;
 }
 
-/* Window */
+/* Main Waybar Window */
 window#waybar {
     background: #282828;
+    color: #d3c6aa;
 }
 
 window#waybar.fullscreen {
@@ -19,71 +22,16 @@ window#waybar.fullscreen {
     opacity: 0;
 }
 
-/* Unified background blocks */
-.modules-left,
-.modules-center,
-.modules-right {
-    background-color: transparent;
-    margin-right: -2px;
-    margin-bottom: -2px;
-}
-
-/* Workspaces */
-#workspaces {
-    background: transparent;
-    padding: 5px 0;
-    padding-right: 5px;
-    font-size: 11px;
-}
-
-#workspaces button {
-    all: initial;
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    color: rgba(211, 198, 170, 0.55);
-    padding: 2px 8px;
-    margin: 2px;
-    background: transparent;
-}
-
-/* Active workspace - everforest green */
-#workspaces button.active {
-    color: #a7c080;
-    background-color: transparent;
-}
-
-/* Urgent states */
-#workspaces button.urgent,
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-    color: #1e2326;
-    background-color: #e67e80;
-}
-
-/* Individual module styling */
-#clock {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
-}
-
-/* #group-date-stack { */
-/*     background: #1e2326; */
-/*     padding: 5px 0; */
-/*     margin: 4px 0; */
-/*     color: #d3c6aa; */
-/*     border-radius: 0; */
-/*     font-size: 14px; */
-/*     transition: none; */
-/*     color: #d3c6aa; */
-/* } */
-
-/* Shared styles for the whole stack */
+/* Unified Module Styling */
+#clock,
+#memory,
+#pulseaudio,
+#network,
+#tray,
+#battery,
+#custom-gpu,
+#cpu,
+#custom-cava,
 #custom-day_word, 
 #custom-day, 
 #custom-month, 
@@ -92,93 +40,87 @@ window#waybar.fullscreen {
     color: #d3c6aa;
     font-size: 14px;
     transition: none;
+    border-radius: 0;
+    
+    /* Perfect horizontal centering: margins are now equal on both sides */
+    margin-left: 5px;   
+    margin-right: 5px;  
 }
 
-/* TOP: Day Word (thu) */
+/* Standard Standalone Modules */
+#clock, #memory, #pulseaudio, #network, #tray, #battery, #custom-gpu, #cpu, #custom-cava {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 5px 0;
+}
+
+/* --- THE DATE STACK (Connected Blocks) --- */
+
+#custom-day_word, #custom-day, #custom-month, #custom-year {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 #custom-day_word {
-    padding: 5px 5px 0px 5px; /* Top, Right, Bottom, Left */
-    margin-top: 4px;          /* Add the margin only to the very top */
+    margin-top: 4px;
+    padding: 5px 5px 0px 5px;
 }
 
-/* MIDDLE: Day and Month */
 #custom-day, 
 #custom-month {
-    padding: 0px 5px 0px 5px; /* Only Left and Right */
+    padding: 0px 5px 0px 5px;
 }
 
-/* BOTTOM: Year */
 #custom-year {
-    padding: 0px 5px 5px 5px; /* Left, Right, and Bottom */
-    margin-bottom: 4px;       /* Add the margin only to the very bottom */
-}
-#memory {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+    margin-bottom: 4px;
+    padding: 0px 5px 5px 5px;
 }
 
-#pulseaudio {
-    background: #1e2326;
+/* --- SPECIAL MODULES --- */
+
+#workspaces {
+    background: transparent;
     padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+    /* Match the module margins for alignment */
+    margin-left: 5px;
+    margin-right: 6px;
 }
 
-#network {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+#workspaces button {
+    all: initial;
+    font-family: inherit;
+    font-size: 11px;
+    color: rgba(211, 198, 170, 0.55);
+    padding: 2px 0;
+    margin: 2px 0;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #a7c080;
+}
+
+#workspaces button.urgent {
+    color: #1e2326;
+    background-color: #e67e80;
 }
 
 #tray {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+    padding: 2px 0;
 }
 
-#battery {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#custom-gpu {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #e67e80;
 }
 
-#cpu {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
-}
-
-#custom-cava {
-    background: #1e2326;
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-    font-size: 14px;
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+    color: #1e2326;
+    background-color: #e67e80;
 }
