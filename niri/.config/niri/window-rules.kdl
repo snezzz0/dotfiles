@@ -82,7 +82,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"firefox$"#
+    match app-id=r#"zen$"#
     open-maximized true
 }
 

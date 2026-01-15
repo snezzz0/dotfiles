@@ -2,16 +2,15 @@
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "GohuFont 11 Nerd Font";
+    font-family: "Terminess Nerd Font";
     font-weight: 400;
-    font-size: 11px;
     padding: 1px;
     letter-spacing: 0px;
 }
 
 /* Window */
 window#waybar {
-    background-color: #1e2326;
+    background: #282828;
 }
 
 window#waybar.fullscreen {
@@ -29,31 +28,12 @@ window#waybar.fullscreen {
     margin-bottom: -2px;
 }
 
-/* Common module styling - darker backgrounds */
-#clock,
-#pulseaudio,
-#network,
-#tray,
-#battery,
-#custom-gpu,
-#cpu,
-#custom-cava,
-#memory,
-#custom-date {
-    background: rgba(45, 49, 54, 0.8);
-    /* line-height: 1.1; */
-    padding: 5px 0;
-    margin: 4px 0;
-    color: #d3c6aa;
-    border-radius: 0;
-}
-
 /* Workspaces */
 #workspaces {
     background: transparent;
     padding: 5px 0;
     padding-right: 5px;
-
+    font-size: 11px;
 }
 
 #workspaces button {
@@ -80,4 +60,125 @@ window#waybar.fullscreen {
 #battery.urgent {
     color: #1e2326;
     background-color: #e67e80;
+}
+
+/* Individual module styling */
+#clock {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+/* #group-date-stack { */
+/*     background: #1e2326; */
+/*     padding: 5px 0; */
+/*     margin: 4px 0; */
+/*     color: #d3c6aa; */
+/*     border-radius: 0; */
+/*     font-size: 14px; */
+/*     transition: none; */
+/*     color: #d3c6aa; */
+/* } */
+
+/* Shared styles for the whole stack */
+#custom-day_word, 
+#custom-day, 
+#custom-month, 
+#custom-year {
+    background: #1e2326;
+    color: #d3c6aa;
+    font-size: 14px;
+    transition: none;
+}
+
+/* TOP: Day Word (thu) */
+#custom-day_word {
+    padding: 5px 5px 0px 5px; /* Top, Right, Bottom, Left */
+    margin-top: 4px;          /* Add the margin only to the very top */
+}
+
+/* MIDDLE: Day and Month */
+#custom-day, 
+#custom-month {
+    padding: 0px 5px 0px 5px; /* Only Left and Right */
+}
+
+/* BOTTOM: Year */
+#custom-year {
+    padding: 0px 5px 5px 5px; /* Left, Right, and Bottom */
+    margin-bottom: 4px;       /* Add the margin only to the very bottom */
+}
+#memory {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#pulseaudio {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#network {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#tray {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#battery {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#custom-gpu {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#cpu {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+#custom-cava {
+    background: #1e2326;
+    padding: 5px 0;
+    margin: 4px 0;
+    color: #d3c6aa;
+    border-radius: 0;
+    font-size: 14px;
 }

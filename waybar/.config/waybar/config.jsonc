@@ -10,7 +10,7 @@
       "memory",
       "pulseaudio",
       "network",
-      "custom/date"
+      "group/date-stack"
     ],
     "tray": {
       "icon-size": 16,
@@ -81,10 +81,30 @@
         "mode": "month"
       }
     },
-    "custom/date": {
-    "exec": "date '+%a\n%m\n%d\n%y'",
-    "interval": 60,
-    "format": "{}" 
+    "custom/day_word": {
+        "exec": "date +%a | tr '[:upper:]' '[:lower:]'",
+        "interval": 600
+    },
+    "custom/day": {
+        "exec": "date +%d",
+        "interval": 600
+    },
+    "custom/month": {
+        "exec": "date +%m",
+        "interval": 3600
+    },
+    "custom/year": {
+        "exec": "date +%y",
+        "interval": 3600
+    },
+    "group/date-stack": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/day_word",
+            "custom/day",
+            "custom/month",
+            "custom/year"
+        ]
     }
   }
 ]

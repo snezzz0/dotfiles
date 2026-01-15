@@ -8,7 +8,7 @@ binds {
     Mod+Return { spawn "kitty"; }
     Mod+A { spawn-sh "rofi -show drun"; }
     Mod+Alt+L { spawn "swaylock"; }
-    Mod+B { spawn-sh "~/.config/rofi/scripts/browser-picker"; }
+    Mod+B { spawn "zen-browser"; }
     Mod+E { spawn "kitty" "-e" "yazi"; }
     Mod+Escape { spawn-sh "~/.config/rofi/scripts/power-menu"; }
     Mod+N { spawn-sh "~/.config/rofi/scripts/note"; }

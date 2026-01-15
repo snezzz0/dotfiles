@@ -50,13 +50,13 @@
 
     (volume)
 
-    (metric :icon ""
+    (metric :icon ""
             :font-size 0.8
       "${round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}%")
 
-    (metric :icon "" "${round(EWW_RAM.used_mem_perc, 0)}%")
+    (metric :icon "" "${round(EWW_RAM.used_mem_perc, 0)}%")
 
-    (metric :icon "" "${round(EWW_CPU.avg, 0)}%")
+    (metric :icon "" "${round(EWW_CPU.avg, 0)}%")
 
     (box :class "metric" (date))))
 
@@ -106,7 +106,7 @@
 
 
 ; TODO make this not hacky
-(defvar audio_sink "")
+(defvar audio_sink "")
 
 (deflisten volume :initial "0" "./audio.sh volume")
 (deflisten workspaces :initial '{"DP-2": [], "HDMI-A-1": []}' "./swayspaces.py")
@@ -125,7 +125,7 @@
 (defvar workspaces_2_yuck "")
 
 (defwindow niri_scroller
-  :monitor '["<primary>", "DisplayPort-0", "PHL 345B1C"]'
+  :monitor 0
   :stacking "fg"
   :geometry (geometry :x 0 :y 0 :width "800px" :height "5px" :anchor "bottom center")
   :reserve (struts :distance "10px" :side "bottom")
@@ -133,8 +133,7 @@
   (niri-scroller))
 
 (defwindow bar_1
-  :monitor '["<primary>", "DisplayPort-0", "PHL 345B1C"]'
-  ; :monitor "DisplayPort-0"
+  :monitor 0
   :stacking "fg"
   :geometry (geometry :x 0 :y 0 :width "40px" :height "100%" :anchor "center left")
   :reserve (struts :distance "40px" :side "left")
@@ -142,7 +141,7 @@
   (bar :screen 1))
 
 (defwindow bar_2
-  :monitor '[2, "HDMI-A-1"]'
+  :monitor 0
   :geometry (geometry :x 0 :y 0 :width "40px" :height "100%" :anchor "top left")
   :reserve (struts :distance "40px" :side "left")
   (bar :screen 2))

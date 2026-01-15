@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-WALLDIR="$HOME/pics/everforest/"
+WALLDIR="$HOME/Pictures/everforest"
 
 WALLPAPER="$(find "$WALLDIR" -type f | shuf -n 1)"
 
