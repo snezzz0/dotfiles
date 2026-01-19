@@ -1,16 +1,9 @@
-/*
- * Tokyonight colorscheme (big icons) for rofi
- * User: w8ste
- */
-
-
-// define colors etc.
 * {
     bg: #24283b;
     hv: #9274ca; 
     primary: #444b6a;  // TokyoNight bright black
     ug: #0B2447;
-    font: "Monospace 11";
+    // font: "DepartureMono Nerd Font Mono";
     background-color: @bg;
     //dark: @bg;
     border: 0px;
@@ -20,14 +13,8 @@
     transparent: rgba(46,52,64,0);
 }
 
-// defines different aspects of the window
 window {
     width: 700;
-    /*since line wont work with height, i comment it out 
-    if you rather control the size via height
-    just comment it out */
-    //height: 500;
-
     orientation: horizontal;
     location: center;
     anchor: center;

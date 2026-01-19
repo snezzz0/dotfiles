@@ -23,12 +23,6 @@ window-rule {
     default-column-width {}
 }
 
-// Firefox picture-in-picture as floating
-window-rule {
-    match app-id=r#"vivaldi-stable$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
 // Block password managers from screen capture
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
@@ -41,12 +35,6 @@ window-rule {
 /-window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
-}
-
-window-rule {
-    match app-id=r#"thunar$"#
-    match title="^Picture-in-Picture$"
-    open-floating true
 }
 
 window-rule {
@@ -92,8 +80,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"kitty$"#
-  // opacity 1.0
+  match app-id=r#"vlc$"#
+  open-maximized true
 }
-
 

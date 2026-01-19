@@ -1,10 +1,10 @@
 /* --- Tokyo Night Color Definitions --- */
 @define-color bg_dark      #1a1b26;
 @define-color bg_highlight #24283b; /* The module background */
-@define-color fg_clock      #7dcfff; /* The "Clock" Cyan text color */
-@define-color red           #f7768e;
-@define-color green         #9ece6a;
-@define-color comment       #565f89;
+@define-color fg_clock     #7dcfff; /* The "Clock" Cyan text color */
+@define-color red          #f7768e;
+@define-color green        #9ece6a;
+@define-color comment      #565f89;
 
 /* Global Reset */
 * {
@@ -28,7 +28,7 @@ window#waybar.fullscreen {
     opacity: 0;
 }
 
-/* Unified Module Styling */
+/* Unified Module Styling (Every module gets the same BG and Clock Text Color) */
 #clock,
 #memory,
 #pulseaudio,
@@ -43,10 +43,11 @@ window#waybar.fullscreen {
 #custom-month, 
 #custom-year {
     background: @bg_highlight;
-    color: @fg_clock;
+    color: @fg_clock; /* Uniform text color for all */
     font-size: 14px;
     transition: none;
     border-radius: 0;
+    
     margin-left: 5px;   
     margin-right: 5px;  
 }
@@ -58,7 +59,7 @@ window#waybar.fullscreen {
     padding: 5px 0;
 }
 
-/* --- THE DATE STACK --- */
+/* --- THE DATE STACK (Connected Blocks) --- */
 #custom-day_word, #custom-day, #custom-month, #custom-year {
     margin-top: 0;
     margin-bottom: 0;
@@ -79,36 +80,26 @@ window#waybar.fullscreen {
     padding: 0px 5px 5px 5px;
 }
 
-/* --- SWAY WORKSPACES --- */
+/* --- SPECIAL MODULES --- */
 #workspaces {
     background: transparent;
-    padding: 0;
+    padding: 5px 0;
     margin-left: 5px;
     margin-right: 6px;
 }
 
 #workspaces button {
+    all: initial;
     font-family: inherit;
-    /* Increased font size for better visibility */
-    font-size: 16px; 
-    color: @comment;
-    padding: 0 8px;
-    margin: 4px 2px;
+    font-size: 11px;
+    color: @comment; /* Dimmed for inactive workspaces */
+    padding: 2px 0;
+    margin: 2px 0;
     background: transparent;
-    
-    /* Ensure no underlining or borders */
-    border: none;
-    border-bottom: none;
-    box-shadow: none;
-    text-shadow: none;
 }
 
-/* Sway uses .focused for the active workspace */
-#workspaces button.focused {
-    color: @fg_clock;
-    background: @bg_highlight;
-    /* Removed underlining entirely */
-    border-bottom: none; 
+#workspaces button.active {
+    color: @fg_clock; /* Active workspace matches the theme */
 }
 
 #workspaces button.urgent {
@@ -116,16 +107,11 @@ window#waybar.fullscreen {
     background-color: @red;
 }
 
-#workspaces button:hover {
-    background: @bg_highlight;
-    color: @fg_clock;
-}
-
-/* --- TRAY & ALERTS --- */
 #tray {
     padding: 2px 0;
 }
 
+/* Specific Alerts (Keep red for visibility) */
 #battery.warning,
 #battery.critical,
 #battery.urgent {

@@ -5,18 +5,18 @@
 VAULT_DIR="$HOME/second-brain"
 
 # Ensure PARA directories exist
-mkdir -p "$VAULT_DIR/temp"
-mkdir -p "$VAULT_DIR/projects"
-mkdir -p "$VAULT_DIR/areas"
-mkdir -p "$VAULT_DIR/resources"
+mkdir -p "$VAULT_DIR/0temp"
+mkdir -p "$VAULT_DIR/1-projects"
+mkdir -p "$VAULT_DIR/2-areas"
+mkdir -p "$VAULT_DIR/3-resources"
 
 # Rofi menu options
-options="Open Vault\n---\nQuick Note\nProject Note\nArea Note\nResource Note"
+options="<span color='#ff9e64'>Open Vault</span>\nQuick Note\nProject Note\nArea Note\nResource Note"
 
 # Show rofi menu
-choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" \
+choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" -markup-rows \
     -theme ~/.config/rofi/tokyonight.rasi \
-    -theme-str 'window {width: 20%;} listview {lines: 6;}')
+    -theme-str 'window {width: 20%;} listview {lines: 5;}')
 
 case "$choice" in
     "Open Vault")
@@ -26,7 +26,7 @@ case "$choice" in
     "Quick Note")
         # Generate timestamp filename: YYYY-MM-DD-HHMM.md
         timestamp=$(date +%Y-%m-%d-%H%M)
-        note_file="$VAULT_DIR/temp/$timestamp.md"
+        note_file="$VAULT_DIR/0temp/$timestamp.md"
         
         # Create with template
         echo "# Quick Note" > "$note_file"
@@ -37,7 +37,7 @@ case "$choice" in
         echo "" >> "$note_file"
         
         # Open in Obsidian with the specific file
-        obsidian "obsidian://open?vault=second-brain&file=temp/$timestamp.md" &
+        obsidian "obsidian://open?vault=second-brain&file=0temp/$timestamp.md" &
         ;;
     "Project Note")
         # Prompt for project name
@@ -48,7 +48,7 @@ case "$choice" in
         if [ -n "$project_name" ]; then
             # Sanitize filename
             safe_name=$(echo "$project_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
-            note_file="$VAULT_DIR/projects/$safe_name.md"
+            note_file="$VAULT_DIR/1-projects/$safe_name.md"
             
             # Create with template
             if [ ! -f "$note_file" ]; then
@@ -61,7 +61,7 @@ case "$choice" in
             fi
             
             # Open in Obsidian
-            obsidian "obsidian://open?vault=second-brain&file=projects/$safe_name.md" &
+            obsidian "obsidian://open?vault=second-brain&file=1-projects/$safe_name.md" &
         fi
         ;;
     "Area Note")
@@ -72,7 +72,7 @@ case "$choice" in
         
         if [ -n "$area_name" ]; then
             safe_name=$(echo "$area_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
-            note_file="$VAULT_DIR/areas/$safe_name.md"
+            note_file="$VAULT_DIR/2-areas/$safe_name.md"
             
             # Create with template
             if [ ! -f "$note_file" ]; then
@@ -85,7 +85,7 @@ case "$choice" in
             fi
             
             # Open in Obsidian
-            obsidian "obsidian://open?vault=second-brain&file=areas/$safe_name.md" &
+            obsidian "obsidian://open?vault=second-brain&file=2-areas/$safe_name.md" &
         fi
         ;;
     "Resource Note")
@@ -96,7 +96,7 @@ case "$choice" in
         
         if [ -n "$resource_name" ]; then
             safe_name=$(echo "$resource_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
-            note_file="$VAULT_DIR/resources/$safe_name.md"
+            note_file="$VAULT_DIR/3-resources/$safe_name.md"
             
             # Create with template
             if [ ! -f "$note_file" ]; then
@@ -109,7 +109,7 @@ case "$choice" in
             fi
             
             # Open in Obsidian
-            obsidian "obsidian://open?vault=second-brain&file=resources/$safe_name.md" &
+            obsidian "obsidian://open?vault=second-brain&file=3-resources/$safe_name.md" &
         fi
         ;;
 esac

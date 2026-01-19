@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "left",
     "output": "DP-1",
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["niri/workspaces","hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [
       "tray",
@@ -16,16 +16,26 @@
       "icon-size": 16,
       "spacing": 8
     },
-    "sway/workspaces": {
-      "format": "{name}",
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "",
+        "default": ""
+      },
       "disable-scroll": true,
-      "all-outputs": false,
+      "all-outputs": false
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "separate-outputs": true,
+      "active-only": false,
+      "all-outputs": false,  
       "persistent-workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": []
+        "DP-1": [1, 2, 3, 4] 
+      },
+      "format-icons": {
+        "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+        "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
       }
     },
     "memory": {

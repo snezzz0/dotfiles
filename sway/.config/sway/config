@@ -1,0 +1,78 @@
+# ============================================================================
+# SWAY MAIN CONFIGURATION (Cleaned & Optimized)
+# ============================================================================
+for_window [app_id="jome"] {
+    floating enable
+    resize set 600 400
+    move position center
+}
+
+for_window [app_id="hyprpicker"] floating enable
+
+# --- Variables ---
+set $mod            Mod4
+set $terminal       kitty
+set $fileManager    kitty -e yazi
+set $menu           rofi -show drun -theme-str 'window {width: 25%;}'
+set $browser        zen-browser
+set $colorPicker    hyprpicker
+
+# --- Include Keybinds (Loaded after variables so they work) ---
+include ~/.config/sway/keybinds.conf
+
+# --- Output (Monitor) ---
+# High-refresh rate and position
+output DP-1 resolution 2560x1440@240Hz position 0,0
+output * bg #1a1b26 solid_color
+
+# --- Autostart ---
+# Essential environment sync for portals/waybar
+exec_always {
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+}
+
+exec {
+    /usr/lib/polkit-kde-authentication-agent-1
+    waybar
+    dunst
+    swww-daemon
+    wl-paste --type text --watch cliphist store
+    wl-paste --type image --watch cliphist store
+    # Set GTK/Cursor theme once on startup
+    gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gnome.desktop.interface cursor-size 28
+    ~/.config/sway/random_wall.sh
+}
+
+# --- Appearance ---
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 3
+gaps outer 5
+
+# Tokyo Night Colors (Sway format)
+# class                 border  backgr. text    indicator child_border
+client.focused          #ff9e64 #ff9e64 #ffffff #ff9e64   #ff9e64
+client.focused_inactive #414868 #414868 #c0caf5 #414868   #414868
+client.unfocused        #24283b #24283b #787c99 #24283b   #24283b
+client.urgent           #f7768e #f7768e #ffffff #f7768e   #f7768e
+
+# --- Input Configuration ---
+input "type:keyboard" {
+    xkb_layout us,hu
+    xkb_options grp:alt_shift_toggle
+}
+
+input "type:pointer" {
+    accel_profile flat
+}
+
+input "type:touchpad" {
+    natural_scroll enabled
+    tap enabled
+}
+
+# Drag floating windows
+floating_modifier $mod normal
