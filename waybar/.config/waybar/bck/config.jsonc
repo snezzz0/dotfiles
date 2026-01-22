@@ -1,14 +1,14 @@
 [
   {
     "layer": "top",
-    "position": "top",
+    "position": "left",
     "output": "DP-1",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [
       "tray",
       "pulseaudio",
-      "custom/date",
+      "group/date-stack"
     ],
     "tray": {
       "icon-size": 16,
@@ -46,7 +46,7 @@
       "tooltip-format": "CPU Usage"
     },
     "pulseaudio": {
-      "format": "vol{volume}%",
+      "format": "{volume}%",
       "format-muted": "󰝟",
       "scroll-step": 1,
       "on-click": "pavucontrol"
@@ -60,7 +60,7 @@
       "interval": 1
     },
     "clock": {
-      "format": "{:%H:%M:%S}",
+      "format": "{:%H\n%M\n%S}",
       "interval": 1,
       "locale": "en_US.UTF-8",
       "tooltip": true,
@@ -69,9 +69,30 @@
         "mode": "month"
       }
     },
-    "custom/date": {
-      "exec": "date '+%a %d/%m/%y' | tr '[:upper:]' '[:lower:]'",
-      "interval": 60
+    "custom/day_word": {
+        "exec": "date +%a | tr '[:upper:]' '[:lower:]'",
+        "interval": 600
+    },
+    "custom/day": {
+        "exec": "date +%d",
+        "interval": 600
+    },
+    "custom/month": {
+        "exec": "date +%m",
+        "interval": 3600
+    },
+    "custom/year": {
+        "exec": "date +%y",
+        "interval": 3600
+    },
+    "group/date-stack": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/day_word",
+            "custom/day",
+            "custom/month",
+            "custom/year"
+        ]
     }
   }
 ]

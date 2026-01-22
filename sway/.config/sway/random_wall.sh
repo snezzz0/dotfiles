@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-WALLDIR="$HOME/Pictures/tokyonight_walls/"
+WALLDIR="$HOME/Pictures/cyberpunk_tokyonight/"
 
 WALLPAPER="$(find "$WALLDIR" -type f | shuf -n 1)"
 

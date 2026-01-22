@@ -17,7 +17,7 @@
     font-size: 14px;
 }
 
-/* Main Waybar Window */
+/* Main Waybar Window - WIDTH control for vertical bar */
 window#waybar {
     background: @bg_dark;
     color: @fg_clock;
@@ -38,27 +38,61 @@ window#waybar.fullscreen {
 #battery,
 #custom-gpu,
 #cpu,
-#custom-date {
+#custom-cava,
+#custom-day_word, 
+#custom-day, 
+#custom-month, 
+#custom-year {
     background: @bg_highlight;
     color: @fg_clock;
     transition: none;
     border-radius: 0;
-    padding: 5px 10px;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 5px;   
+    margin-right: 5px;  
+}
+
+/* Standard Standalone Modules */
+#clock, #memory, #pulseaudio, #network, #tray, #battery, #custom-gpu, #cpu, #custom-cava {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 5px 0;
+}
+
+/* --- THE DATE STACK --- */
+#custom-day_word, #custom-day, #custom-month, #custom-year {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#custom-day_word {
+    margin-top: 4px;
+    padding: 5px 5px 0px 5px;
+}
+
+#custom-day, 
+#custom-month {
+    padding: 0px 5px 0px 5px;
+}
+
+#custom-year {
+    margin-bottom: 4px;
+    padding: 0px 5px 5px 5px;
 }
 
 /* --- SWAY WORKSPACES --- */
 #workspaces {
     background: transparent;
     padding: 0;
+    margin-left: 5px;
+    margin-right: 6px;
 }
 
 #workspaces button {
     font-family: inherit;
+    font-size: 16px; 
     color: @comment;
-    padding: 2px;
-    margin: 3px;
+    padding: 0 8px;
+    margin: 4px 2px;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -67,6 +101,7 @@ window#waybar.fullscreen {
 
 #workspaces button.focused {
     color: @fg_clock;
+    /* background: @bg_highlight; */
     background: transparent;
 }
 
@@ -82,7 +117,7 @@ window#waybar.fullscreen {
 
 /* --- TRAY & ALERTS --- */
 #tray {
-    padding: 2px 10px;
+    padding: 2px 0;
 }
 
 #battery.warning,

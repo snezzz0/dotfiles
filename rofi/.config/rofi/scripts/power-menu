@@ -3,10 +3,10 @@
 # Fixed Theme: No search bar, no scrollbar, exact sizing
 THEME="window { width: 300px; border: 2px; border-color: #ff9e64; } listview { lines: 4; scrollbar: false; }"
 # Options in your specific order
-logout="󰍃 Logout"
-shutdown="󰐥 Shutdown"
-reboot="󰜉 Reboot"
-sleep="󰤄 Sleep"
+logout="Logout"
+shutdown="Shutdown"
+reboot="Reboot"
+sleep="Sleep"
 
 # The order here determines the order in Rofi
 options="$logout\n$shutdown\n$reboot\n$sleep"

@@ -68,3 +68,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 alias zz='zi'
+
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR=nvim
+

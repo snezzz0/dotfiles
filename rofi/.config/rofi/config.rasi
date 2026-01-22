@@ -1,8 +1,9 @@
 configuration{
     modi: ["drun", "window", "run"];
-    icon-theme: "Papirus-Dark";
+    icon-theme: "retrosmart";
     show-icons: true;
-    terminal: "alacritty";
+    font: "JetBrainsMono Nerd Font";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
