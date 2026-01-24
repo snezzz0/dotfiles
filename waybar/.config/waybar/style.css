@@ -56,9 +56,10 @@ window#waybar.fullscreen {
 
 #workspaces button {
     font-family: inherit;
+    font-size: 14px;
     color: @comment;
-    padding: 2px;
-    margin: 3px;
+    padding: 2px 6px;
+    margin: 0 1px;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -66,8 +67,8 @@ window#waybar.fullscreen {
 }
 
 #workspaces button.focused {
-    color: @fg_clock;
-    background: transparent;
+    color:#24283b;
+    background: #7aa2f7;
 }
 
 #workspaces button.urgent {

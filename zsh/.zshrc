@@ -73,3 +73,10 @@ export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
 
+
+# bun completions
+[ -s "/home/adam/.bun/_bun" ] && source "/home/adam/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

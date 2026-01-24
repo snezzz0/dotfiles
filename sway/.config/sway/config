@@ -43,10 +43,12 @@ exec {
 }
 
 # --- Appearance ---
-default_border pixel 1
-default_floating_border pixel 1
-gaps inner 3
-gaps outer 3
+default_border pixel 4
+default_floating_border pixel 4
+gaps inner -1
+gaps outer -4
+smart_gaps off
+smart_borders off
 
 # Tokyo Night Colors with Dark Blue Active Border
 # class                 border  backgr. text    indicator child_border

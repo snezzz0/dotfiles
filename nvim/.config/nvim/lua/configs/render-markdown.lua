@@ -1,9 +1,9 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  dependencies = { 
+  dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "nvim-tree/nvim-web-devicons" -- NvChad uses web-devicons
+    "nvim-tree/nvim-web-devicons" 
   },
-  ft = "markdown", -- lazy load only for markdown files
+  ft = "markdown",
   opts = {},
 }
