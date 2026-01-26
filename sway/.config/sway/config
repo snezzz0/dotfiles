@@ -45,7 +45,7 @@ exec {
 # --- Appearance ---
 default_border pixel 4
 default_floating_border pixel 4
-gaps inner -1
+gaps inner -4
 gaps outer -4
 smart_gaps off
 smart_borders off

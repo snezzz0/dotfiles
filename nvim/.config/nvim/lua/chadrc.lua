@@ -8,12 +8,12 @@ M.base46 = {
 
   hl_override = {
     Comment = { italic = true },
-    ["@comment"] = { italic = true },
+    ["@comment"] = { italic = false },
     ["@keyword"] = { italic = true },
     ["@keyword.function"] = { italic = true },
     ["@conditional"] = { italic = true },
   },
-} 
+}
 
 -- M.nvdash = { load_on_startup = true }
 

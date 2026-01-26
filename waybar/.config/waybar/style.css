@@ -1,7 +1,7 @@
 /* --- Tokyo Night Color Definitions --- */
 @define-color bg_dark      #1a1b26;
 @define-color bg_highlight #24283b;
-@define-color fg_clock      #7dcfff;
+@define-color fg_clock      #7aa2f7;
 @define-color red           #f7768e;
 @define-color green         #9ece6a;
 @define-color comment       #565f89;
@@ -12,7 +12,6 @@
     border-radius: 0;
     min-height: 0;
     font-family: "Terminess Nerd Font";
-    font-weight: 400;
     letter-spacing: 0px;
     font-size: 14px;
 }
@@ -37,8 +36,7 @@ window#waybar.fullscreen {
 #tray,
 #battery,
 #custom-gpu,
-#cpu,
-#custom-date {
+#cpu {
     background: @bg_highlight;
     color: @fg_clock;
     transition: none;
@@ -48,10 +46,21 @@ window#waybar.fullscreen {
     margin-right: 4px;
 }
 
+#custom-date {
+    background: @bg_highlight;
+    color: @fg_clock;
+    transition: none;
+    border-radius: 0;
+    padding: 5px 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
 /* --- SWAY WORKSPACES --- */
 #workspaces {
     background: transparent;
     padding: 0;
+    font-weight: bold;
+
 }
 
 #workspaces button {
@@ -59,7 +68,6 @@ window#waybar.fullscreen {
     font-size: 14px;
     color: @comment;
     padding: 2px 6px;
-    margin: 0 1px;
     background: transparent;
     border: none;
     box-shadow: none;
@@ -67,8 +75,8 @@ window#waybar.fullscreen {
 }
 
 #workspaces button.focused {
-    color:#24283b;
-    background: #7aa2f7;
+    background: @fg_clock;
+    color: @bg_dark;
 }
 
 #workspaces button.urgent {
