@@ -1,22 +1,29 @@
 /* --- Tokyo Night Color Definitions --- */
-@define-color bg_dark      #1a1b26;
-@define-color bg_highlight #24283b;
-@define-color fg_clock      #7aa2f7;
-@define-color red           #f7768e;
-@define-color green         #9ece6a;
-@define-color comment       #565f89;
+/* @define-color bg_dark      #1a1b26; */
+/* @define-color bg_highlight #24283b; */
+/* @define-color fg_clock      #7dcfff; */
+/* @define-color red           #f7768e; */
+/* @define-color green         #9ece6a; */
+/* @define-color comment       #565f89; */
 
+@define-color bg_dark      #0f0f14;
+@define-color bg_highlight #1b1f2e;
+@define-color fg_clock    #c53b53; 
+@define-color red         #c53b53;
+@define-color green       #98c379;
+@define-color comment     #4a5075;
 /* Global Reset */
 * {
     border: none;
     border-radius: 0;
     min-height: 0;
     font-family: "Terminess Nerd Font";
+    font-weight: 400;
     letter-spacing: 0px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
-/* Main Waybar Window */
+/* Main Waybar Window - WIDTH control for vertical bar */
 window#waybar {
     background: @bg_dark;
     color: @fg_clock;
@@ -36,47 +43,72 @@ window#waybar.fullscreen {
 #tray,
 #battery,
 #custom-gpu,
-#cpu {
+#cpu,
+#custom-cava,
+#custom-day_word, 
+#custom-day, 
+#custom-month, 
+#custom-year,
+#disk {
     background: @bg_highlight;
     color: @fg_clock;
     transition: none;
     border-radius: 0;
-    padding: 5px 10px;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 5px;   
+    margin-right: 5px;  
 }
 
-#custom-date {
-    background: @bg_highlight;
-    color: @fg_clock;
-    transition: none;
-    border-radius: 0;
-    padding: 5px 10px;
-    margin-left: 4px;
-    margin-right: 4px;
+/* Standard Standalone Modules */
+#clock, #memory, #pulseaudio, #network, #tray, #battery, #custom-gpu, #cpu, #custom-cava {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 5px 0;
 }
-/* --- SWAY WORKSPACES --- */
+
+/* --- THE DATE STACK --- */
+#custom-day_word, #custom-day, #custom-month, #custom-year {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#custom-day_word {
+    margin-top: 4px;
+    padding: 5px 5px 0px 5px;
+}
+
+#custom-day, 
+#custom-month {
+    padding: 0px 5px 0px 5px;
+}
+
+#custom-year {
+    margin-bottom: 4px;
+    padding: 0px 5px 5px 5px;
+}
+
+/* --- NIRI WORKSPACES --- */
 #workspaces {
     background: transparent;
     padding: 0;
-    font-weight: bold;
-
+    margin-left: 5px;
+    margin-right: 6px;
 }
 
 #workspaces button {
     font-family: inherit;
-    font-size: 14px;
+    font-size: 10px; 
     color: @comment;
-    padding: 2px 6px;
+    padding: 0 8px;
+    margin: 4px 2px;
     background: transparent;
     border: none;
     box-shadow: none;
     text-shadow: none;
 }
 
-#workspaces button.focused {
-    background: @fg_clock;
-    color: @bg_dark;
+#workspaces button.active {
+    color: @fg_clock;
+    background: transparent;
 }
 
 #workspaces button.urgent {
@@ -91,7 +123,7 @@ window#waybar.fullscreen {
 
 /* --- TRAY & ALERTS --- */
 #tray {
-    padding: 2px 10px;
+    padding: 2px 0;
 }
 
 #battery.warning,

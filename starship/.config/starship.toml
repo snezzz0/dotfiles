@@ -1,42 +1,42 @@
 "$schema" = "https://starship.rs/config-schema.json"
 add_newline = false
-palette = "tokyonight"
+palette = "blackred"
 format = "$directory$git_branch$git_status$character"
 right_format = "$all"
 
 [character]
 vicmd_symbol = "[N] >>>"
-success_symbol = "[>](bold green)"
+success_symbol = "[>](bold red)"
 error_symbol = "[>](bold red)"
 
 [directory]
-style = "bold blue"
+style = "bold red"
 read_only = " 󰌾"
 truncation_length = 3
 truncate_to_repo = true
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [python]
-symbol = ""
+symbol = ""
 format = "[${symbol}${version}]($style) "
 style = "bold yellow"
 
 [nodejs]
-symbol = ""
+symbol = ""
 format = "[${symbol}${version}]($style) "
 style = "bold green"
 
 [cpp]
-symbol = ""
+symbol = ""
 format = "[${symbol}${version}]($style) "
-style = "bold blue"
+style = "bold cyan"
 
 [rust]
 symbol = "󱘗 "
 format = "[${symbol}${version}]($style) "
 style = "bold orange"
 
-[package]
+[golang]
 disabled = true
 
 [git_branch]
@@ -44,23 +44,20 @@ format = "[$symbol$branch]($style) "
 style = "bold magenta"
 
 [git_status]
-style = "bold cyan"
+style = "bold magenta"
 untracked = ""
-modified = "[!$count](bold orange)"
+modified = "[!$count](bold yellow)"
 staged = "[+$count](bold green)"
-renamed = "[»$count](bold blue)"
+renamed = "[»$count](bold cyan)"
 deleted = "[✘$count](bold red)"
-ahead = "[⇡$count](bold white)"
-behind = "[⇣$count](bold white)"
-diverged = "[⇕⇡$ahead_count⇣$behind_count](bold white)"
-
-[golang]
-disabled = true
+ahead = "[⇡$count](bold blue)"
+behind = "[⇣$count](bold blue)"
+diverged = "[⇕⇡$ahead_count⇣$behind_count](bold blue)"
 
 [hostname]
 ssh_only = true
 format = "🌐 [$hostname]($style) "
-style = "bold magenta"
+style = "bold red"
 
 [username]
 show_always = false
@@ -70,6 +67,25 @@ format = "[$user]($style) "
 min_time = 2000
 format = "[$duration]($style) "
 style = "bold yellow"
+
+[package]
+disabled = true
+
+[palettes.dracula]
+background = "#282a36"
+foreground = "#f8f8f2"
+black      = "#21222c"
+red        = "#ff5555"
+green      = "#50fa7b"
+yellow     = "#f1fa8c"
+blue       = "#bd93f9"
+magenta    = "#ff79c6"
+cyan       = "#8be9fd"
+white      = "#f8f8f2"
+orange     = "#ffb86c"
+purple     = "#bd93f9"
+pink       = "#ff79c6"
+comment    = "#6272a4"
 
 [palettes.tokyonight]
 background = "#1a1b26"
@@ -83,3 +99,17 @@ magenta    = "#bb9af7"
 cyan       = "#7dcfff"
 white      = "#a9b1d6"
 orange     = "#ff9e64"
+
+[palettes.blackred]
+background = "#0f0f14"
+foreground = "#f8f8f2"
+black   = "#0f0f14"
+red     = "#ff5555"
+green   = "#a0a0a0"
+yellow  = "#f1fa8c"
+blue    = "#bd93f9"
+magenta = "#ff79c6"
+cyan    = "#8be9fd"
+orange  = "#ff6e6e"
+white   = "#f8f8f2"
+comment = "#6272a4"

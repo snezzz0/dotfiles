@@ -4,10 +4,10 @@ local M = {}
 M.plugins = "user"
 
 M.base46 = {
-  theme = "tokyonight",
+  theme = "doomchad",
 
   hl_override = {
-    Comment = { italic = true },
+    Comment = { italic = false },
     ["@comment"] = { italic = false },
     ["@keyword"] = { italic = true },
     ["@keyword.function"] = { italic = true },

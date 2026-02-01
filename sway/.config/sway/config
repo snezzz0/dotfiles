@@ -12,7 +12,7 @@ set $mod            Mod4
 set $terminal       kitty
 set $fileManager    kitty -e yazi
 set $menu           rofi -show drun -theme-str 'window {width: 25%;}'
-set $browser        zen-browser
+set $browser        google-chrome
 
 # --- Include Keybinds (Loaded after variables so they work) ---
 include ~/.config/sway/keybinds.conf
