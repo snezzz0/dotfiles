@@ -70,7 +70,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"zen$"#
+    match app-id=r#"chromium$"#
     open-maximized true
 }
 
@@ -84,3 +84,7 @@ window-rule {
   open-maximized true
 }
 
+window-rule {
+  match app-id=r#"jome$"#
+  open-floating true
+}

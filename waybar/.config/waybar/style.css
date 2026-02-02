@@ -8,8 +8,8 @@
 
 @define-color bg_dark      #0f0f14;
 @define-color bg_highlight #1b1f2e;
-@define-color fg_clock    #c53b53; 
-@define-color red         #c53b53;
+@define-color fg_clock    #9c8d7e; 
+@define-color red         #9c8d7e;
 @define-color green       #98c379;
 @define-color comment     #4a5075;
 /* Global Reset */

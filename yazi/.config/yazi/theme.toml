@@ -1,0 +1,138 @@
+# Nude Beige Theme for Yazi
+# Matching your terminal color scheme
+
+[manager]
+# Cursor and selection colors
+cwd = { fg = "#9c8d7e", bold = true }
+
+# Hovered item (current selection)
+hovered         = { fg = "#0f0f14", bg = "#9c8d7e" }
+preview_hovered = { underline = true }
+
+# Find results
+find_keyword  = { fg = "#f1fa8c", bold = true }
+find_position = { fg = "#9c8d7e", bg = "reset", bold = true }
+
+# Marker (selected files)
+marker_selected = { fg = "#9c8d7e", bg = "#9c8d7e" }
+marker_copied   = { fg = "#a0a0a0", bg = "#a0a0a0" }
+marker_cut      = { fg = "#ff5555", bg = "#ff5555" }
+
+# Tab bar
+tab_active   = { fg = "#0f0f14", bg = "#9c8d7e", bold = true }
+tab_inactive = { fg = "#a0a0a0", bg = "#1a1b26" }
+tab_width    = 1
+
+# Border (single definition)
+border_symbol = "│"
+border_style  = { fg = "#9c8d7e" }
+
+# Highlighting
+syntect_theme = ""
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#6272a4", bg = "#0f0f14" }
+
+# Status bar sections
+mode_normal = { fg = "#0f0f14", bg = "#9c8d7e", bold = true }
+mode_select = { fg = "#0f0f14", bg = "#f1fa8c", bold = true }
+mode_unset  = { fg = "#0f0f14", bg = "#ff5555", bold = true }
+
+# Progress bar
+progress_label  = { fg = "#a0a0a0", bold = true }
+progress_normal = { fg = "#9c8d7e", bg = "#1a1b26" }
+progress_error  = { fg = "#ff5555", bg = "#1a1b26" }
+
+# Permissions
+permissions_t = { fg = "#9c8d7e" }
+permissions_r = { fg = "#a0a0a0" }
+permissions_w = { fg = "#f1fa8c" }
+permissions_x = { fg = "#9c8d7e" }
+permissions_s = { fg = "#6272a4" }
+
+[input]
+border   = { fg = "#9c8d7e" }
+title    = { fg = "#9c8d7e" }
+value    = { fg = "#a0a0a0" }
+selected = { bg = "#2a2e3f" }
+
+[select]
+border   = { fg = "#9c8d7e" }
+active   = { fg = "#0f0f14", bg = "#9c8d7e", bold = true }
+inactive = { fg = "#a0a0a0" }
+
+[completion]
+border   = { fg = "#9c8d7e" }
+active   = { fg = "#0f0f14", bg = "#9c8d7e", bold = true }
+inactive = { fg = "#a0a0a0" }
+
+# Icons
+icon_prepend = " "
+icon_append  = " "
+
+[tasks]
+border  = { fg = "#9c8d7e" }
+title   = { fg = "#9c8d7e" }
+hovered = { fg = "#0f0f14", bg = "#9c8d7e" }
+
+[which]
+cols            = 3
+mask            = { bg = "#0f0f14" }
+cand            = { fg = "#a0a0a0" }
+rest            = { fg = "#6272a4" }
+desc            = { fg = "#9c8d7e" }
+separator       = "  "
+separator_style = { fg = "#6272a4" }
+
+[help]
+on      = { fg = "#9c8d7e" }
+run     = { fg = "#a0a0a0" }
+desc    = { fg = "#a0a0a0" }
+hovered = { fg = "#0f0f14", bg = "#9c8d7e", bold = true }
+footer  = { fg = "#6272a4", bg = "#0f0f14" }
+
+[notify]
+title_info  = { fg = "#9c8d7e" }
+title_warn  = { fg = "#f1fa8c" }
+title_error = { fg = "#ff5555" }
+
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*", fg = "#9c8d7e" },
+
+  # Videos
+  { mime = "video/*", fg = "#a0a0a0" },
+  { mime = "audio/*", fg = "#a0a0a0" },
+
+  # Archives
+  { mime = "application/*zip", fg = "#f1fa8c" },
+  { mime = "application/x-tar", fg = "#f1fa8c" },
+  { mime = "application/x-bzip*", fg = "#f1fa8c" },
+  { mime = "application/x-7z-compressed", fg = "#f1fa8c" },
+  { mime = "application/x-rar", fg = "#f1fa8c" },
+
+  # Documents
+  { mime = "application/pdf", fg = "#9c8d7e" },
+
+  # Fallback colors
+  { name = "*", fg = "#a0a0a0" },
+  { name = "*/", fg = "#9c8d7e", bold = true },
+]
+
+[icons]
+# Use nerdfont icons with your theme
+"Desktop/"     = ""
+"Documents/"   = ""
+"Downloads/"   = ""
+"Pictures/"    = ""
+"Music/"       = ""
+"Videos/"      = ""
+".config/"     = ""
+".git/"        = ""
