@@ -4,7 +4,7 @@ local M = {}
 M.plugins = "user"
 
 M.base46 = {
-  theme = "monochrome",
+  theme = "kanagawa-dragon",
 
   hl_override = {
     Comment = { italic = false },
@@ -12,6 +12,7 @@ M.base46 = {
     ["@keyword"] = { italic = true },
     ["@keyword.function"] = { italic = true },
     ["@conditional"] = { italic = true },
+    Visual = { bg = "#3d352d" },
   },
 }
 
