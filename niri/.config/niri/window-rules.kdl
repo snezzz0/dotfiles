@@ -70,7 +70,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"chromium$"#
+    match app-id=r#"Chromium$"#
     open-maximized true
 }
 

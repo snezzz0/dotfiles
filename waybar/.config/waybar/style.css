@@ -117,8 +117,8 @@ window#waybar.fullscreen {
 }
 
 #workspaces button:hover {
-    background: @bg_highlight;
-    color: @fg_clock;
+    /* background: @bg_highlight; */
+    background: transparent;
 }
 
 /* --- TRAY & ALERTS --- */
