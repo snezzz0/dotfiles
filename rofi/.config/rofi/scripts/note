@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Rofi note launcher script for Obsidian + PARA method
+# Rofi note launcher script for Neovim + PARA method
 
-VAULT_DIR="$HOME/second-brain"
+VAULT_DIR="$HOME/notes"
 
 # Ensure PARA directories exist
 mkdir -p "$VAULT_DIR/0temp"
@@ -11,18 +11,17 @@ mkdir -p "$VAULT_DIR/2-areas"
 mkdir -p "$VAULT_DIR/3-resources"
 
 # Rofi menu options
-options="<span color='#ff9e64'>Open Vault</span>\nQuick Note\nProject Note\nArea Note\nResource Note"
+options="Open Vault\nQuick Note\nProject Note\nArea Note\nResource Note"
 
 # Show rofi menu
-choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" -markup-rows \
-    -theme ~/.config/rofi/tokyonight.rasi \
-    -theme-str 'window {width: 20%;} listview {lines: 5;}')
+choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" -theme-str 'window {width: 10%;} listview {lines: 5; columns: 1;}')
 
 case "$choice" in
     "Open Vault")
-        # Open Obsidian
-        obsidian &
+        # Open vault directory in nvim
+        cd "$VAULT_DIR" && kitty -e nvim . &
         ;;
+    
     "Quick Note")
         # Generate timestamp filename: YYYY-MM-DD-HHMM.md
         timestamp=$(date +%Y-%m-%d-%H%M)
@@ -36,14 +35,13 @@ case "$choice" in
         echo "## Overview" >> "$note_file"
         echo "" >> "$note_file"
         
-        # Open in Obsidian with the specific file
-        obsidian "obsidian://open?vault=second-brain&file=0temp/$timestamp.md" &
+        # Open in nvim
+        cd "$VAULT_DIR" && kitty -e nvim "0temp/$timestamp.md" &
         ;;
+    
     "Project Note")
         # Prompt for project name
-        project_name=$(rofi -dmenu -p "Project Name" \
-            -theme ~/.config/rofi/tokyonight.rasi \
-            -theme-str 'window {width: 20%;} listview {lines: 0;}')
+        project_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
         if [ -n "$project_name" ]; then
             # Sanitize filename
@@ -54,21 +52,24 @@ case "$choice" in
             if [ ! -f "$note_file" ]; then
                 echo "# $project_name" > "$note_file"
                 echo "" >> "$note_file"
-                echo "tags: " >> "$note_file"
+                echo "tags: #project" >> "$note_file"
                 echo "" >> "$note_file"
                 echo "## Overview" >> "$note_file"
                 echo "" >> "$note_file"
+                echo "## Goals" >> "$note_file"
+                echo "" >> "$note_file"
+                echo "## Tasks" >> "$note_file"
+                echo "" >> "$note_file"
             fi
             
-            # Open in Obsidian
-            obsidian "obsidian://open?vault=second-brain&file=1-projects/$safe_name.md" &
+            # Open in nvim
+            cd "$VAULT_DIR" && kitty -e nvim "1-projects/$safe_name.md" &
         fi
         ;;
+    
     "Area Note")
         # Prompt for area name
-        area_name=$(rofi -dmenu -p "Area Name" \
-            -theme ~/.config/rofi/tokyonight.rasi \
-            -theme-str 'window {width: 20%;} listview {lines: 0;}')
+        area_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
         if [ -n "$area_name" ]; then
             safe_name=$(echo "$area_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
@@ -78,21 +79,20 @@ case "$choice" in
             if [ ! -f "$note_file" ]; then
                 echo "# $area_name" > "$note_file"
                 echo "" >> "$note_file"
-                echo "tags: " >> "$note_file"
+                echo "tags: #area" >> "$note_file"
                 echo "" >> "$note_file"
                 echo "## Overview" >> "$note_file"
                 echo "" >> "$note_file"
             fi
             
-            # Open in Obsidian
-            obsidian "obsidian://open?vault=second-brain&file=2-areas/$safe_name.md" &
+            # Open in nvim
+            cd "$VAULT_DIR" && kitty -e nvim "2-areas/$safe_name.md" &
         fi
         ;;
+    
     "Resource Note")
         # Prompt for resource name
-        resource_name=$(rofi -dmenu -p "Resource Name" \
-            -theme ~/.config/rofi/tokyonight.rasi \
-            -theme-str 'window {width: 20%;} listview {lines: 0;}')
+        resource_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
         if [ -n "$resource_name" ]; then
             safe_name=$(echo "$resource_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
@@ -102,14 +102,14 @@ case "$choice" in
             if [ ! -f "$note_file" ]; then
                 echo "# $resource_name" > "$note_file"
                 echo "" >> "$note_file"
-                echo "tags: " >> "$note_file"
+                echo "tags: #resource" >> "$note_file"
                 echo "" >> "$note_file"
                 echo "## Overview" >> "$note_file"
                 echo "" >> "$note_file"
             fi
             
-            # Open in Obsidian
-            obsidian "obsidian://open?vault=second-brain&file=3-resources/$safe_name.md" &
+            # Open in nvim
+            cd "$VAULT_DIR" && kitty -e nvim "3-resources/$safe_name.md" &
         fi
         ;;
 esac

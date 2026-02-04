@@ -12,7 +12,7 @@ set $mod            Mod4
 set $terminal       kitty
 set $fileManager    kitty -e yazi
 set $menu           rofi -show drun -theme-str 'window {width: 25%;}'
-set $browser        google-chrome
+set $browser        chromium
 
 # --- Include Keybinds (Loaded after variables so they work) ---
 include ~/.config/sway/keybinds.conf
@@ -52,7 +52,7 @@ smart_borders off
 
 # Tokyo Night Colors with Dark Blue Active Border
 # class                 border  backgr. text    indicator child_border
-client.focused          #7aa2f7 #24283b #c0caf5 #7aa2f7   #7aa2f7
+client.focused          #9c8d7e #24283b #c0caf5 #9c8d7e   #9c8d7e
 client.focused_inactive #414868 #24283b #787c99 #414868   #414868
 client.unfocused        #24283b #24283b #787c99 #24283b   #24283b
 client.urgent           #f7768e #24283b #ffffff #f7768e   #f7768e

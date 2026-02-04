@@ -1,5 +1,3 @@
-
-
 # --- 1. Environment & Path Setup ---
 typeset -U path cdpath fpath manpath
 # Standard Arch/CachyOS paths for completions
