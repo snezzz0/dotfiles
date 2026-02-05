@@ -4,9 +4,14 @@
 for_window [app_id="jome"] {
     floating enable
     resize set 600 400
-    move position center
+    # move position center
 }
 
+for_window [app_id="org.qbittorrent.qBittorrent"] {
+    floating enable
+    resize set 800 600
+    move position center
+}
 # --- Variables ---
 set $mod            Mod4
 set $terminal       kitty

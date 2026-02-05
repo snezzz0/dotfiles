@@ -7,6 +7,7 @@
     "modules-center": ["clock"],
     "modules-right": [
       "tray",
+      "disk",
       "pulseaudio",
       "custom/date",
     ],
@@ -72,6 +73,13 @@
     "custom/date": {
       "exec": "date '+%a %d/%m/%y' | tr '[:upper:]' '[:lower:]'",
       "interval": 60
-    }
+    },
+    "disk": {
+      "interval": 30,
+      "format": "{percentage_used}%",
+      "path": "/",
+      "tooltip": true,
+      "tooltip-format": "{free} GB free"
+    },
   }
 ]

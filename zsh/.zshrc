@@ -38,6 +38,7 @@ source ~/.config/fzf-tab/fzf-tab.plugin.zsh
 # Syntax Highlighting (Must be near the end)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # --- 6. Aliases ---
+alias nsync='git add . && git commit -m "sync" && git push'
 alias c='clear'
 alias l='eza -lh --icons=auto'
 alias ld='eza -lhD --icons=auto'

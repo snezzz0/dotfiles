@@ -36,6 +36,7 @@ window#waybar.fullscreen {
 #tray,
 #battery,
 #custom-gpu,
+#disk
 #cpu {
     background: @bg_highlight;
     color: @fg_clock;

@@ -2,7 +2,6 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
--- Safe delete function to prevent E31 errors
 local function safe_del(mode, key)
   pcall(vim.keymap.del, mode, key)
 end
@@ -10,7 +9,6 @@ end
 -----------------------------------------------------------
 -- 1. DELETIONS (Cleaning up the remaining menus)
 -----------------------------------------------------------
--- Existing unbundling
 safe_del("n", "<C-n>")
 safe_del("n", "<leader>b")
 safe_del("n", "<leader>e")
@@ -18,10 +16,10 @@ safe_del("n", "<leader>h")
 safe_del("n", "<leader>v")
 safe_del("n", "<leader>n")
 safe_del("n", "<leader>pt")
-safe_del("n", "<leader>t")  -- Delete the 't' menu
-safe_del("n", "<leader>th") -- Delete the old 'th' theme bind
-safe_del("n", "<leader>ma") -- Delete the 'ma' nested marks
-safe_del("n", "<leader>m")  -- Delete the 'm' menu trigger
+safe_del("n", "<leader>t")  
+safe_del("n", "<leader>th") 
+safe_del("n", "<leader>ma") 
+safe_del("n", "<leader>m")  
 
 -- Unbundle 'f' and 'g'
 safe_del("n", "<leader>fa")
@@ -42,6 +40,11 @@ map({ "n", "v" }, "gl", "$", { desc = "End of line (Helix)", nowait = true })
 map("n", "x", "V", { desc = "Select line (Helix style)" })
 map("n", "x", "V", { desc = "Select line (Helix)" })
 map("v", "x", "j", { desc = "Extend selection (Helix)" })
+
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+map("n", "<C-f>", "<C-f>zz", { desc = "Page forward and center" })
+map("n", "<C-b>", "<C-b>zz", { desc = "Page backward and center" })
 
 -- Tmux keybinds --
 map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate Left" })
