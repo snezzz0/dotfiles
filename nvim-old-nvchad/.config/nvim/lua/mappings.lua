@@ -29,7 +29,6 @@ safe_del("n", "<leader>fm")
 safe_del("n", "<leader>fo")
 safe_del("n", "<leader>fz")
 safe_del("n", "<leader>gg")
-
 -----------------------------------------------------------
 -- 2. YOUR CUSTOM MAPPINGS (Direct Binds)
 -----------------------------------------------------------
@@ -51,6 +50,7 @@ map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Navigate Left" })
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate Down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate Up" })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate Right" })
+
 -- Top-level Direct Binds
 map("n", "<leader>c", "<cmd>NvCheatsheet<cr>", { desc = "" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "LSP Diagnostic" })

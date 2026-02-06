@@ -10,19 +10,28 @@ mkdir -p "$VAULT_DIR/1-projects"
 mkdir -p "$VAULT_DIR/2-areas"
 mkdir -p "$VAULT_DIR/3-resources"
 
-# Rofi menu options
-options="Open Vault\nQuick Note\nProject Note\nArea Note\nResource Note"
+# Rofi menu options with pango markup for colors (Kanagawa Dragon theme)
+# Dragon theme colors: red #c4746e, orange #c4b28a, yellow #c4b28a, green #8a9a7b, blue #8ba4b0, purple #a292a3
+options="<span foreground='#8ba4b0'>fzf</span>\n<span foreground='#a292a3'>ripgrep</span>\nquick note\nproject note\narea note\nresource note"
 
-# Show rofi menu
-choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" -theme-str 'window {width: 10%;} listview {lines: 5; columns: 1;}')
+# Show rofi menu with markup enabled and darker selection color
+choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" -markup-rows -theme-str 'window {width: 15%;} listview {lines: 6; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;}')
 
-case "$choice" in
-    "Open Vault")
-        # Open vault directory in nvim
-        cd "$VAULT_DIR" && kitty -e nvim . &
+# Strip the markup tags for case matching
+choice_clean=$(echo "$choice" | sed 's/<[^>]*>//g')
+
+case "$choice_clean" in
+    "fzf")
+        # Open nvim with file picker (fuzzy find)
+        kitty -e nvim -c "lua require('snacks').picker.files({ cwd = '$VAULT_DIR' })" &
         ;;
     
-    "Quick Note")
+    "ripgrep")
+        # Open nvim with grep/live search
+        kitty -e nvim -c "lua require('snacks').picker.grep({ cwd = '$VAULT_DIR' })" &
+        ;;
+    
+    "quick note")
         # Generate timestamp filename: YYYY-MM-DD-HHMM.md
         timestamp=$(date +%Y-%m-%d-%H%M)
         note_file="$VAULT_DIR/0temp/$timestamp.md"
@@ -36,10 +45,10 @@ case "$choice" in
         echo "" >> "$note_file"
         
         # Open in nvim
-        cd "$VAULT_DIR" && kitty -e nvim "0temp/$timestamp.md" &
+        kitty -e nvim "$note_file" &
         ;;
     
-    "Project Note")
+    "project note")
         # Prompt for project name
         project_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
@@ -63,11 +72,11 @@ case "$choice" in
             fi
             
             # Open in nvim
-            cd "$VAULT_DIR" && kitty -e nvim "1-projects/$safe_name.md" &
+            kitty -e nvim "$note_file" &
         fi
         ;;
     
-    "Area Note")
+    "area note")
         # Prompt for area name
         area_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
@@ -86,11 +95,11 @@ case "$choice" in
             fi
             
             # Open in nvim
-            cd "$VAULT_DIR" && kitty -e nvim "2-areas/$safe_name.md" &
+            kitty -e nvim "$note_file" &
         fi
         ;;
     
-    "Resource Note")
+    "resource note")
         # Prompt for resource name
         resource_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
@@ -109,7 +118,7 @@ case "$choice" in
             fi
             
             # Open in nvim
-            cd "$VAULT_DIR" && kitty -e nvim "3-resources/$safe_name.md" &
+            kitty -e nvim "$note_file" &
         fi
         ;;
 esac

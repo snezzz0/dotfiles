@@ -12,6 +12,9 @@ for_window [app_id="org.qbittorrent.qBittorrent"] {
     resize set 800 600
     move position center
 }
+
+input * xkb_layout "us,hu"
+input * xkb_options "grp:win_space_toggle"
 # --- Variables ---
 set $mod            Mod4
 set $terminal       kitty

@@ -1,0 +1,6 @@
+- whichkey with bloat removed
+- nice status bar
+- probably harpoon for browsing buffers
+- custom keybinds (helix, probably gb and gf for going back and forth)
+- fzf ripgrep bound to space ff and fw
+- flash.nvim, init.nvim can stay

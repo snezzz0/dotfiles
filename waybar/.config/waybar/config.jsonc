@@ -19,13 +19,13 @@
       "format": "{name}",
       "disable-scroll": true,
       "all-outputs": false,
-      "persistent-workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": []
-      }
+      // "persistent-workspaces": {
+      //   "1": [],
+      //   "2": [],
+      //   "3": [],
+      //   "4": [],
+      //   "5": []
+      // }
     },
     "memory": {
       "format": "{used:0.1f}G",

@@ -31,7 +31,9 @@ return {
 
   {
     "folke/which-key.nvim",
-    opts = { preset = "helix" },
+    opts = { preset = "helix",
+    delay = 0,
+    },
   },
 
   {
@@ -48,7 +50,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim", "lua", "vimdoc", "html", "css", "python",
+        "vim", "lua", "vimdoc", "html", "css", "python", "astro"
       },
     },
   },
