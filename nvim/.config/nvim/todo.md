@@ -1,5 +1,3 @@
-- lsp server setup, dont neet that many languages. why doesnt ripgrep work? lsp error? 
-- unbind keys, better option for terminal, probably alt + h
-- tmux plugin
+- lsp server setup, py, cpp, rust, lua 
 
 source vid : https://www.youtube.com/watch?v=FGVY7gbaoQI @ 30 mins
