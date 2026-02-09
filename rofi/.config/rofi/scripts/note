@@ -10,15 +10,26 @@ mkdir -p "$VAULT_DIR/1-projects"
 mkdir -p "$VAULT_DIR/2-areas"
 mkdir -p "$VAULT_DIR/3-resources"
 
-# Rofi menu options with pango markup for colors (Kanagawa Dragon theme)
-# Dragon theme colors: red #c4746e, orange #c4b28a, yellow #c4b28a, green #8a9a7b, blue #8ba4b0, purple #a292a3
-options="<span foreground='#8ba4b0'>fzf</span>\n<span foreground='#a292a3'>ripgrep</span>\nquick note\nproject note\narea note\nresource note"
+# Rofi menu options with two columns
+# Left column (tools)
+left_col="fzf
+ripgrep
+todo"
 
-# Show rofi menu with markup enabled and darker selection color
-choice=$(echo -e "$options" | rofi -dmenu -i -p "Notes" -markup-rows -theme-str 'window {width: 15%;} listview {lines: 6; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;}')
+# Right column (note types)
+right_col="quick note
+project note
+area note
+resource note"
 
-# Strip the markup tags for case matching
-choice_clean=$(echo "$choice" | sed 's/<[^>]*>//g')
+# Combine options
+options="$left_col\n$right_col"
+
+# Show rofi menu with 2 columns, no search field
+choice=$(echo -e "$options" | rofi -dmenu -i -p "" -theme-str 'window {width: 30%;} listview {lines: 7; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;} inputbar {enabled: false;}')
+
+# Strip whitespace for case matching
+choice_clean=$(echo "$choice" | xargs)
 
 case "$choice_clean" in
     "fzf")
@@ -29,6 +40,11 @@ case "$choice_clean" in
     "ripgrep")
         # Open nvim with grep/live search
         kitty -e nvim -c "lua require('snacks').picker.grep({ cwd = '$VAULT_DIR' })" &
+        ;;
+    
+    "todo")
+        # Open todo.md in floating panel using :Td command
+        kitty -e nvim -c "Td" &
         ;;
     
     "quick note")

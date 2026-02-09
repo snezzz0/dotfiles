@@ -56,6 +56,7 @@ eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 alias nvs='NVIM_APPNAME="nvim-scratch" nvim'
+alias notesync='cd ~/notes/ && git add -A && git commit -m "$(date +"%Y-%m-%d %H:%M")" && git push'
 # z + tab triggers zoxide fzf picker, everything else uses default completion
 _z_tab() {
     if [[ "$BUFFER" == "z" ]] || [[ "$BUFFER" == z\ * ]]; then

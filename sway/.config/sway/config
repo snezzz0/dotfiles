@@ -48,6 +48,7 @@ exec {
     swww-daemon
     wl-paste --type text --watch cliphist store
     wl-paste --type image --watch cliphist store
+    qbittorrent --no-splash
 }
 
 # --- Appearance ---
