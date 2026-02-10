@@ -10,13 +10,7 @@ return {
 		preset = "helix",
 		triggers = {
 			{ "<leader>", mode = "n" },
-			{ "<c-w>", mode = "n" },
-			{ "<c-r>", mode = "n" },
-			{ "g", mode = "n" },
 			{ "s", mode = "n" },
-			{ "z", mode = "n" },
-			{ "[", mode = "n" },
-			{ "]", mode = "n" },
 		},
 		icons = {
 			-- set icon mappings to true if you have a Nerd Font
@@ -57,9 +51,10 @@ return {
 
 		-- Document existing key chains
 		spec = {
-			{ "<leader>s", group = "[S]plit" },
-			{ "<leader>l", group = "[L]azy Git" },
-			{ "<leader>f", group = "[F]ind" },
+			{ "<leader>s", group = "Split" },
+			{ "<leader>l", group = "Lazy Git" },
+			{ "<leader>f", group = "Find" },
+			{ "<leader>d", group = "Debug" },
 		},
 	},
 	-- keys = {

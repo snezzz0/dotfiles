@@ -42,7 +42,7 @@
     }
   },
   "memory": {
-    "format": "mem {percentage}%",
+    "format": "ram {percentage}%",
     "interval": 2,
     "states": {
       "critical": 80
@@ -68,8 +68,6 @@
     "scroll-step": 5,
     "max-volume": 150,
     "format": "vol {volume}%",
-    "format-bluetooth": "vol {volume}%",
-    "nospacing": 1,
     "on-click": "pavucontrol",
     "tooltip": false
   },

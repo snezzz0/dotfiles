@@ -1,0 +1,54 @@
+* {
+    /* Color Palette */
+    bg:                  #0c0c0ccc; /* Black with ~80% opacity */
+    bg-selected:         #1a1a1a;
+    fg:                  #d9d9d9;
+    accent:              #e06c75;   /* Reddish accent color for the bar */
+    
+    background-color:    transparent;
+    text-color:          @fg;
+    font:                "Monospace 11"; /* Adjust based on system fonts */
+}
+
+window {
+    background-color:    @bg;
+    border:              1px;
+    border-color:        #333333;
+    width:               600px;
+    padding:             0;
+}
+
+mainbox {
+    children:            [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:    @bg;
+    children:            [ prompt, entry ];
+    padding:             10px;
+    /* This creates the red separator line effect */
+    border:              0px 0px 2px 0px;
+    border-color:        @accent;
+}
+
+prompt {
+    padding:             0px 10px 0px 0px;
+}
+
+listview {
+    lines:               15;
+    columns:             1;
+    fixed-height:        false;
+}
+
+element {
+    padding:             5px 10px;
+}
+
+element selected {
+    background-color: #2a2a38;
+}
+
+element-text {
+    text-color:          inherit;
+}

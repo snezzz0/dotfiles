@@ -25,13 +25,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
---barbar
+-- clear search highlight
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- the how it be paste
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- remember yanked
-vim.keymap.set("v", "p", '"_dp', opts)
+-- vim.keymap.set("v", "p", '"_dp', opts)
 
 -- Copies or Yank to system clipboard
 -- vim.keymap.set("n", "<leader>Y", [["+Y]], opts)

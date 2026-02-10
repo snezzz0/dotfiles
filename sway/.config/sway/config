@@ -4,7 +4,6 @@
 for_window [app_id="jome"] {
     floating enable
     resize set 600 400
-    # move position center
 }
 
 for_window [app_id="org.qbittorrent.qBittorrent"] {
@@ -13,8 +12,12 @@ for_window [app_id="org.qbittorrent.qBittorrent"] {
     move position center
 }
 
-input * xkb_layout "us,hu"
-input * xkb_options "grp:win_space_toggle"
+for_window [app_id="kitty-notes"] { 
+    floating enable
+    resize set 800 600
+    move position center
+}
+
 # --- Variables ---
 set $mod            Mod4
 set $terminal       kitty

@@ -2,14 +2,13 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- tabs
-vim.opt.showtabline = 2
+vim.opt.showtabline = 0
 vim.opt.laststatus = 3
 
 -- long text wrap
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.textwidth = 80
-vim.opt.colorcolumn = "80"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

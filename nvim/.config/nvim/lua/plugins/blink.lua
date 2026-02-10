@@ -11,7 +11,7 @@ return {
 		opts = {
 			-- 'default' for mappings similar to built-in completion
 			-- 'super-tab' for mappings similar to vscode (tab to accept, arrows to navigate)
-			keymap = { preset = "default" },
+			keymap = { preset = "super-tab" },
 
 			appearance = {
 				-- Sets the fallback highlight groups to nvim-cmp's highlight groups

@@ -4,137 +4,73 @@
 
 VAULT_DIR="$HOME/notes"
 
-# Ensure PARA directories exist
-mkdir -p "$VAULT_DIR/0temp"
-mkdir -p "$VAULT_DIR/1-projects"
-mkdir -p "$VAULT_DIR/2-areas"
-mkdir -p "$VAULT_DIR/3-resources"
+# Ensure root directory exists
+mkdir -p "$VAULT_DIR"
 
-# Rofi menu options with two columns
-# Left column (tools)
-left_col="fzf
+# Rofi menu options
+options="fzf
 ripgrep
-todo"
+create note"
 
-# Right column (note types)
-right_col="quick note
-project note
-area note
-resource note"
-
-# Combine options
-options="$left_col\n$right_col"
-
-# Show rofi menu with 2 columns, no search field
-choice=$(echo -e "$options" | rofi -dmenu -i -p "" -theme-str 'window {width: 30%;} listview {lines: 7; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;} inputbar {enabled: false;}')
+# Show rofi menu
+choice=$(echo -e "$options" | rofi -dmenu -i -p "" -theme-str 'window {width: 10%;} listview {lines: 3; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;} inputbar {enabled: false;}')
 
 # Strip whitespace for case matching
 choice_clean=$(echo "$choice" | xargs)
 
 case "$choice_clean" in
     "fzf")
-        # Open nvim with file picker (fuzzy find)
-        kitty -e nvim -c "lua require('snacks').picker.files({ cwd = '$VAULT_DIR' })" &
+        # Use fzf in floating kitty with preview
+        kitty --class kitty-notes -e bash -c "
+            cd '$VAULT_DIR' && \
+            selected=\$(find . -type f -name '*.md' | \
+                fzf --preview 'bat --style=numbers --color=always {}' \
+                    --preview-window=right:60% \
+                    --height=100%) && \
+            [ -n \"\$selected\" ] && nvim \"\$selected\"
+        " &
         ;;
     
-    "ripgrep")
-        # Open nvim with grep/live search
-        kitty -e nvim -c "lua require('snacks').picker.grep({ cwd = '$VAULT_DIR' })" &
-        ;;
+"ripgrep")
+    kitty --class kitty-notes -e bash -c '
+        cd "'"$VAULT_DIR"'" && \
+        selected=$(fzf --disabled --ansi \
+            --bind "start:reload(rg --max-depth 6 --column --line-number --no-heading --color=always --smart-case -- \"\")" \
+            --bind "change:reload:rg --max-depth 6 --column --line-number --no-heading --color=always --smart-case -- {q} || true" \
+            --delimiter ":" \
+            --preview "bat --style=numbers --color=always --highlight-line {2} {1}" \
+            --preview-window="right:60%:+{2}-/2") && \
+        file=$(echo "$selected" | cut -d":" -f1) && \
+        line=$(echo "$selected" | cut -d":" -f2) && \
+        [ -n "$file" ] && nvim "+$line" "$file"
+    ' &
+    ;;
     
-    "todo")
-        # Open todo.md in floating panel using :Td command
-        kitty -e nvim -c "Td" &
-        ;;
-    
-    "quick note")
-        # Generate timestamp filename: YYYY-MM-DD-HHMM.md
-        timestamp=$(date +%Y-%m-%d-%H%M)
-        note_file="$VAULT_DIR/0temp/$timestamp.md"
+    "create note")
+        # Prompt for note name
+        note_name=$(rofi -dmenu -p "Note name (blank for timestamp)" -theme-str 'window {width: 25%;} listview {enabled: false;}')
         
-        # Create with template
-        echo "# Quick Note" > "$note_file"
-        echo "" >> "$note_file"
-        echo "tags: " >> "$note_file"
-        echo "" >> "$note_file"
-        echo "## Overview" >> "$note_file"
-        echo "" >> "$note_file"
+        if [ -z "$note_name" ]; then
+            # If blank, use timestamp
+            timestamp=$(date +%Y-%m-%d-%H%M)
+            note_file="$VAULT_DIR/$timestamp.md"
+        else
+            # Sanitize filename
+            safe_name=$(echo "$note_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
+            note_file="$VAULT_DIR/$safe_name.md"
+        fi
+        
+        # Create with template if doesn't exist
+        if [ ! -f "$note_file" ]; then
+            echo "# $(basename "$note_file" .md)" > "$note_file"
+            echo "" >> "$note_file"
+            echo "tags: " >> "$note_file"
+            echo "" >> "$note_file"
+            echo "## Overview" >> "$note_file"
+            echo "" >> "$note_file"
+        fi
         
         # Open in nvim
-        kitty -e nvim "$note_file" &
-        ;;
-    
-    "project note")
-        # Prompt for project name
-        project_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
-        
-        if [ -n "$project_name" ]; then
-            # Sanitize filename
-            safe_name=$(echo "$project_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
-            note_file="$VAULT_DIR/1-projects/$safe_name.md"
-            
-            # Create with template
-            if [ ! -f "$note_file" ]; then
-                echo "# $project_name" > "$note_file"
-                echo "" >> "$note_file"
-                echo "tags: #project" >> "$note_file"
-                echo "" >> "$note_file"
-                echo "## Overview" >> "$note_file"
-                echo "" >> "$note_file"
-                echo "## Goals" >> "$note_file"
-                echo "" >> "$note_file"
-                echo "## Tasks" >> "$note_file"
-                echo "" >> "$note_file"
-            fi
-            
-            # Open in nvim
-            kitty -e nvim "$note_file" &
-        fi
-        ;;
-    
-    "area note")
-        # Prompt for area name
-        area_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
-        
-        if [ -n "$area_name" ]; then
-            safe_name=$(echo "$area_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
-            note_file="$VAULT_DIR/2-areas/$safe_name.md"
-            
-            # Create with template
-            if [ ! -f "$note_file" ]; then
-                echo "# $area_name" > "$note_file"
-                echo "" >> "$note_file"
-                echo "tags: #area" >> "$note_file"
-                echo "" >> "$note_file"
-                echo "## Overview" >> "$note_file"
-                echo "" >> "$note_file"
-            fi
-            
-            # Open in nvim
-            kitty -e nvim "$note_file" &
-        fi
-        ;;
-    
-    "resource note")
-        # Prompt for resource name
-        resource_name=$(rofi -dmenu -p "File name" -theme-str 'window {width: 25%;} listview {enabled: false;}')
-        
-        if [ -n "$resource_name" ]; then
-            safe_name=$(echo "$resource_name" | tr ' ' '-' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
-            note_file="$VAULT_DIR/3-resources/$safe_name.md"
-            
-            # Create with template
-            if [ ! -f "$note_file" ]; then
-                echo "# $resource_name" > "$note_file"
-                echo "" >> "$note_file"
-                echo "tags: #resource" >> "$note_file"
-                echo "" >> "$note_file"
-                echo "## Overview" >> "$note_file"
-                echo "" >> "$note_file"
-            fi
-            
-            # Open in nvim
-            kitty -e nvim "$note_file" &
-        fi
+        kitty --class kitty-notes -e nvim "$note_file" &
         ;;
 esac
