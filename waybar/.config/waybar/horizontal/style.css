@@ -1,99 +1,55 @@
-/* --- Tokyo Night Color Definitions --- */
-@define-color bg_dark      #1a1b26;
-@define-color bg_highlight #24283b;
-@define-color fg_clock      #7aa2f7;
-@define-color red           #f7768e;
-@define-color green         #9ece6a;
-@define-color comment       #565f89;
-
-/* Global Reset */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-family: "Terminess Nerd Font";
-    letter-spacing: 0px;
-    font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Iosevka Term";
+  font-size: 16px;
+  padding: 0;
 }
 
-/* Main Waybar Window */
 window#waybar {
-    background: @bg_dark;
-    color: @fg_clock;
+  background: #202020;
+  color: #9b8d7f;
 }
 
-window#waybar.fullscreen {
-    background: transparent;
-    color: transparent;
-    opacity: 0;
+tooltip {
+  background-color: #202020;
 }
 
-/* Unified Module Styling */
 #clock,
-#memory,
-#pulseaudio,
-#network,
 #tray,
+#cpu,
+#memory,
 #battery,
-#custom-gpu,
-#cpu {
-    background: @bg_highlight;
-    color: @fg_clock;
-    transition: none;
-    border-radius: 0;
-    padding: 5px 10px;
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-#custom-date {
-    background: @bg_highlight;
-    color: @fg_clock;
-    transition: none;
-    border-radius: 0;
-    padding: 5px 10px;
-    margin-left: 4px;
-}
-/* --- SWAY WORKSPACES --- */
-#workspaces {
-    background: transparent;
-    padding: 0;
+#network,
+#disk,
+#pulseaudio {
+  margin: 2px 2px 0px 0px;
+  padding: 2px 8px;
 }
 
 #workspaces button {
-    font-family: inherit;
-    font-size: 14px;
-    color: @comment;
-    padding: 2px 6px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
+  color: #9b8d7f;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 #workspaces button.focused {
-    background: @fg_clock;
-    color: @bg_dark;
+  background-color: #9b8d7f;
+  color: #202020;
 }
 
-#workspaces button.urgent {
-    color: @bg_dark;
-    background-color: @red;
+#workspaces button.active {
+  background-color: #202020;
+  color: #9b8d7f;
 }
 
-#workspaces button:hover {
-    background: @bg_highlight;
-    color: @fg_clock;
-}
-
-/* --- TRAY & ALERTS --- */
-#tray {
-    padding: 2px 10px;
-}
-
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-    color: @bg_dark;
-    background-color: @red;
+#battery,
+#tray,
+#clock,
+#cpu,
+#pulseaudio,
+#memory {
+  /* background-color: none; */
+  color: #9b8d7f;
 }

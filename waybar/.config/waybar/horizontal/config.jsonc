@@ -1,77 +1,100 @@
-[
-  {
-    "layer": "top",
-    "position": "top",
-    "output": "DP-1",
-    "modules-left": ["sway/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": [
-      "tray",
-      "pulseaudio",
-      "custom/date",
-    ],
-    "tray": {
-      "icon-size": 16,
-      "spacing": 8
+{
+  "position": "top",
+  "spacing": 0,
+  "height": 0,
+  "reload_style_on_change": true,
+  "layer": "top",
+  "custom/separator": {
+    "format": "::",
+    "interval": "once",
+    "tooltip": false
+  },
+  "modules-left": [
+    "sway/workspaces",
+    "niri/workspaces",
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "tray",
+    "disk",
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "clock"
+  ],
+  "sway/window": {
+    "max-length": 50
+  },
+  "niri/workspaces": {
+  "format": "{icon}",
+  "format-icons": {
+    "active": "",
+    "default": ""
     },
-    "sway/workspaces": {
-      "format": "{name}",
-      "disable-scroll": true,
-      "all-outputs": false,
-      "persistent-workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": []
-      }
-    },
-    "memory": {
-      "format": "{used:0.1f}G",
-      "tooltip": true,
-      "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
-      "interval": 10
-    },
-    "custom/gpu": {
-      "exec": "radeontop -d - -l 1 | grep -oP 'gpu \\K[0-9]+'",
-      "interval": 3,
-      "format": "{}%",
-      "return-type": "plain",
-      "tooltip": true,
-      "tooltip-format": "GPU Usage"
-    },
-    "cpu": {
-      "format": "{usage}%",
-      "tooltip": true,
-      "tooltip-format": "CPU Usage"
-    },
-    "pulseaudio": {
-      "format": "vol{volume}%",
-      "format-muted": "󰝟",
-      "scroll-step": 1,
-      "on-click": "pavucontrol"
-    },
-    "network": {
-      "format-wifi": "󰖩",
-      "format-ethernet": "󰈀",
-      "format-disconnected": "󱘖",
-      "tooltip": true,
-      "tooltip-format": "{essid}\n󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
-      "interval": 1
-    },
-    "clock": {
-      "format": "{:%H:%M:%S}",
-      "interval": 1,
-      "locale": "en_US.UTF-8",
-      "tooltip": true,
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-      "calendar": {
-        "mode": "month"
-      }
-    },
-    "custom/date": {
-      "exec": "date '+%a %d/%m/%y' | tr '[:upper:]' '[:lower:]'",
-      "interval": 60
+  },
+  "tray": {
+    "spacing": 10,
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "cpu {usage}%",
+    "interval": 2,
+    "states": {
+      "critical": 90
     }
-  }
-]
+  },
+  "memory": {
+    "format": "ram {percentage}%",
+    "interval": 2,
+    "states": {
+      "critical": 80
+    }
+  },
+  "battery": {
+    "format": "bat {capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "wifi {bandwidthDownBits}",
+    "format-ethernet": "enth {bandwidthDownBits}",
+    "format-disconnected": "no network",
+    "interval": 5,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "vol {volume}%",
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a %d %b  %H:%M:%S}",
+    "interval": 1,
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_used}%",
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "{free} GB free"
+  },
+  "pulseaudio": {
+    "format": "vol{volume}%",
+    "format-muted": "󰝟",
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+ }
+

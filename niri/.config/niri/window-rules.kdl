@@ -2,7 +2,6 @@
 
 workspace "1"
 workspace "2"
-workspace "3"
 // Work around WezTerm's initial configure bug
 window-rule {
     geometry-corner-radius 0
@@ -92,4 +91,14 @@ window-rule {
 window-rule {
   match app-id=r#"org.qbittorrent.qBittorrent$"#
   open-floating true
+}
+
+
+window-rule {
+  match app-id=r#"kitty-notes$"#
+  open-floating true
+  min-height 1000
+  max-height 1000
+  min-width 1200
+  max-width 1200
 }

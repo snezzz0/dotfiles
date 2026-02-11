@@ -14,10 +14,15 @@ for_window [app_id="org.qbittorrent.qBittorrent"] {
 
 for_window [app_id="kitty-notes"] { 
     floating enable
-    resize set 800 600
+    resize set 1200 1000
     move position center
 }
 
+for_window [app_id="xdg-desktop-portal-gtk" title="(?i)(save|open|all files|select)"] {
+    floating enable
+    resize set 800 600
+    move position center
+}
 # --- Variables ---
 set $mod            Mod4
 set $terminal       kitty
@@ -29,12 +34,9 @@ set $browser        chromium
 include ~/.config/sway/keybinds.conf
 
 # --- Output (Monitor) ---
-# High-refresh rate and position
 output DP-1 resolution 2560x1440@240Hz position 0,0
-# output * bg #1a1b26 solid_color
 
 # --- Autostart ---
-# Essential environment sync for portals/waybar
 exec_always {
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
@@ -62,17 +64,15 @@ gaps outer -4
 smart_gaps off
 smart_borders off
 
-# Tokyo Night Colors with Dark Blue Active Border
 # class                 border  backgr. text    indicator child_border
 client.focused          #9c8d7e #24283b #c0caf5 #9c8d7e   #9c8d7e
 client.focused_inactive #414868 #24283b #787c99 #414868   #414868
 client.unfocused        #24283b #24283b #787c99 #24283b   #24283b
 client.urgent           #f7768e #24283b #ffffff #f7768e   #f7768e
 
-# --- Input Configuration ---
 input "type:keyboard" {
     xkb_layout us,hu
-    xkb_options grp:alt_shift_toggle
+    xkb_options "grp:win_space_toggle"
 }
 input "type:pointer" {
     accel_profile flat
