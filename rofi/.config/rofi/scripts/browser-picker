@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 
-# Browser options
-options="Firefox (Personal)\nBrave (Work)"
+# Read bookmarks file
+bookmarks_file="$HOME/.config/rofi/bookmarks.txt"
 
-# Show rofi menu and get selection
-chosen=$(echo -e "$options" | rofi -dmenu -i -p "Select Browser" \
-    -theme ~/.config/rofi/tokyonight.rasi \
-    -theme-str 'window {width: 15%;} entry {enabled: false;} listview {lines: 2;}')
+# Parse bookmarks into rofi format: "Category :: Name"
+options=$(grep -v '^$' "$bookmarks_file" | sed 's/ :: / :: /')
 
-# Launch the selected browser
-case "$chosen" in
-    "Firefox (Personal)")
-        firefox &
-        ;;
-    "Brave (Work)")
-        brave &
-        ;;
-    *)
-        exit 1
-        ;;
-esac
+# Show rofi menu
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Open Bookmark" \
+    -theme-str 'window {width: 30%;} listview {lines: 6;}')
+
+# If nothing selected or user just pressed enter, launch thorium
+if [ -z "$chosen" ]; then
+    thorium-browser &
+    exit 0
+fi
+
+# Extract the URL (everything after the last ::)
+url=$(echo "$chosen" | sed 's/.*:: //')
+
+# Determine which browser to use based on category
+if echo "$chosen" | grep -q '^\[Personal\]'; then
+   chromium "$url" &
+else
+    brave "$url" &
+fi

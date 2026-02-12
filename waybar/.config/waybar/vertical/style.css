@@ -8,31 +8,31 @@
 
 @define-color bg_dark      #0f0f14;
 @define-color bg_highlight #1b1f2e;
-@define-color fg_clock    #9c8d7e; 
+@define-color fg_clock    #9c8d7e;
 @define-color red         #9c8d7e;
 @define-color green       #98c379;
 @define-color comment     #4a5075;
 /* Global Reset */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-family: "Terminess Nerd Font";
-    font-weight: 400;
-    letter-spacing: 0px;
-    font-size: 12px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Terminess Nerd Font";
+  font-weight: 400;
+  letter-spacing: 0px;
+  font-size: 12px;
 }
 
 /* Main Waybar Window - WIDTH control for vertical bar */
 window#waybar {
-    background: @bg_dark;
-    color: @fg_clock;
+  background: @bg_dark;
+  color: @fg_clock;
 }
 
 window#waybar.fullscreen {
-    background: transparent;
-    color: transparent;
-    opacity: 0;
+  background: transparent;
+  color: transparent;
+  opacity: 0;
 }
 
 /* Unified Module Styling */
@@ -45,90 +45,101 @@ window#waybar.fullscreen {
 #custom-gpu,
 #cpu,
 #custom-cava,
-#custom-day_word, 
-#custom-day, 
-#custom-month, 
+#custom-day_word,
+#custom-day,
+#custom-month,
 #custom-year,
 #disk {
-    background: @bg_highlight;
-    color: @fg_clock;
-    transition: none;
-    border-radius: 0;
-    margin-left: 5px;   
-    margin-right: 5px;  
+  background: @bg_highlight;
+  color: @fg_clock;
+  transition: none;
+  border-radius: 0;
+  margin-left: 5px;
+  margin-right: 4px;
 }
 
 /* Standard Standalone Modules */
-#clock, #memory, #pulseaudio, #network, #tray, #battery, #custom-gpu, #cpu, #custom-cava {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding: 5px 0;
+#clock,
+#memory,
+#pulseaudio,
+#network,
+#tray,
+#battery,
+#custom-gpu,
+#cpu,
+#custom-cava {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 3px 0;
 }
 
 /* --- THE DATE STACK --- */
-#custom-day_word, #custom-day, #custom-month, #custom-year {
-    margin-top: 0;
-    margin-bottom: 0;
+#custom-day_word,
+#custom-day,
+#custom-month,
+#custom-year {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 #custom-day_word {
-    margin-top: 4px;
-    padding: 5px 5px 0px 5px;
+  margin-top: 4px;
+  padding: 5px 5px 0px 5px;
 }
 
-#custom-day, 
+#custom-day,
 #custom-month {
-    padding: 0px 5px 0px 5px;
+  padding: 0px 5px 0px 5px;
 }
 
 #custom-year {
-    margin-bottom: 4px;
-    padding: 0px 5px 5px 5px;
+  margin-bottom: 4px;
+  padding: 0px 5px 5px 5px;
 }
 
 /* --- NIRI WORKSPACES --- */
 #workspaces {
-    background: transparent;
-    padding: 0;
-    margin-left: 5px;
-    margin-right: 6px;
+  background: transparent;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 6px;
 }
 
 #workspaces button {
-    font-family: inherit;
-    font-size: 10px; 
-    color: @comment;
-    padding: 0 8px;
-    margin: 4px 2px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
+  font-family: inherit;
+  font-size: 10px;
+  color: @comment;
+  padding: 0 8px;
+  margin: 4px 2px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 #workspaces button.active {
-    color: @fg_clock;
-    background: transparent;
+  color: @fg_clock;
+  background: transparent;
 }
 
 #workspaces button.urgent {
-    color: @bg_dark;
-    background-color: @red;
+  color: @bg_dark;
+  background-color: @red;
 }
 
 #workspaces button:hover {
-    /* background: @bg_highlight; */
-    background: transparent;
+  /* background: @bg_highlight; */
+  background: transparent;
 }
 
 /* --- TRAY & ALERTS --- */
 #tray {
-    padding: 2px 0;
+  padding: 2px 0;
 }
 
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-    color: @bg_dark;
-    background-color: @red;
+  color: @bg_dark;
+  background-color: @red;
 }

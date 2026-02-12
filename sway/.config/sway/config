@@ -6,6 +6,9 @@ for_window [app_id="jome"] {
     resize set 600 400
 }
 
+set $ws10 ""
+assign [app_id="com.github.th_ch.youtube_music"] workspace 
+
 for_window [app_id="org.qbittorrent.qBittorrent"] {
     floating enable
     resize set 800 600

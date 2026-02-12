@@ -1,4 +1,4 @@
-[Personal] :: YouTube :: https://www.youtube.com/feed/subscriptions
+[Personal] :: YouTube :: https://www.youtube.com
 [Personal] :: Gmail :: https://mail.google.com/mail/u/0/#inbox
 [Personal] :: Proton Mail :: https://mail.proton.me/u/1/inbox
 [Personal] :: X (Twitter) :: https://x.com/home

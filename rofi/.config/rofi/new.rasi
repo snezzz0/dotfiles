@@ -1,13 +1,13 @@
 * {
     /* Color Palette */
-    bg:                  #0c0c0ccc; /* Black with ~80% opacity */
+    bg:                  #000000; 
     bg-selected:         #1a1a1a;
     fg:                  #d9d9d9;
-    accent:              #e06c75;   /* Reddish accent color for the bar */
+    accent:              #e06c75;   
     
     background-color:    transparent;
     text-color:          @fg;
-    font:                "Monospace 11"; /* Adjust based on system fonts */
+    font:                "Monospace 11"; 
 }
 
 window {
@@ -26,7 +26,6 @@ inputbar {
     background-color:    @bg;
     children:            [ prompt, entry ];
     padding:             10px;
-    /* This creates the red separator line effect */
     border:              0px 0px 2px 0px;
     border-color:        @accent;
 }
