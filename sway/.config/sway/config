@@ -6,6 +6,11 @@ for_window [app_id="jome"] {
     resize set 600 400
 }
 
+for_window [class="feh"] {
+    floating enable
+}
+
+set $ws1 "1"
 set $ws10 ""
 assign [app_id="com.github.th_ch.youtube_music"] workspace 
 
@@ -51,11 +56,12 @@ exec_always {
 }
 exec {
     /usr/lib/polkit-kde-authentication-agent-1
-    waybar
+    waybar -c ~/.config/waybar/sway/config.jsonc -s ~/.config/waybar/sway/style.css
     dunst
     swww-daemon
     wl-paste --type text --watch cliphist store
     wl-paste --type image --watch cliphist store
+    swaymsg workspace 1   
     qbittorrent --no-splash
 }
 

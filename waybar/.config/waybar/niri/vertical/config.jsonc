@@ -18,11 +18,11 @@
       "spacing": 8
     },
     "niri/workspaces": {
-      "format": "{icon}",
-      "format-icons": {
-        "active": "",
-        "default": ""
-      }
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1", 
+            "msc": ""
+        }
     },
     "memory": {
       "format": "ram\n{percentage}%",

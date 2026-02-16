@@ -2,13 +2,31 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- tabs
-vim.opt.showtabline = 0
+vim.opt.showtabline = 2
 vim.opt.laststatus = 3
+vim.opt.termguicolors = true
 
 -- long text wrap
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.textwidth = 80
+vim.opt.colorcolumn = "80"
+
+-- Normal Mode: Highlight line number only
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "InsertLeave" }, {
+	callback = function()
+		vim.opt.cursorline = true
+		vim.opt.cursorlineopt = "number"
+	end,
+})
+
+-- Insert Mode: Highlight the entire line
+vim.api.nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		vim.opt.cursorline = true
+		vim.opt.cursorlineopt = "both" -- Highlights both number and line
+	end,
+})
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

@@ -1,17 +1,11 @@
-/* --- Tokyo Night Color Definitions --- */
-/* @define-color bg_dark      #1a1b26; */
-/* @define-color bg_highlight #24283b; */
-/* @define-color fg_clock      #7dcfff; */
-/* @define-color red           #f7768e; */
-/* @define-color green         #9ece6a; */
-/* @define-color comment       #565f89; */
+/* --- Gruvbox Dark Color Definitions --- */
+@define-color bg_dark      #282828;
+@define-color bg_highlight #3c3836;
+@define-color fg_clock     #ebdbb2;
+@define-color red          #cc241d;
+@define-color green        #98971a;
+@define-color comment      #928374;
 
-@define-color bg_dark      #0f0f14;
-@define-color bg_highlight #1b1f2e;
-@define-color fg_clock    #9c8d7e;
-@define-color red         #9c8d7e;
-@define-color green       #98c379;
-@define-color comment     #4a5075;
 /* Global Reset */
 * {
   border: none;
@@ -70,7 +64,7 @@ window#waybar.fullscreen {
 #custom-cava {
   margin-top: 4px;
   margin-bottom: 4px;
-  padding: 3px 0;
+  padding: 2px 0;
 }
 
 /* --- THE DATE STACK --- */
@@ -102,7 +96,7 @@ window#waybar.fullscreen {
   background: transparent;
   padding: 0;
   margin-left: 5px;
-  margin-right: 6px;
+  margin-right: 5px;
 }
 
 #workspaces button {
@@ -128,7 +122,6 @@ window#waybar.fullscreen {
 }
 
 #workspaces button:hover {
-  /* background: @bg_highlight; */
   background: transparent;
 }
 
@@ -140,6 +133,6 @@ window#waybar.fullscreen {
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  color: @bg_dark;
+  color: @fg_clock;
   background-color: @red;
 }

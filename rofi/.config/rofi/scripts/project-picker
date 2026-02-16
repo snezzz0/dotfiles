@@ -5,29 +5,43 @@ PROJECTS_DIR="$HOME/projects"
 # Sanitize session name: replaces dots/spaces with underscores
 function sanitize() { echo "$1" | tr ' ./' '___'; }
 
-# 1. Gather Data
-# Get active sessions and format with Pango markup for Green text
-active_sessions=$(tmux list-sessions -F "#S" 2>/dev/null | \
-    awk '{print "<span foreground=\"#a6e22e\">" $0 " (active)</span>"}')
+# ============================================================================
+# AUTO-RESTORE SESSIONS AFTER REBOOT
+# ============================================================================
+if ! tmux list-sessions &>/dev/null 2>&1; then
+    if [ -f "$HOME/.tmux/resurrect/last" ]; then
+        tmux start-server
+        tmux run-shell "$HOME/.tmux/plugins/tmux-resurrect/scripts/restore.sh"
+        sleep 1
+    fi
+fi
 
-# Get project directories, excluding "archive"
+# 1. Gather Data
+# Removed Pango markup to prevent color overriding and ensure theme consistency
+active_sessions=$(tmux list-sessions -F "#S ●" 2>/dev/null)
+
+# Get project directories
 all_projects=$(find "$PROJECTS_DIR" -maxdepth 1 -mindepth 1 -type d ! -name "archive" -printf "%f\n")
 
-# 2. Combine and Sort (Active sessions on top)
+# 2. Combine and Sort
 combined_list=$(echo -e "${active_sessions}\n${all_projects}")
 
-# 3. Rofi Selection (markup-rows enabled for colors)
-selected_raw=$(echo "$combined_list" | rofi -dmenu -i -markup-rows -p "Project" -theme-str 'window {width: 20%;}')
+# 3. Rofi Selection
+# Removed -theme-str argument to allow your global Gruvbox Rofi theme to take control
+selected_raw=$(echo "$combined_list" | rofi -dmenu -i -p "Project")
+
 [ -z "$selected_raw" ] && exit 0
 
 # 4. Processing Selection
-# Remove Pango tags and "(active)" suffix to get the raw name
-selected=$(echo "$selected_raw" | sed -e 's/<[^>]*>//g' -e 's/ (active)//')
+# Simplified sed to only remove the status indicator " ●"
+selected=$(echo "$selected_raw" | sed 's/ ●//')
 session_name=$(sanitize "$selected")
 project_path="$PROJECTS_DIR/$selected"
 
 # 5. Execution
 if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    # Fallback to HOME if directory doesn't exist (for existing sessions not in projects folder)
+    [ ! -d "$project_path" ] && project_path="$HOME"
     tmux new-session -d -s "$session_name" -c "$project_path"
 fi
 

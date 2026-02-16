@@ -30,8 +30,14 @@ tooltip {
 
 #workspaces button {
   color: #9b8d7f;
-  padding-right: 2px;
-  padding-left: 2px;
+  background-color: transparent;
+  margin-right: 3px;
+  padding: 0 4px;
+}
+
+#workspaces button.active {
+  background-color: #353535; /* Subtle background for visibility */
+  color: #9b8d7f;
 }
 
 #workspaces button.focused {
@@ -39,9 +45,9 @@ tooltip {
   color: #202020;
 }
 
-#workspaces button.active {
-  background-color: #202020;
-  color: #9b8d7f;
+#workspaces button.active.focused {
+  background-color: #9b8d7f;
+  color: #202020;
 }
 
 #battery,

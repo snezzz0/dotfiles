@@ -1,7 +1,5 @@
 // Window rules for specific applications
 
-workspace "1"
-workspace "2"
 // Work around WezTerm's initial configure bug
 window-rule {
     geometry-corner-radius 0
@@ -49,6 +47,7 @@ window-rule {
 window-rule {
     match app-id=r#"com.github.th_ch.youtube_music$"#
     open-maximized true
+    open-on-workspace "mus"
 
 }
 
@@ -69,7 +68,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"Chromium$"#
+    match app-id=r#"Thorium-browser$"#
     open-maximized true
 }
 
@@ -101,4 +100,28 @@ window-rule {
   max-height 1000
   min-width 1200
   max-width 1200
+}
+
+
+window-rule {
+  match app-id=r#"yazi$"#
+  open-floating true
+  min-height 1000
+  max-height 1000
+  min-width 1200
+  max-width 1200
+}
+
+window-rule {
+  match app-id=r#"org.prismlauncher.PrismLauncher$"#
+  open-floating true
+  min-height 1000
+  max-height 1000
+  min-width 1200
+  max-width 1200
+}
+
+window-rule {
+    match title=r#"(?i)sign\s*in|log\s*in|login$"#
+    open-floating true
 }

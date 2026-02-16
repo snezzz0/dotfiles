@@ -10,9 +10,6 @@
 [Personal] :: PokerStars :: https://www.pokerstars.com/hu/
 [Personal] :: Claude :: https://claude.ai/new
 [Personal] :: Gemini :: https://gemini.google.com/app
-[Personal] :: ChatGPT :: https://chatgpt.com/
-[Personal] :: Jellyfin :: http://192.168.1.69:8096/web/#/home.html
-[Personal] :: qBittorrent :: http://192.168.1.69:8080/
 [Personal] :: GitHub :: https://github.com/snezzz0
 [Personal] :: Google Sheets :: https://docs.google.com/spreadsheets/u/0/
 [Personal] :: Google Docs :: https://docs.google.com/document/u/0/
@@ -20,19 +17,3 @@
 [Personal] :: BME Neptun :: https://neptun.bme.hu/hallgatoi/main.aspx
 [Personal] :: BME EDU :: https://edu.gtk.bme.hu/
 [Personal] :: BME Office :: https://outlook.office.com/mail/
-
-[Crypto] :: Axiom :: https://axiom.trade/
-[Crypto] :: Trojan Bot :: https://dune.com/whale_hunter/trojan-trading-bot
-[Crypto] :: Centaur :: https://tokens.centaur.io/login
-[Crypto] :: Solscan :: https://solscan.io/
-[Crypto] :: Binance :: https://www.binance.com/en
-[Crypto] :: GMGN.AI :: https://gmgn.ai/follow/IWzYo3Nv?chain=sol
-[Crypto] :: BullX :: https://neo.bullx.io/login
-[Crypto] :: Photon :: https://photon-sol.tinyastro.io/
-[Crypto] :: GateKept :: https://gatekept.io/
-[Crypto] :: Birdeye :: https://birdeye.so/
-[Crypto] :: Helius :: https://dashboard.helius.dev/signup
-
-[Trading] :: TradingView Demo :: https://www.tradingview.com/support/solutions/43000754966-demo-account/
-[Trading] :: FTMO :: https://ftmo.com/en/
-[Trading] :: Algo Trading Roadmap :: https://wonderful-kick-36b.notion.site/Free-Algo-Trading-Roadmap-Resources-Discord-7fa3d54e7a3046cc87bc787694fdeaf6

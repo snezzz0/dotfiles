@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
-
 # Read bookmarks file
-bookmarks_file="$HOME/.config/rofi/bookmarks.txt"
+bookmarks_file="$HOME/.config/rofi/scripts/bookmarks.txt"
 
 # Parse bookmarks into rofi format: "Category :: Name"
 options=$(grep -v '^$' "$bookmarks_file" | sed 's/ :: / :: /')
+
+# Add "Open Browser (Clean)" option at the top
+options="Open Browser 
+$options"
 
 # Show rofi menu
 chosen=$(echo -e "$options" | rofi -dmenu -i -p "Open Bookmark" \
     -theme-str 'window {width: 30%;} listview {lines: 6;}')
 
-# If nothing selected or user just pressed enter, launch thorium
+# If nothing selected, exit
 if [ -z "$chosen" ]; then
-    thorium-browser &
+    exit 0
+fi
+
+# If "Open Browser (Clean)" is selected, launch chromium and exit
+if echo "$chosen" | grep -q 'Open Browser'; then
+    chromium &
     exit 0
 fi
 

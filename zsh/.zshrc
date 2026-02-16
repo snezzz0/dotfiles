@@ -38,19 +38,17 @@ source ~/.config/fzf-tab/fzf-tab.plugin.zsh
 # Syntax Highlighting (Must be near the end)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # --- 6. Aliases ---
-alias nsync='git add . && git commit -m "sync" && git push'
-alias c='clear'
 alias l='eza -lh --icons=auto'
 alias ld='eza -lhD --icons=auto'
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first'
 alias ls='eza -1 --icons=auto'
 alias lt='eza --icons=auto --tree'
-alias mount-server='mkdir -p ~/mnt/server && rclone mount home-server: ~/mnt/server --vfs-cache-mode full &'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
 # Replaced Nixos-rebuild with Arch update command
 alias update='sudo pacman -Syu' 
 alias v='nvim'
+alias disk='ncdu'
 # --- 7. Tool Integrations (Order matters) ---
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"

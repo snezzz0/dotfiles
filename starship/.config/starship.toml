@@ -1,6 +1,6 @@
 "$schema" = "https://starship.rs/config-schema.json"
 add_newline = false
-palette = "blackbeige"
+palette = "gruvbox_dark"
 
 format = """
 $directory$git_branch$git_status
@@ -9,12 +9,12 @@ $character"""
 right_format = "$python$nodejs$cpp$rust$cmd_duration$hostname$username"
 
 [character]
-vicmd_symbol = "[N](bold beige) >>>"
-success_symbol = "[λ](bold beige)"
+vicmd_symbol = "[N](bold fg) >>>"
+success_symbol = "[λ](bold fg)"
 error_symbol = "[λ](bold red)"
 
 [directory]
-style = "bold beige"
+style = "bold fg"
 read_only = " 󰌾"
 truncation_length = 3
 truncate_to_repo = true
@@ -38,50 +38,44 @@ style = "bold gray"
 [rust]
 symbol = "󱘗 "
 format = "[${symbol}${version}]($style) "
-style = "bold beige"
+style = "bold fg"
 
 [golang]
 disabled = true
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-style = "bold beige"
+style = "bold fg"
 
 [git_status]
-style = "bold beige"
+style = "bold fg"
 untracked = ""
 modified = "[!$count](bold yellow)"
 staged = "[+$count](bold gray)"
 renamed = "[»$count](bold gray)"
 deleted = "[✘$count](bold red)"
-ahead = "[⇡$count](bold beige)"
-behind = "[⇣$count](bold beige)"
-diverged = "[⇕⇡$ahead_count⇣$behind_count](bold beige)"
+ahead = "[⇡$count](bold fg)"
+behind = "[⇣$count](bold fg)"
+diverged = "[⇕⇡$ahead_count⇣$behind_count](bold fg)"
 
 [hostname]
 ssh_only = true
 format = "🌐 [$hostname]($style) "
-style = "bold beige"
-
-[username]
-show_always = false
-format = "[$user]($style) "
+style = "bold fg"
 
 [cmd_duration]
 min_time = 2000
 format = "[$duration]($style) "
 style = "bold gray"
 
-[package]
-disabled = true
-
-[palettes.blackbeige]
-background = "#0f0f14"
-foreground = "#f8f8f2"
-black   = "#0f0f14"
-beige   = "#9c8d7e"
-red     = "#ff5555"
-gray    = "#a0a0a0"
-yellow  = "#f1fa8c"
-white   = "#f8f8f2"
-comment = "#6272a4"
+[palettes.gruvbox_dark]
+bg0 = "#282828"
+fg = "#ebdbb2"
+red = "#cc241d"
+green = "#98971a"
+yellow = "#d79921"
+blue = "#458588"
+purple = "#b16286"
+aqua = "#689d6a"
+gray = "#928374"
+orange = "#d65d0e"

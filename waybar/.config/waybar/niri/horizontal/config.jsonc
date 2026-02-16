@@ -10,11 +10,10 @@
     "tooltip": false
   },
   "modules-left": [
-    "sway/workspaces",
     "niri/workspaces",
   ],
   "modules-center": [
-    "sway/window"
+    "niri/window"
   ],
   "modules-right": [
     "tray",
@@ -32,11 +31,11 @@
     "max-length": 50
   },
   "niri/workspaces": {
-  "format": "{icon}",
-  "format-icons": {
-    "active": "",
-    "default": ""
-    },
+      "format": "{icon}",
+      "format-icons": {
+          "1": "1", 
+          "msc": ""
+      }
   },
   "tray": {
     "spacing": 10,

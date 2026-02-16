@@ -1,19 +1,19 @@
 * {
-    /* Color Palette */
-    bg:                  #000000; 
-    bg-selected:         #1a1a1a;
-    fg:                  #d9d9d9;
-    accent:              #e06c75;   
+    /* Kanagawa Palette */
+    bg:                  #1f1f28;
+    bg-selected:         #2d4f67;
+    fg:                  #dcd7ba;
+    accent:              #7e9cd8; /* Crystal Blue */
     
     background-color:    transparent;
     text-color:          @fg;
-    font:                "Monospace 11"; 
+    font:                "Monospace 11";
 }
 
 window {
     background-color:    @bg;
-    border:              1px;
-    border-color:        #333333;
+    border:              2px;
+    border-color:        #363646;
     width:               600px;
     padding:             0;
 }
@@ -32,6 +32,7 @@ inputbar {
 
 prompt {
     padding:             0px 10px 0px 0px;
+    text-color:          @accent;
 }
 
 listview {
@@ -45,7 +46,8 @@ element {
 }
 
 element selected {
-    background-color: #2a2a38;
+    background-color:    @bg-selected;
+    text-color:          #c8c093; /* Old White */
 }
 
 element-text {
