@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Fixed Theme: No search bar, no scrollbar, exact sizing
-THEME="window { width: 300px; border: 0px; border-color: #ff9e64; } listview { lines: 4; scrollbar: false; }"
+THEME="window { width: 300px; border: 1px; border-color: #7e9cd8; } listview { lines: 4; scrollbar: false; }"
 
 # Options in your specific order
 logout="Logout"

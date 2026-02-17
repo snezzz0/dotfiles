@@ -4,11 +4,12 @@ VAULT_DIR="$HOME/notes"
 mkdir -p "$VAULT_DIR"
 
 # Updated Order
-options="create note
+options="open dir
+create note
 fzf
 ripgrep"
 
-choice=$(echo -e "$options" | rofi -dmenu -i -p "" -theme-str 'window {width: 10%;} listview {lines: 3; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;} inputbar {enabled: false;}')
+choice=$(echo -e "$options" | rofi -dmenu -i -p "" -theme-str 'window {width: 10%;} listview {lines: 4; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;} inputbar {enabled: false;}')
 choice_clean=$(echo "$choice" | xargs)
 
 case "$choice_clean" in
@@ -38,6 +39,10 @@ case "$choice_clean" in
             nvim "+$line" "$file"
         ' &
         ;;
+        "open dir")
+                kitty --class kitty-notes -e bash -c "cd '$VAULT_DIR' && yazi" &
+        ;;
+
     
     "create note")
         # Capture input and exit code
