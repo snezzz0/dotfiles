@@ -20,7 +20,7 @@ layout {
     focus-ring {
         on
         width 2
-        active-color "#9c8d7e" 
+        active-color "#bb9af7" 
         inactive-color "#505050"
     }
 

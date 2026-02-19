@@ -1,6 +1,6 @@
 "$schema" = "https://starship.rs/config-schema.json"
 add_newline = false
-palette = "gruvbox_dark"
+palette = "tokyonight_night"
 
 format = """
 $directory$git_branch$git_status
@@ -10,8 +10,8 @@ right_format = "$python$nodejs$cpp$rust$cmd_duration$hostname$username"
 
 [character]
 vicmd_symbol = "[N](bold fg) >>>"
-success_symbol = "[λ](bold fg)"
-error_symbol = "[λ](bold red)"
+success_symbol = "[§](bold fg)"
+error_symbol = "[§](bold red)"
 
 [directory]
 style = "bold fg"
@@ -68,14 +68,14 @@ min_time = 2000
 format = "[$duration]($style) "
 style = "bold gray"
 
-[palettes.gruvbox_dark]
-bg0 = "#282828"
-fg = "#ebdbb2"
-red = "#cc241d"
-green = "#98971a"
-yellow = "#d79921"
-blue = "#458588"
-purple = "#b16286"
-aqua = "#689d6a"
-gray = "#928374"
-orange = "#d65d0e"
+[palettes.tokyonight_night]
+bg       = "#1a1b26"
+fg       = "#c0caf5"
+red      = "#f7768e"
+green    = "#9ece6a"
+yellow   = "#e0af68"
+blue     = "#7aa2f7"
+purple   = "#bb9af7"
+aqua     = "#7dcfff"
+gray     = "#414868"
+orange   = "#ff9e64"

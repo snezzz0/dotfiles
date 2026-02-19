@@ -1,18 +1,15 @@
 * {
-    /* Kanagawa Palette */
-    bg:                  #1f1f28;        /* waveBlue1 */
-    bg-selected:         #1f1f28;        /* waveBlue2 */
-    fg:                  #dcd7ba;
-    accent:              #7e9cd8;
-
-    border-strong:       #9c8d7e;        /* high contrast border */
-    border-subtle:       #54546d;        /* optional secondary border */
-
+    /* TokyoNight Night Palette */
+    bg:                  #1a1b26;
+    bg-selected:         #283457;
+    fg:                  #c0caf5;
+    accent:              #7aa2f7;
+    border-strong:       #7aa2f7;
+    border-subtle:       #414868;
     background-color:    transparent;
     text-color:          @fg;
     font:                "Monospace 11";
 }
-
 window {
     background-color:    @bg;
     border:              3px;
@@ -21,11 +18,9 @@ window {
     width:               600px;
     padding:             0;
 }
-
 mainbox {
     children:            [ inputbar, listview ];
 }
-
 inputbar {
     background-color:    @bg;
     children:            [ prompt, entry ];
@@ -33,33 +28,26 @@ inputbar {
     border:              0px 0px 2px 0px;
     border-color:        @border-strong;
 }
-
 prompt {
     padding:             0px 10px 0px 0px;
     text-color:          @accent;
 }
-
 entry {
     text-color:          @fg;
 }
-
 listview {
     lines:               15;
     columns:             2;
     fixed-height:        false;
 }
-
 element {
     padding:             6px 12px;
     border-radius:       4px;
 }
-
 element selected {
     background-color:    @bg-selected;
-    text-color:          #c8c093;
+    text-color:          #bb9af7;
 }
-
 element-text {
     text-color:          inherit;
 }
-
