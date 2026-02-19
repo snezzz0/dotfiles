@@ -68,7 +68,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"Thorium-browser$"#
+    match app-id=r#"librewolf$"#
     open-maximized true
 }
 
@@ -94,34 +94,19 @@ window-rule {
 
 
 window-rule {
-  match app-id=r#"kitty-notes$"#
-  open-floating true
-  min-height 1000
-  max-height 1000
-  min-width 1200
-  max-width 1200
-}
+    match app-id=r#"kitty-notes$"#
+    match app-id=r#"yazi$"#
+    match app-id=r#"org.prismlauncher.PrismLauncher$"#
+    match app-id=r#"yazi-picker$"#
 
-
-window-rule {
-  match app-id=r#"yazi$"#
-  open-floating true
-  min-height 1000
-  max-height 1000
-  min-width 1200
-  max-width 1200
-}
-
-window-rule {
-  match app-id=r#"org.prismlauncher.PrismLauncher$"#
-  open-floating true
-  min-height 1000
-  max-height 1000
-  min-width 1200
-  max-width 1200
-}
-
-window-rule {
-    match title=r#"(?i)sign\s*in|log\s*in|login$"#
     open-floating true
+    
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 1000; }
 }
+
+// window-rule {
+//     match title=r#"(?i)sign\s*in|log\s*in|login$"#
+//     open-floating true
+// }
+

@@ -145,5 +145,12 @@ return {
 			end,
 			desc = "Neovim Config Files",
 		},
+		{
+			"<leader>x",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Buffer",
+		},
 	},
 }

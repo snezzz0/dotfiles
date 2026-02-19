@@ -1,11 +1,11 @@
 * {
     /* Kanagawa Palette */
-    bg:                  #223249;        /* waveBlue1 */
-    bg-selected:         #2d4f67;        /* waveBlue2 */
+    bg:                  #1f1f28;        /* waveBlue1 */
+    bg-selected:         #1f1f28;        /* waveBlue2 */
     fg:                  #dcd7ba;
     accent:              #7e9cd8;
 
-    border-strong:       #7e9cd8;        /* high contrast border */
+    border-strong:       #9c8d7e;        /* high contrast border */
     border-subtle:       #54546d;        /* optional secondary border */
 
     background-color:    transparent;
@@ -17,7 +17,7 @@ window {
     background-color:    @bg;
     border:              3px;
     border-color:        @border-strong;
-    border-radius:       6px;
+    border-radius:       0px;
     width:               600px;
     padding:             0;
 }

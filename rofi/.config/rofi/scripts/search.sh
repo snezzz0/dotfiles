@@ -22,9 +22,9 @@ match=$(grep -v '^$' "$bookmarks_file" | grep -i "$query" | head -n 1)
 if [ -n "$match" ]; then
     # Extract URL (everything after the last ::)
     url=$(echo "$match" | sed 's/.*:: //')
-    thorium-browser-avx2 "$url" &
+    librewolf "$url" &
 else
     # No bookmark match, search Google
     search_query=$(echo "$query" | sed 's/ /+/g')
-    thorium-browser-avx2 "https://www.google.com/search?q=$search_query" &
+    librewolf "https://www.google.com/search?q=$search_query" &
 fi

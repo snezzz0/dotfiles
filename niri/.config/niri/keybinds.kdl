@@ -8,12 +8,12 @@ binds {
     Mod+Return { spawn "kitty"; }
     Mod+A { spawn-sh "rofi -show drun"; }
     Mod+Alt+L { spawn "swaylock"; }
-    Mod+B { spawn "thorium-browser-avx2"; }
+    Mod+B { spawn "librewolf"; }
     Mod+E { spawn "kitty" "--class" "yazi" "-e" "yazi"; }
     Mod+Escape { spawn-sh "~/.config/rofi/scripts/power-menu-niri.sh"; }
     Mod+N { spawn-sh "~/.config/rofi/scripts/note"; }
     Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
-    Ctrl+T { spawn-sh "~/.config/rofi/scripts/search.sh"; }
+    // Ctrl+T { spawn-sh "~/.config/rofi/scripts/search.sh"; }
 
     // Screen reader toggle
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }

@@ -1,61 +1,146 @@
+/* --- Gruvbox Dark Color Definitions --- */
+@define-color bg_dark      #1f1f28;
+@define-color bg_highlight #3c3836;
+@define-color fg_clock     #ebdbb2;
+@define-color red          #cc241d;
+@define-color green        #98971a;
+@define-color comment      #928374;
+
+/* Global Reset */
 * {
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: "Iosevka Term";
-  font-size: 16px;
-  padding: 0;
+  font-family: "Terminess Nerd Font";
+  font-weight: 400;
+  letter-spacing: 0px;
+  font-size: 12px;
 }
 
+/* Main Waybar Window - WIDTH control for vertical bar */
 window#waybar {
-  background: #202020;
-  color: #9b8d7f;
+  background: @bg_dark;
+  color: @fg_clock;
 }
 
-tooltip {
-  background-color: #202020;
+window#waybar.fullscreen {
+  background: transparent;
+  color: transparent;
+  opacity: 0;
 }
 
+/* Unified Module Styling */
 #clock,
-#tray,
-#cpu,
 #memory,
-#battery,
+#pulseaudio,
 #network,
-#disk,
-#pulseaudio {
-  margin: 2px 2px 0px 0px;
-  padding: 2px 8px;
+#tray,
+#battery,
+#custom-gpu,
+#cpu,
+#custom-cava,
+#custom-day_word,
+#custom-day,
+#custom-month,
+#custom-year,
+#disk {
+  background: @bg_highlight;
+  color: @fg_clock;
+  transition: none;
+  border-radius: 0;
+  margin-left: 5px;
+  margin-right: 4px;
+}
+
+/* Standard Standalone Modules */
+#clock,
+#memory,
+#pulseaudio,
+#network,
+#tray,
+#battery,
+#custom-gpu,
+#cpu,
+#custom-cava {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 2px 0;
+}
+
+/* --- THE DATE STACK --- */
+#custom-day_word,
+#custom-day,
+#custom-month,
+#custom-year {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#custom-day_word {
+  margin-top: 4px;
+  padding: 5px 5px 0px 5px;
+}
+
+#custom-day,
+#custom-month {
+  padding: 0px 5px 0px 5px;
+}
+
+#custom-year {
+  margin-bottom: 4px;
+  padding: 0px 5px 5px 5px;
+}
+
+/* --- NIRI WORKSPACES --- */
+#workspaces {
+  background: transparent;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #workspaces button {
-  color: #9b8d7f;
-  background-color: transparent;
-  margin-right: 3px;
-  padding: 0 4px;
+  font-family: inherit;
+  font-size: 10px;
+  color: @comment;
+  padding: 0 8px;
+  margin: 4px 2px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 #workspaces button.active {
-  background-color: #353535; /* Subtle background for visibility */
-  color: #9b8d7f;
+  color: @fg_clock;
+  background: transparent;
 }
 
-#workspaces button.focused {
-  background-color: #9b8d7f;
-  color: #202020;
+#workspaces button.urgent {
+  color: @bg_dark;
+  background-color: @red;
 }
 
-#workspaces button.active.focused {
-  background-color: #9b8d7f;
-  color: #202020;
+#workspaces button:hover {
+  background: transparent;
 }
 
-#battery,
-#tray,
-#clock,
-#cpu,
-#pulseaudio,
-#memory {
-  /* background-color: none; */
-  color: #9b8d7f;
+#tray {
+  padding: 2px 0;
+}
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+  color: @fg_clock;
+  background-color: @red;
+}
+
+#workspaces button.empty {
+  opacity: 0;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 0;
 }

@@ -15,7 +15,6 @@ vim.opt.termguicolors = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.textwidth = 80
-vim.opt.colorcolumn = "80"
 
 -- Normal Mode: Highlight line number only
 vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "InsertLeave" }, {

@@ -1,95 +1,107 @@
-{
-  "position": "top",
-  "spacing": 0,
-  "height": 0,
-  "reload_style_on_change": true,
-  "layer": "top",
-  "custom/separator": {
-    "format": "::",
-    "interval": "once",
-    "tooltip": false
-  },
-  "modules-left": [
-    "niri/workspaces"
-  ],
-  "modules-center": [
-    "niri/window"
-  ],
-  "modules-right": [
-    "tray",
-    "disk",
-    "custom/separator",
-    "cpu",
-    "custom/separator",
-    "memory",
-    "custom/separator",
-    "pulseaudio",
-    "custom/separator",
-    "clock"
-  ],
-  "sway/window": {
-    "max-length": 50
-  },
-  "niri/workspaces": {
-    "format": "{icon}"
-  },
-  "tray": {
-    "spacing": 10,
-    "tooltip": false
-  },
-  "cpu": {
-    "format": "cpu {usage}%",
-    "interval": 2,
-    "states": {
-      "critical": 90
-    }
-  },
-  "memory": {
-    "format": "ram {percentage}%",
-    "interval": 2,
-    "states": {
-      "critical": 80
-    }
-  },
-  "battery": {
-    "format": "bat {capacity}%",
-    "interval": 5,
-    "states": {
-      "warning": 20,
-      "critical": 10
+[
+  {
+    "layer": "top",
+    "position": "left",
+    "output": "DP-1",
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "tray",
+      "cpu",
+      "memory",
+      "pulseaudio",
+      "disk",
+      "group/date-stack"
+    ],
+    "tray": {
+      "icon-size": 16,
+      "spacing": 8
     },
-    "tooltip": false
-  },
-  "network": {
-    "format-wifi": "wifi {bandwidthDownBits}",
-    "format-ethernet": "enth {bandwidthDownBits}",
-    "format-disconnected": "no network",
-    "interval": 5,
-    "tooltip": false
-  },
-  "pulseaudio": {
-    "scroll-step": 5,
-    "max-volume": 150,
-    "format": "vol {volume}%",
-    "on-click": "pavucontrol",
-    "tooltip": false
-  },
-  "clock": {
-    "format": "{:%a %d %b  %H:%M:%S}",
-    "interval": 1,
-  },
-  "disk": {
-    "interval": 30,
-    "format": "{percentage_used}%",
-    "path": "/",
-    "tooltip": true,
-    "tooltip-format": "{free} GB free"
-  },
-  "pulseaudio": {
-    "format": "vol{volume}%",
-    "format-muted": "󰝟",
-    "scroll-step": 1,
-    "on-click": "pavucontrol"
-  },
- }
-
+    "niri/workspaces": {
+        "format": "{icon}",
+        "filter-empty": true,
+        "format-icons": {
+            "def": "def",
+            "dv1": "dv1",
+            "dv2": "dv2",
+            "oth": "oth",
+            "msc": "msc"
+        }
+    },
+    "memory": {
+      "format": "ram\n{percentage}%",
+      "tooltip": true,
+      "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
+      "interval": 10
+    },
+    "custom/gpu": {
+      "exec": "radeontop -d - -l 1 | grep -oP 'gpu \\K[0-9]+'",
+      "interval": 3,
+      "format": "{}%",
+      "return-type": "plain",
+      "tooltip": true,
+      "tooltip-format": "GPU Usage"
+    },
+    "cpu": {
+      "format": "cpu\n{usage}%",
+      "tooltip": true,
+      "tooltip-format": "CPU Usage"
+    },
+    "disk": {
+      "interval": 30,
+      "format": "ssd\n{percentage_used}%",
+      "path": "/",
+      "tooltip": true,
+      "tooltip-format": "{free} GB free"
+    },
+    "pulseaudio": {
+        "format": "vol\n{volume}%",
+        "format-muted": "VOL\n󰝟",
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+    "network": {
+      "format-wifi": "󰖩",
+      "format-ethernet": "󰈀",
+      "format-disconnected": "󱘖",
+      "tooltip": true,
+      "tooltip-format": "{essid}\n󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}",
+      "interval": 1
+    },
+    "clock": {
+      "format": "{:%H\n%M\n%S}",
+      "interval": 1,
+      "locale": "en_US.UTF-8",
+      "tooltip": true,
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+      "calendar": {
+        "mode": "month"
+      }
+    },
+    "custom/day_word": {
+        "exec": "date +%a | tr '[:upper:]' '[:lower:]'",
+        "interval": 600
+    },
+    "custom/day": {
+        "exec": "date +%d",
+        "interval": 600
+    },
+    "custom/month": {
+        "exec": "date +%m",
+        "interval": 3600
+    },
+    "custom/year": {
+        "exec": "date +%y",
+        "interval": 3600
+    },
+    "group/date-stack": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/day_word",
+            "custom/day",
+            "custom/month",
+            "custom/year"
+        ]
+    }
+  }
+]
