@@ -1,0 +1,71 @@
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Iosevka Term";
+  font-size: 16px;
+  padding: 0;
+}
+window#waybar {
+  background: #1a1b26;
+  color: #c0caf5;
+}
+tooltip {
+  background-color: #1a1b26;
+  border: 1px solid #7aa2f7;
+}
+/* Module Spacing */
+#clock,
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#disk,
+#pulseaudio {
+  margin: 2px 2px 0px 0px;
+  padding: 2px 8px;
+}
+/* Empty workspaces */
+#workspaces button.empty {
+  color: #565f89;
+  background-color: transparent;
+}
+/* Default = has windows, not focused */
+#workspaces button {
+  color: #3d59a1;
+  background-color: transparent;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  border-bottom: 2px solid transparent;
+}
+/* Focused */
+#workspaces button.focused {
+  background-color: #7aa2f7;
+  color: #1a1b26;
+  border-bottom: 2px solid #ffffff;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+/* Visible on another output */
+#workspaces button.visible {
+  background-color: #414868;
+  color: #7aa2f7;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+/* Urgent */
+#workspaces button.urgent {
+  background-color: #f7768e;
+  color: #1a1b26;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+}

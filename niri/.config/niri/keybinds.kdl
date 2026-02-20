@@ -13,8 +13,7 @@ binds {
     Mod+Escape { spawn-sh "~/.config/rofi/scripts/power-menu-niri.sh"; }
     Mod+N { spawn-sh "~/.config/rofi/scripts/note"; }
     Mod+P { spawn-sh "~/.config/rofi/scripts/project-picker"; }
-    // Ctrl+T { spawn-sh "~/.config/rofi/scripts/search.sh"; }
-
+    Mod+M { spawn-sh "~/.config/niri/scripts/yt-music.sh"; }
     // Screen reader toggle
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
@@ -37,7 +36,7 @@ binds {
     // Overview and window management
     Mod+O repeat=false { toggle-overview; }
     Super+Q repeat=false { close-window; }
-    Ctrl+Escape { spawn "sh" "-c" "pkill -x waybar || waybar -c ~/.config/waybar/niri/config.jsonc -s ~/.config/waybar/niri/style.css &"; }
+    Ctrl+Escape { spawn "sh" "-c" "pkill -x waybar || waybar  &"; }
     // Focus navigation (arrow keys)
     Mod+Left  { focus-column-left; }
    // Mod+Down  { focus-window-down; }

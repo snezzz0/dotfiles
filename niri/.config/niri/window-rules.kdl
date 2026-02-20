@@ -1,112 +1,66 @@
-// Window rules for specific applications
+// ============================================================================
+// NIRI WINDOW RULES
+// ============================================================================
 
-// Work around WezTerm's initial configure bug
+// --- Workspaces ---
+workspace "b"
+workspace "d"
+workspace "v"
+workspace "c"
+workspace "m"
+
+// --- Corner Radius (all windows) ---
 window-rule {
     geometry-corner-radius 0
     clip-to-geometry true
 }
 
-// window-rule {
-//     opacity 0.9
-// }
-//
-// window-rule {
-//     match is-active=true
-//     opacity 1.0
-// }
-
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// Block password managers from screen capture
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    block-out-from "screen-capture"
-    open-floating true
-}
-
-// Enable rounded corners for all windows
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
-window-rule {
-    match app-id=r#"org.gnome.gThumb$"#
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"mpv$"#
-    open-maximized true
-}
-
-window-rule {
-    match app-id=r#"com.github.th_ch.youtube_music$"#
-    open-maximized true
-    open-on-workspace "mus"
-
-}
-
-window-rule {
-    match app-id=r#"obsidian$"#
-    open-maximized true
-
-}
-
-window-rule {
-    match app-id=r#"feh$"#
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"brave-browser$"#
-    open-maximized true
-}
-
+// --- Workspace Assignments ---
 window-rule {
     match app-id=r#"librewolf$"#
+    open-on-workspace "b"
+    open-maximized true
+}
+window-rule {
+    match app-id=r#"vlc$"#
+    open-on-workspace "v"
+    open-maximized true
+}
+window-rule {
+    match app-id=r#"qtws$"#
+    open-on-workspace "m"
     open-maximized true
 }
 
+// --- Floating: Centered & Sized ---
 window-rule {
-  match app-id=r#"org.pulseaudio.pavucontrol$"#
-  open-floating true
+    match app-id=r#"wiremix$"#
+    match app-id=r#"ncdu$"#
+    match app-id=r#"btop$"#
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 800; }
 }
-
 window-rule {
-  match app-id=r#"vlc$"#
-  open-maximized true
+    match app-id=r#"jome$"#
+    match app-id=r#"org.qbittorrent.qBittorrent$"#
+    match app-id=r#"org.pulseaudio.pavucontrol$"#
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
 }
-
-window-rule {
-  match app-id=r#"jome$"#
-  open-floating true
-}
-
-window-rule {
-  match app-id=r#"org.qbittorrent.qBittorrent$"#
-  open-floating true
-}
-
-
 window-rule {
     match app-id=r#"kitty-notes$"#
     match app-id=r#"yazi$"#
-    match app-id=r#"org.prismlauncher.PrismLauncher$"#
-    match app-id=r#"yazi-picker$"#
-
+    match app-id=r#"swayimg$"#
     open-floating true
-    
     default-column-width { fixed 1200; }
     default-window-height { fixed 1000; }
 }
 
-// window-rule {
-//     match title=r#"(?i)sign\s*in|log\s*in|login$"#
-//     open-floating true
-// }
+// --- Opacity ---
+window-rule {
+    match app-id=r#"kitty$"#
+    opacity 0.95
+}
 

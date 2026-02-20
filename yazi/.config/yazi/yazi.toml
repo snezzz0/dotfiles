@@ -22,7 +22,7 @@ edit = [
   { run = 'nvim "$@"', block = true, for = "unix" },
 ]
 image = [
-  { run = 'feh "$@"', orphan = true, for = "unix" },
+  { run = 'swayimg "$@"', orphan = true, for = "unix" },
 ]
 play = [
   # { run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
