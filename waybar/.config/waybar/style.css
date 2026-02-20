@@ -7,12 +7,12 @@
   padding: 0;
 }
 window#waybar {
-  background: #1a1b26;
-  color: #c0caf5;
+  background: #181616;
+  color: #c5c9c5;
 }
 tooltip {
-  background-color: #1a1b26;
-  border: 1px solid #7aa2f7;
+  background-color: #181616;
+  border: 1px solid #9c8d7e;
 }
 /* Module Spacing */
 #clock,
@@ -28,12 +28,12 @@ tooltip {
 }
 /* Empty workspaces */
 #workspaces button.empty {
-  color: #565f89;
+  color: #54546d;
   background-color: transparent;
 }
 /* Default = has windows, not focused */
 #workspaces button {
-  color: #3d59a1;
+  color: #5a5048;
   background-color: transparent;
   margin-right: 2px;
   margin-left: 2px;
@@ -43,9 +43,9 @@ tooltip {
 }
 /* Focused */
 #workspaces button.focused {
-  background-color: #7aa2f7;
-  color: #1a1b26;
-  border-bottom: 2px solid #ffffff;
+  background-color: #9c8d7e;
+  color: #181616;
+  border-bottom: 2px solid #c5c9c5;
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 2px;
@@ -53,8 +53,8 @@ tooltip {
 }
 /* Visible on another output */
 #workspaces button.visible {
-  background-color: #414868;
-  color: #7aa2f7;
+  background-color: #2d2b2b;
+  color: #9c8d7e;
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 2px;
@@ -62,8 +62,8 @@ tooltip {
 }
 /* Urgent */
 #workspaces button.urgent {
-  background-color: #f7768e;
-  color: #1a1b26;
+  background-color: #c34043;
+  color: #181616;
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 2px;

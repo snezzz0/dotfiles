@@ -2,7 +2,7 @@ configuration{
     modi: ["drun", "window", "run"];
     icon-theme: "retrosmart";
     show-icons: true;
-    font: "JetBrainsMono Nerd Font";
+    font: "Iosevka Term";
     terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
@@ -27,4 +27,4 @@ configuration{
     kb-move-char-forward: "Control+f";
     kb-mode-complete: "Control+o";
 }
-@theme "theme.rasi"
+@theme "kanagawa.rasi"
