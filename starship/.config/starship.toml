@@ -1,6 +1,6 @@
 "$schema" = "https://starship.rs/config-schema.json"
 add_newline = false
-palette = "tokyonight_night"
+palette = "kanagawa_dragon"
 
 format = """
 $directory$git_branch$git_status
@@ -68,14 +68,14 @@ min_time = 2000
 format = "[$duration]($style) "
 style = "bold gray"
 
-[palettes.tokyonight_night]
-bg       = "#1a1b26"
-fg       = "#c0caf5"
-red      = "#f7768e"
-green    = "#9ece6a"
-yellow   = "#e0af68"
-blue     = "#7aa2f7"
-purple   = "#bb9af7"
-aqua     = "#7dcfff"
-gray     = "#414868"
-orange   = "#ff9e64"
+[palettes.kanagawa_dragon]
+bg     = "#181616"
+fg     = "#c5c9c5"
+red    = "#c34043"
+green  = "#76946a"
+yellow = "#c0a36e"
+blue   = "#7e9cd8"
+purple = "#957fb8"
+aqua   = "#6a9589"
+gray   = "#2d2b2b"
+orange = "#ffa066"

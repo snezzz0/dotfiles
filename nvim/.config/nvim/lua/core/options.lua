@@ -6,6 +6,21 @@ vim.keymap.set("n", "q:", "<nop>")
 vim.keymap.set("n", "q/", "<nop>")
 vim.keymap.set("n", "q?", "<nop>")
 
+-- Delete/change without yanking (send to black hole register)
+vim.keymap.set({ "n", "v" }, "d", '"_d', { desc = "Delete without yanking" })
+vim.keymap.set({ "n", "v" }, "D", '"_D', { desc = "Delete to EOL without yanking" })
+vim.keymap.set({ "n", "v" }, "c", '"_c', { desc = "Change without yanking" })
+vim.keymap.set({ "n", "v" }, "C", '"_C', { desc = "Change to EOL without yanking" })
+
+-- cut and yank(whole line)
+vim.keymap.set("n", "D", "dd", { desc = "Cut line (yank + delete)" })
+
+-- Paste without overwriting clipboard
+vim.keymap.set("v", "p", '"_dP', { desc = "Paste without yanking selection" })
+
+-- V = select all
+vim.keymap.set("n", "V", "ggVG", { desc = "Select all" })
+
 -- tabs
 vim.opt.showtabline = 2
 vim.opt.laststatus = 3

@@ -38,12 +38,6 @@
     "format": "{icon}",
     "ignore-workspaces": ["^\\d+$"],
     "format-icons": {
-      "b":   "b",
-      "d":   "d",
-      "v":   "v",
-      "n":   "n",
-      "c":   "c",
-      "m":   "m",
       "6":   "<span font='0'>5</span>",
       "7":   "<span font='0'>5</span>",
       "8":   "<span font='0'>5</span>"
