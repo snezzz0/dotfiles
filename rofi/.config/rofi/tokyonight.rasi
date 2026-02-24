@@ -1,5 +1,4 @@
 * {
-    /* TokyoNight Night Palette */
     bg:                  #1a1b26;
     bg-selected:         #283457;
     fg:                  #c0caf5;
