@@ -3,18 +3,22 @@
   border-radius: 0;
   min-height: 0;
   font-family: "Iosevka Term";
-  font-size: 16px;
+  font-size: 18px;
   padding: 0;
 }
+
+/* Global Bar Styles */
 window#waybar {
-  background: #181616;
-  color: #c5c9c5;
+  background: rgba(0, 0, 0, 0.7);
+  color: #727169;
 }
+
 tooltip {
   background-color: #181616;
   border: 1px solid #9c8d7e;
 }
-/* Module Spacing */
+
+/* Module Layout */
 #clock,
 #tray,
 #cpu,
@@ -23,44 +27,44 @@ tooltip {
 #network,
 #disk,
 #pulseaudio {
+  color: #727169;
   margin: 2px 2px 0px 0px;
   padding: 2px 8px;
 }
-/* Empty workspaces */
+
+/* Workspace States */
 #workspaces button.empty {
   color: #54546d;
   background-color: transparent;
 }
-/* Default = has windows, not focused */
+
 #workspaces button {
-  color: #5a5048;
+  color: #727169;
   background-color: transparent;
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 2px;
   padding-left: 2px;
-  border-bottom: 2px solid transparent;
 }
-/* Focused */
+
 #workspaces button.focused {
-  background-color: #9c8d7e;
+  background-color: #727169;
   color: #181616;
-  border-bottom: 2px solid #c5c9c5;
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 2px;
   padding-left: 2px;
 }
-/* Visible on another output */
+
 #workspaces button.visible {
-  background-color: #2d2b2b;
-  color: #9c8d7e;
+  background-color: rgba(45, 43, 43, 0.7);
+  color: #727169;
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 2px;
   padding-left: 2px;
 }
-/* Urgent */
+
 #workspaces button.urgent {
   background-color: #c34043;
   color: #181616;

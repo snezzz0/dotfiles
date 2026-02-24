@@ -10,26 +10,22 @@ return {
 			},
 			view = {
 				dim = true,
-				n_steps_ahead = 2, -- Two-character labels like Helix
+				n_steps_ahead = 2,
 			},
 		})
 
-		-- Kanagawa-themed colors
-		-- Main jump labels - bright peach/orange
 		vim.api.nvim_set_hl(0, "MiniJump2dSpot", {
-			fg = "#FF9E3B", -- Kanagawa roninYellow
+			fg = "#FF9E3B",
 			bold = true,
 			underline = true,
 		})
 
-		-- Dimmed background
 		vim.api.nvim_set_hl(0, "MiniJump2dDim", {
-			fg = "#54546D", -- Kanagawa fujiGray
+			fg = "#54546D",
 		})
 
-		-- Ahead labels (first char of 2-char sequences)
 		vim.api.nvim_set_hl(0, "MiniJump2dSpotAhead", {
-			fg = "#7FB4CA", -- Kanagawa crystalBlue
+			fg = "#7FB4CA",
 			bold = true,
 		})
 

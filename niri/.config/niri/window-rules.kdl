@@ -1,14 +1,13 @@
 // ============================================================================
 // NIRI WINDOW RULES
 // ============================================================================
-
+prefer-no-csd
 // --- Workspaces ---
 workspace "b"
 workspace "d"
-workspace "v"
-workspace "c"
 workspace "m"
-
+workspace "c"
+workspace "v"
 // --- Corner Radius (all windows) ---
 window-rule {
     geometry-corner-radius 0
@@ -30,6 +29,13 @@ window-rule {
     match app-id=r#"qtws$"#
     open-on-workspace "m"
     open-maximized true
+}
+
+// ---- Active windows more opacity 
+
+window-rule {
+    match is-active=false
+    opacity 0.8
 }
 
 // --- Floating: Centered & Sized ---
@@ -58,9 +64,12 @@ window-rule {
     default-window-height { fixed 1000; }
 }
 
-// --- Opacity ---
-// window-rule {
-//     match app-id=r#"kitty$"#
-//     opacity 0.95
-// }
+window-rule {
+    match app-id=r#"obsidian$"#
+    default-column-width { proportion 0.33; }
+}
 
+window-rule {
+    match app-id=r#"kitty$"#
+    default-column-width { proportion 0.33; }
+}

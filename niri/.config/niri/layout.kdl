@@ -1,7 +1,7 @@
 // Layout configuration
 layout {
     // Gaps around windows in logical pixels
-    gaps 10
+    gaps 3
 
     // When to center focused column: "never", "always", "on-overflow"
     center-focused-column "never"
@@ -9,8 +9,8 @@ layout {
     // Preset column widths for Mod+R cycling
     preset-column-widths {
         proportion 0.5
-        proportion 0.34
-        proportion 0.66
+        proportion 0.33
+        proportion 0.67
     }
 
     // Default width for new windows
@@ -18,8 +18,8 @@ layout {
 
     // Focus ring configuration
     focus-ring {
-        on
-        width 4
+        off
+        width 2
         active-color "#9c8d7e" 
         inactive-color "#505050"
     }

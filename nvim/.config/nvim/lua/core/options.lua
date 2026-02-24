@@ -1,6 +1,9 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- markdown latex
+vim.opt.conceallevel = 2
+
 -- disable command history
 vim.keymap.set("n", "q:", "<nop>")
 vim.keymap.set("n", "q/", "<nop>")
@@ -27,9 +30,9 @@ vim.opt.laststatus = 3
 vim.opt.termguicolors = true
 
 -- long text wrap
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.textwidth = 80
+-- vim.opt.wrap = true
+-- vim.opt.linebreak = true
+-- vim.opt.textwidth = 80
 
 -- Normal Mode: Highlight line number only
 vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "InsertLeave" }, {
