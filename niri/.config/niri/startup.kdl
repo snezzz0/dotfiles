@@ -1,7 +1,7 @@
 // Programs to spawn at startup
 spawn-at-startup "sh" "-c" "waybar"  
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "sh" "-c" "swaybg -m fill -i ~/Pictures/wallpapers/monochrome-wave.jpg"
+spawn-at-startup "sh" "-c" "swaybg -m fill -i ~/Pictures/wallpapers/ghost-of-yotei-zenbones.jpg"
 hotkey-overlay {
     skip-at-startup
 }

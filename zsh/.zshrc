@@ -43,17 +43,10 @@ alias ld='eza -lhD --icons=auto'
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first'
 alias ls='eza -1 --icons=auto'
 alias lt='eza --icons=auto --tree'
-alias poweroff='systemctl poweroff'
-alias reboot='systemctl reboot'
-# Replaced Nixos-rebuild with Arch update command
-alias update='sudo pacman -Syu' 
-alias v='nvim'
-alias disk='ncdu'
 # --- 7. Tool Integrations (Order matters) ---
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
-alias nvs='NVIM_APPNAME="nvim-scratch" nvim'
 # z + tab triggers zoxide fzf picker, everything else uses default completion
 _z_tab() {
     if [[ "$BUFFER" == "z" ]] || [[ "$BUFFER" == z\ * ]]; then

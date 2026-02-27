@@ -10,6 +10,7 @@
     "tooltip": false
   },
   "modules-left": [
+   "custom/oslogo",
    "niri/workspaces",
    "sway/workspaces"
   ],
@@ -34,14 +35,23 @@
       "memory"
     ]
   },
+  "custom/oslogo": {
+      "format": "󰣇",
+      "tooltip": false
+  },
   "niri/workspaces": {
-    "format": "{icon}",
-    "ignore-workspaces": ["^\\d+$"],
-    "format-icons": {
-      "6":   "<span font='0'>5</span>",
-      "7":   "<span font='0'>5</span>",
-      "8":   "<span font='0'>5</span>"
-    }
+      "format": "{icon}",
+      "ignore-workspaces": ["^\\d+$"],
+      "format-icons": {
+        "b": "1/b",
+        "d": "2/d",
+        "m": "3/m",
+        "n": "4/n",
+        "c": "5/c",
+        "6":   "<span font='0'>5</span>",
+        "7":   "<span font='0'>5</span>",
+        "8":   "<span font='0'>5</span>"
+      }
   },
   "niri/window": {
     "max-length": 50

@@ -32,6 +32,15 @@ tooltip {
   padding: 2px 8px;
 }
 
+#custom-oslogo {
+  color: #727169;
+  /* background-color: #727169; */
+  margin-right: 6px;
+  margin-left: 2px;
+  padding-left: 2px;
+  padding-right: 10px;
+}
+
 /* Workspace States */
 #workspaces button.empty {
   color: #54546d;

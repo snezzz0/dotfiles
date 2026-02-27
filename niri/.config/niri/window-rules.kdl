@@ -6,8 +6,10 @@ prefer-no-csd
 workspace "b"
 workspace "d"
 workspace "m"
+workspace "n"
 workspace "c"
 workspace "v"
+
 // --- Corner Radius (all windows) ---
 window-rule {
     geometry-corner-radius 0
@@ -66,7 +68,9 @@ window-rule {
 
 window-rule {
     match app-id=r#"obsidian$"#
-    default-column-width { proportion 0.33; }
+    open-maximized true
+    open-on-workspace "n"
+
 }
 
 window-rule {
