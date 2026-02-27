@@ -1,9 +1,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- markdown latex
-vim.opt.conceallevel = 2
-
 -- disable command history
 vim.keymap.set("n", "q:", "<nop>")
 vim.keymap.set("n", "q/", "<nop>")
@@ -28,11 +25,6 @@ vim.keymap.set("n", "V", "ggVG", { desc = "Select all" })
 vim.opt.showtabline = 2
 vim.opt.laststatus = 3
 vim.opt.termguicolors = true
-
--- long text wrap
--- vim.opt.wrap = true
--- vim.opt.linebreak = true
--- vim.opt.textwidth = 80
 
 -- Normal Mode: Highlight line number only
 vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "InsertLeave" }, {
@@ -82,7 +74,7 @@ vim.opt.inccommand = "split"
 -- UI
 vim.opt.background = "dark"
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 
 -- folding (for nvim-ufo)
 vim.o.foldenable = true
