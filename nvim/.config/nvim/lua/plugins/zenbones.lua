@@ -34,14 +34,17 @@ return {
 		h(0, "DiagnosticSignHint", { bg = bg })
 		h(0, "DiagnosticSignError", { bg = bg })
 		h(0, "DiagnosticSignInfo", { bg = bg })
-
+		h(0, "IncSearch", { fg = bg, bg = accent })
+		h(0, "Search", { fg = bg, bg = accent })
 		-- accent overrides
 		h(0, "StatusLine", { fg = bg, bg = accent })
 		h(0, "StatusLineNC", { fg = accent, bg = bg })
-		h(0, "TabLine", { fg = bg, bg = bg })
-		h(0, "TabLineSel", { fg = accent, bg = bg })
+		h(0, "TabLine", { fg = accent, bg = bg })
+		h(0, "TabLineSel", { fg = bg, bg = accent })
 		h(0, "TabLineFill", { fg = accent, bg = bg })
 		h(0, "WinSeparator", { fg = accent, bg = bg })
 		h(0, "VertSplit", { fg = accent, bg = bg })
+		h(0, "BufferCurrentMod", { fg = "#6b5a4e", bg = accent })
+		h(0, "BufferInactiveMod", { fg = "#6b5a4e", bg = bg })
 	end,
 }

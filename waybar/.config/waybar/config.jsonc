@@ -43,11 +43,11 @@
       "format": "{icon}",
       "ignore-workspaces": ["^\\d+$"],
       "format-icons": {
-        "b": "1/b",
-        "d": "2/d",
-        "m": "3/m",
-        "n": "4/n",
-        "c": "5/c",
+        "b": "1::b",
+        "d": "2::d",
+        "m": "3::m",
+        "n": "4::n",
+        "c": "5::c",
         "6":   "<span font='0'>5</span>",
         "7":   "<span font='0'>5</span>",
         "8":   "<span font='0'>5</span>"
